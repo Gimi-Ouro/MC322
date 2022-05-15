@@ -21,12 +21,13 @@ public class Montador {
     public void setInstrucoes(String[][] instrucoes){
         int nBuracos = 0, nWumpus = 0, nOuro = 0, nHeroi = 0;
         for(int i = 0; i < instrucoes.length; i++){
-            if(instrucoes[i][2].equals('P')) nHeroi++;
-            else if(instrucoes[i][2].equals('B')) nBuracos++;
-            else if(instrucoes[i][2].equals('W')) nWumpus++;
-            else if(instrucoes[i][2].equals('O')) nOuro++;
+            if(instrucoes[i][2].charAt(0) == 'P') nHeroi++;
+            else if(instrucoes[i][2].charAt(0) == 'B') nBuracos++;
+            else if(instrucoes[i][2].charAt(0) == 'W') nWumpus++;
+            else if(instrucoes[i][2].charAt(0) == 'O') nOuro++;
         }
         if((nBuracos == 2 || nBuracos == 3) && nHeroi == 1 && nWumpus == 1 && nOuro == 1){
+            this.instrucoes = new String[instrucoes.length][3];
             for(int i = 0; i < instrucoes.length; i++){
                 for(int j = 0; j < instrucoes[i].length; j++){
                     this.instrucoes[i][j] = instrucoes[i][j];
