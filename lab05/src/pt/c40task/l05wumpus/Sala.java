@@ -19,7 +19,7 @@ public class Sala {
 	}
 	
 	public boolean temHeroi() {
-		if (this.conteudoSala[1] != null) {
+		if (this.conteudoSala[1] != null && this.conteudoSala[1].getVida() == true) {
 			return true;
 		}
 		return false;
