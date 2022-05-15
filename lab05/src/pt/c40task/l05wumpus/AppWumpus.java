@@ -1,5 +1,7 @@
 package pt.c40task.l05wumpus;
 
+import java.net.StandardSocketOptions;
+
 public class AppWumpus {
 
    public static void main(String[] args) {
@@ -24,7 +26,13 @@ public class AppWumpus {
       String movements = tk.retrieveMovements();
       System.out.println("=== Movimentos");
       System.out.println(movements);
-      
+
+      Montador montador = new Montador();
+      Caverna caverna = new Caverna();
+      montador.conecta(caverna);
+      montador.setInstrucoes(cave);
+      montador.monta();
+
       System.out.println("=== Caverna Intermediaria");
       char partialCave[][] = {
          {'#', '#', 'b', '-'},
@@ -35,6 +43,7 @@ public class AppWumpus {
       int score = -120;
       char status = 'x'; // 'w' para venceu; 'n' para perdeu; 'x' intermediárias
       tk.writeBoard(partialCave, score, status);
+      caverna.imprime();
 
       System.out.println("=== Última Caverna");
       char finalCave[][] = {
