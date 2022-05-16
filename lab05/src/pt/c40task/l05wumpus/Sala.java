@@ -18,8 +18,20 @@ public class Sala {
 			conteudoSala[i] = null;
 	}
 	
+	public Componente getHeroi() { return conteudoSala[1]; }
+	
+	public void addHeroi(Componente heroi) { 
+		if (this.conteudoSala[0] != null && this.conteudoSala[0].getCaracter() != 'O') {
+			heroi.setVida(false);
+		}
+		this.conteudoSala[1] = heroi; 
+		
+	}
+	
+	public void removerHeroi() { this.addHeroi(null); }
+	
 	public boolean temHeroi() {
-		if (this.conteudoSala[1] != null && this.conteudoSala[1].getVida() == true) {
+		if (this.conteudoSala[1] != null) {
 			return true;
 		}
 		return false;

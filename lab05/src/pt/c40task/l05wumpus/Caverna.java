@@ -11,7 +11,23 @@ public class Caverna {
             }
         }
     }
-
+    
+    public void movimentar(char mov, int l, int c) {
+    	if (mov == 'w') {
+    		vSalas[l][c-1].addHeroi(vSalas[l][c].getHeroi());
+    		vSalas[l][c].removerHeroi();;
+    	}else if (mov == 's') {
+    		vSalas[l][c+1].addHeroi(vSalas[l][c].getHeroi());
+    		vSalas[l][c].removerHeroi();;
+    	}else if (mov == 'a') {
+    		vSalas[l-1][c].addHeroi(vSalas[l][c].getHeroi());
+    		vSalas[l][c].removerHeroi();;
+    	}else if (mov == 'a') {
+    		vSalas[l+1][c].addHeroi(vSalas[l][c].getHeroi());
+    		vSalas[l][c].removerHeroi();;
+    	}
+    }
+    
     public void addComponente(int l, int c, char caracterCriacao){
         this.vSalas[l][c].criar(caracterCriacao);
     }
