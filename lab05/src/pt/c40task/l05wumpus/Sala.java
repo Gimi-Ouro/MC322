@@ -17,9 +17,7 @@ public class Sala {
  		for (int i = 0; i < 4; i++)
 			conteudoSala[i] = null;
 	}
-	//heroi
-	public Componente getHeroi() { return conteudoSala[1]; }
-	
+
 	public void add(Componente componente) {
 		if (componente.getCaracter() == 'W' || componente.getCaracter() == 'B' || componente.getCaracter() == 'O')
 			conteudoSala[0] = componente;
@@ -31,38 +29,63 @@ public class Sala {
 			conteudoSala[3] = componente;
 	}
 	
-	public void addHeroi(Componente heroi) { 
-		if (this.conteudoSala[0] != null && this.conteudoSala[0].getCaracter() != 'O') {
-			heroi.setVida(false);
+	public Componente getHeroi() { 
+		return conteudoSala[1]; 
+	}
+	
+	public void addHeroi(Componente heroi) {
+		this.visitada = true;
+		if (heroi != null && this.conteudoSala[0] != null && this.conteudoSala[0].getCaracter() != 'O') {
+			if(this.conteudoSala[0].getCaracter() == 'B')
+				heroi.setVida(false);
+			else {
+				if(heroi.isFlechaEquipada()){
+					if(heroi.batalhar()){
+						conteudoSala[0].setVida(false); //Wumpus morreu
+					}
+					else 
+						heroi.setVida(false);
+				}
+				else 
+					heroi.setVida(false);
+			}
 		}
 		this.conteudoSala[1] = heroi; 
 		
 	}
 	
-	public void removerHeroi() { this.addHeroi(null); }
+	public void removerHeroi() { 
+		this.addHeroi(null); 
+	}
 	
 	public boolean temHeroi() {
-		if (this.conteudoSala[1] != null && this.conteudoSala[1].getVida()) {
+		if (this.conteudoSala[1] != null) { //&& this.conteudoSala[1].getVida()) {
 			return true;
 		}
 		return false;
 	}
-	//buraco
+
 	public Componente getBuraco() {
-		return this.conteudoSala[0];
+		if (conteudoSala[0].getCaracter() == 'B')
+			return this.conteudoSala[0];
+		else
+			return null;
 	}
-	//wumpus
+	
 	public Componente getWumpus() {
-		return this.conteudoSala[0];
+		if (conteudoSala[0] != null && conteudoSala[0].getCaracter() == 'W') {
+			return conteudoSala[0];
+		}else
+			return null;
 	}
-	//fedor
+	
 	public boolean temFedor() {
 		if (this.conteudoSala[2] != null) {
 			return true;
 		}
 		return false;
 	}
-	//brisa
+	
 	public boolean temBrisa() {
 		if (this.conteudoSala[3] != null) {
 			return true;
@@ -70,7 +93,16 @@ public class Sala {
 		return false;
 	}
 	
-	public boolean estaVazia() {
+	public boolean capturarOuro() {
+		if(this.conteudoSala[0].getCaracter() == 'O') {
+			this.conteudoSala[0] = null;
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public boolean isVazia() {
 		return vazia;
 	}
 	
@@ -82,17 +114,16 @@ public class Sala {
 		return this.visitada;
 	}
 	
-
-	
 	public char componenteDoTopo() {
 		for (int i = 0; i < 4; i++) {
-			if (conteudoSala[i] != null && (this.visitada || conteudoSala[i].getCaracter() == 'P')) {
+			if (conteudoSala[i] != null && (this.visitada || conteudoSala[i].getCaracter() == 'P') && conteudoSala[i].getVida()) {
 				return conteudoSala[i].getCaracter();
-			}else if (this.visitada) {
-				return '#';
-			}	
+			}
 		}
-		return '_';
+		if (this.visitada)
+				return '#';
+		else
+			return '_';
 	}
 	
 	public int getTamanho() {

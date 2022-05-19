@@ -9,8 +9,8 @@ import java.util.Vector;
 
 public class Toolkit {
    public static String DIRETORIO = System.getProperty("user.dir") +
-		                            "/src/pt/c40task/l05wumpus/";
-   
+		                            "/pt/c40task/l05wumpus/";
+
    private static Toolkit tk;
    
    private BufferedReader moveStr, caveStr;
