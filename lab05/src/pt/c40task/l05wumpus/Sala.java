@@ -17,21 +17,52 @@ public class Sala {
  		for (int i = 0; i < 4; i++)
 			conteudoSala[i] = null;
 	}
+	//heroi
+	public Componente getHeroi() { return conteudoSala[1]; }
+	
+	public void add(Componente componente) {
+		if (componente.getCaracter() == 'W' || componente.getCaracter() == 'B' || componente.getCaracter() == 'O')
+			conteudoSala[0] = componente;
+		else if (componente.getCaracter() == 'P')
+			conteudoSala[1] = componente;
+		else if (componente.getCaracter() == 'f')
+			conteudoSala[2] = componente;
+		else if (componente.getCaracter() == 'b')
+			conteudoSala[3] = componente;
+	}
+	
+	public void addHeroi(Componente heroi) { 
+		if (this.conteudoSala[0] != null && this.conteudoSala[0].getCaracter() != 'O') {
+			heroi.setVida(false);
+		}
+		this.conteudoSala[1] = heroi; 
+		
+	}
+	
+	public void removerHeroi() { this.addHeroi(null); }
 	
 	public boolean temHeroi() {
-		if (this.conteudoSala[1] != null && this.conteudoSala[1].getVida() == true) {
+		if (this.conteudoSala[1] != null && this.conteudoSala[1].getVida()) {
 			return true;
 		}
 		return false;
 	}
-	
+	//buraco
+	public Componente getBuraco() {
+		return this.conteudoSala[0];
+	}
+	//wumpus
+	public Componente getWumpus() {
+		return this.conteudoSala[0];
+	}
+	//fedor
 	public boolean temFedor() {
 		if (this.conteudoSala[2] != null) {
 			return true;
 		}
 		return false;
 	}
-	
+	//brisa
 	public boolean temBrisa() {
 		if (this.conteudoSala[3] != null) {
 			return true;
@@ -51,25 +82,11 @@ public class Sala {
 		return this.visitada;
 	}
 	
-	public void criar(char caracterCriacao) {
-		if (caracterCriacao == 'P') {
-			conteudoSala[1] = new Heroi();
-		}else if (caracterCriacao == 'W') {
-			conteudoSala[0] = new Wumpus();
-		}else if (caracterCriacao == 'O') {
-			conteudoSala[0] = new Ouro();
-		}else if (caracterCriacao == 'B') {
-			conteudoSala[0] = new Buraco();
-		}else if (caracterCriacao == 'b') {
-			conteudoSala[3] = new Brisa();
-		}else if (caracterCriacao == 'f') {
-			conteudoSala[2] = new Fedor();
-		}
-	}
+
 	
 	public char componenteDoTopo() {
 		for (int i = 0; i < 4; i++) {
-			if (conteudoSala[i] != null && this.visitada) {
+			if (conteudoSala[i] != null && (this.visitada || conteudoSala[i].getCaracter() == 'P')) {
 				return conteudoSala[i].getCaracter();
 			}else if (this.visitada) {
 				return '#';

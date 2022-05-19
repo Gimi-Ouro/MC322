@@ -1,8 +1,7 @@
 package pt.c40task.l05wumpus;
 
 public class Ouro extends Componente{
-
-    public Ouro(){
-        super('O');
-    }
+	Ouro (int l, int c, Caverna caverna) {
+		super('O', l, c, caverna);
+	}
 }

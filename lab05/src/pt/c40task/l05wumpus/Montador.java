@@ -20,6 +20,7 @@ public class Montador {
 
     public void setInstrucoes(String[][] instrucoes){
         int nBuracos = 0, nWumpus = 0, nOuro = 0, nHeroi = 0;
+
         for(int i = 0; i < instrucoes.length; i++){
             if(instrucoes[i][2].charAt(0) == 'P') nHeroi++;
             else if(instrucoes[i][2].charAt(0) == 'B') nBuracos++;
@@ -36,24 +37,30 @@ public class Montador {
         }
     }
 
+    public Componente criar(char caracterCriacao, int l, int c) {
+		if (caracterCriacao == 'P') {
+			return new Heroi(l, c, caverna);
+		}else if (caracterCriacao == 'W') {
+			return new Wumpus(l, c, caverna);
+		}else if (caracterCriacao == 'O') {
+			return new Ouro(l, c, caverna);
+		}else if (caracterCriacao == 'B') {
+			return new Buraco(l, c, caverna);
+		}else {
+			return null;
+		}
+	}
+    
     public void monta(){
         if(caverna != null && instrucoes != null){
             int l, c;
-            char caracterCriacao, caracterSecundario;
+            char caracterCriacao; //caracterSecundario;
             for(int i = 0; i < instrucoes.length; i++){
                 caracterCriacao = instrucoes[i][2].charAt(0);
                 if(caracterCriacao != '_') {
                     l = Integer.parseInt(instrucoes[i][0]) - 1; //no arquivo de entrada as linhas e colunas iniciam em 1
                     c = Integer.parseInt(instrucoes[i][1]) - 1;
-                    caverna.addComponente(l, c, caracterCriacao);
-                    if (caracterCriacao != 'P') {
-                        if (caracterCriacao == 'B') caracterSecundario = 'b';
-                        else caracterSecundario = 'f';
-                        if(caverna.salaExiste(l - 1, c)) caverna.addComponente(l, c, caracterSecundario);
-                        if(caverna.salaExiste(l + 1, c)) caverna.addComponente(l, c, caracterSecundario);
-                        if(caverna.salaExiste(l, c - 1)) caverna.addComponente(l, c, caracterSecundario);
-                        if(caverna.salaExiste(l, c + 1)) caverna.addComponente(l, c, caracterSecundario);
-                    }
+                    caverna.addComponente(this.criar(caracterCriacao, l, c));
                 }
             }
         }
