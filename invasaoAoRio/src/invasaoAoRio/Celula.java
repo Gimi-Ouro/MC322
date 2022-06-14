@@ -13,9 +13,9 @@ public class Celula {
 		this.terra = terra;
 	}
 	
-	//public boolean isTerra() {
-		//return false;
-	//}
+	public boolean isTerra() {
+		return false;
+	}
 	
 	public boolean isAgua() {
 		return false;
