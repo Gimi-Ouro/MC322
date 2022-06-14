@@ -4,7 +4,7 @@ public class Terra extends Celula {
 	private Equipamento equipamento;
 	
 	public Terra() {
-		super(true);
+		super(true, false, true);
 	}
 	
 	public void addEquipamento(Equipamento equipamento) {
@@ -13,5 +13,10 @@ public class Terra extends Celula {
 	
 	public void RemoverEquipamento() {
 		this.equipamento = null;
+	}
+	
+	public Equipamento getEquipamento() {
+		if(terra) return this.equipamento;
+		else return null;
 	}
 }

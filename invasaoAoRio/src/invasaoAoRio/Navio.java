@@ -14,9 +14,9 @@ public class Navio extends Barco{
 		return this.caminhoLinhaReta;
 	}
 	
-	public void atingir() {
+	public void atingir(int dano) {
 		if (this.resistencia > 0)
-			this.resistencia--;
+			this.resistencia -= dano;
 		else
 			this.existe = false;
 	}
