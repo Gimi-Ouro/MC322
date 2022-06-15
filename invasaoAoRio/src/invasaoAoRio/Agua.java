@@ -1,27 +1,42 @@
 package invasaoAoRio;
 
-public class Agua extends Celula{
+public class Agua implements ICelula{
+
+	private boolean vazia;
+	private Barco barco;
 	
 	public Agua() {
-		super(true, true, false);
+		this.vazia = true;
+		this.barco = null;
 	}
 	
-	public void addBarco(Barco barco) {
-		this.barco = barco;
-	}
-	
+
+
+	@Override
 	public boolean isTerra() {
 		return false;
 	}
-	
+
+	@Override
 	public boolean isAgua() {
 		return true;
 	}
-	
+
+	@Override
 	public Barco getBarco() {
-		if(agua) return this.barco;
-		else return null;
+		return this.barco;
 	}
-	
-	
+
+	@Override
+	public Equipamento getEquipamento() {
+		return null;
+	}
+	@Override
+	public void addBarco(Barco barco) {
+		this.barco = barco;
+	}
+
+	@Override
+	public void addEquipamento(Equipamento equipamento){
+	}
 }
