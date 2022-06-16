@@ -2,11 +2,11 @@ package invasaoAoRio;
 
 public class Terra implements ICelula {
 	private boolean vazia;
-	private Equipamento equipamento;
+	private Canhao canhao;
 
 	public Terra() {
 		this.vazia = true;
-		this.equipamento = null;
+		this.canhao = null;
 	}
 
 
@@ -26,15 +26,15 @@ public class Terra implements ICelula {
 	}
 
 	@Override
-	public Equipamento getEquipamento() {
-		return this.equipamento;
+	public Canhao getCanhao() {
+		return this.canhao;
 	}
 	@Override
 	public void addBarco(Barco barco) {
 	}
 
 	@Override
-	public void addEquipamento(Equipamento equipamento){
-		this.equipamento = equipamento;
+	public void addCanhao(Canhao canhao){
+		this.canhao = canhao;
 	}
 }

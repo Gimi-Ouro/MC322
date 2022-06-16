@@ -9,8 +9,6 @@ public class Agua implements ICelula{
 		this.vazia = true;
 		this.barco = null;
 	}
-	
-
 
 	@Override
 	public boolean isTerra() {
@@ -28,7 +26,7 @@ public class Agua implements ICelula{
 	}
 
 	@Override
-	public Equipamento getEquipamento() {
+	public Canhao getCanhao() {
 		return null;
 	}
 	@Override
@@ -37,6 +35,6 @@ public class Agua implements ICelula{
 	}
 
 	@Override
-	public void addEquipamento(Equipamento equipamento){
+	public void addCanhao(Canhao canhao){
 	}
 }
