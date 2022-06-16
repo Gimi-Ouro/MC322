@@ -17,6 +17,10 @@ public class Mapa {
         if(mapa[x][y].isTerra()) mapa[x][y].addCanhao(canhao);
     }
 
+    public ICelula[][] getMapa(){
+        return this.mapa;
+    }
+
     public void addBarco(int x, int y, Barco barco){
         if(mapa[x][y].isAgua()) mapa[x][y].addBarco(barco);
     }

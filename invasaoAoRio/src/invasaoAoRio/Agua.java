@@ -32,6 +32,7 @@ public class Agua implements ICelula{
 	@Override
 	public void addBarco(Barco barco) {
 		this.barco = barco;
+		this.vazia = false;
 	}
 
 	@Override

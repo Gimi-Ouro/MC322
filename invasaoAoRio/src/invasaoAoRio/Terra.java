@@ -36,5 +36,6 @@ public class Terra implements ICelula {
 	@Override
 	public void addCanhao(Canhao canhao){
 		this.canhao = canhao;
+		this.vazia = false;
 	}
 }
