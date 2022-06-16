@@ -20,5 +20,6 @@ public class Mapa {
     public void addBarco(int x, int y, Barco barco){
         if(mapa[x][y].isAgua()) mapa[x][y].addBarco(barco);
     }
-
+    
+    
 }
