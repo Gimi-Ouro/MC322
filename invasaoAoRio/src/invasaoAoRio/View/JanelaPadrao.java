@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class JanelaPadrao extends JFrame{
     private static final long serialVersionUID = -3425706929777799523L;
-	public static String DIRETORIO = "invasaoAoRio/src/invasaoAoRio/assets/";
+	public static String DIRETORIO = System.getProperty("user.dir") + "/src/invasaoAoRio/assets/";
     private Container contentPane;
     private JButton bCanhao1;
     private JButton bCanhao2;
