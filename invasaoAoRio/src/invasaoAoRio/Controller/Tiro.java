@@ -1,4 +1,4 @@
-package invasaoAoRio;
+package invasaoAoRio.Controller;
 
 public class Tiro {
 	private static final long velocidade = 10;

@@ -1,4 +1,4 @@
-package invasaoAoRio;
+package invasaoAoRio.Model;
 
 public class Canhao{
 	private int dano;

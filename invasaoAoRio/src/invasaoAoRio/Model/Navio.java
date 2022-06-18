@@ -1,4 +1,4 @@
-package invasaoAoRio;
+package invasaoAoRio.Model;
 
 public class Navio extends Barco{
 	private int resistencia;

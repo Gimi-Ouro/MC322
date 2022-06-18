@@ -1,6 +1,8 @@
-package invasaoAoRio;
+package invasaoAoRio.Controller.Loja;
 
-public class Loja {
+import invasaoAoRio.Model.Canhao;
+
+public class Loja implements Iloja{
     private int creditos;
 
     public Loja(int creditos){

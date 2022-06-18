@@ -1,4 +1,4 @@
-package invasaoAoRio;
+package invasaoAoRio.Model;
 
 public class Barco {
 	protected float velocidade; //celulas/seg ou pixels/seg

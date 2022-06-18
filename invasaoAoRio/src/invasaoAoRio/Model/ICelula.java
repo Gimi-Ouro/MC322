@@ -1,4 +1,4 @@
-package invasaoAoRio;
+package invasaoAoRio.Model;
 
 public interface ICelula {
     public boolean isTerra();

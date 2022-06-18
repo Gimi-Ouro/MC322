@@ -1,4 +1,4 @@
-package invasaoAoRio;
+package invasaoAoRio.Model;
 
 public class Agua implements ICelula{
 

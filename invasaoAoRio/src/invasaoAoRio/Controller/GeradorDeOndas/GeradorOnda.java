@@ -1,17 +1,21 @@
-package invasaoAoRio;
+package invasaoAoRio.Controller.GeradorDeOndas;
 
 import java.util.Random;
 import java.util.Timer;
 
-public class GeradorOnda {
+import invasaoAoRio.Model.Navio;
+import invasaoAoRio.Model.Mapa.IMapa;
+import invasaoAoRio.Model.Mapa.Mapa;
+
+public class GeradorOnda implements IgeradorDeOndas{
     private Timer tempoInterno;
-    private Mapa mapa;
+    private IMapa mapa;
 
     public GeradorOnda(){
         tempoInterno = new Timer();
     }
 
-    public void conectaMapa(Mapa mapa){
+    public void connect(IMapa mapa){
         this.mapa = mapa;
     }
 

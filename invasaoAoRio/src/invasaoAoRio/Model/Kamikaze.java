@@ -1,4 +1,4 @@
-package invasaoAoRio;
+package invasaoAoRio.Model;
 
 public class Kamikaze extends Barco{
 	private int dano;
