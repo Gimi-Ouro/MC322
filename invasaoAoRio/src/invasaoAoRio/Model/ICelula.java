@@ -8,4 +8,6 @@ public interface ICelula {
 
     public void addBarco(Barco barco);
     public void addCanhao(Canhao canhao);
+    public void removerElemento();
+    public boolean isVazia();
 }

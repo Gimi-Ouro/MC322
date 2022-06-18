@@ -20,7 +20,17 @@ public class Mapa implements IMapa{
 			}
 		}
 	}
+	
+	public void removerElemento(int x, int y) {
+		mapa[x][y].removerElemento();
+	}
 
+	public void movimentarBarco(int origemX, int origemY, int destinoX, int destinoY) {
+		Barco navio = mapa[origemX][origemY].getBarco();
+		mapa[destinoX][destinoY].addBarco(navio);
+		removerElemento(origemX, origemY);
+	}
+	
 	public void addCanhao(int x, int y, Canhao canhao) {
 		if (mapa[x][y].isTerra())
 			mapa[x][y].addCanhao(canhao);

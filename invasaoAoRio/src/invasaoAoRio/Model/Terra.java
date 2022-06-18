@@ -38,4 +38,17 @@ public class Terra implements ICelula {
 		this.canhao = canhao;
 		this.vazia = false;
 	}
+
+
+	@Override
+	public void removerElemento() {
+		this.canhao = null;
+		this.vazia = true;
+	}
+
+
+	@Override
+	public boolean isVazia() {
+		return this.vazia;
+	}
 }

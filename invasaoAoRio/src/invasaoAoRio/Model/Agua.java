@@ -1,7 +1,6 @@
 package invasaoAoRio.Model;
 
 public class Agua implements ICelula{
-
 	private boolean vazia;
 	private Barco barco;
 	
@@ -37,5 +36,16 @@ public class Agua implements ICelula{
 
 	@Override
 	public void addCanhao(Canhao canhao){
+	}
+
+	@Override
+	public void removerElemento() {
+		this.barco = null;
+		this.vazia = true;
+	}
+
+	@Override
+	public boolean isVazia() {
+		return this.vazia;
 	}
 }
