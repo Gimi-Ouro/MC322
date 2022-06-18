@@ -1,4 +1,4 @@
-package invasaoAoRio.Controller.GeradorDeTiros;
+package invasaoAoRio.Model.Mapa;
 
 public class Tiro {
 	private static final long velocidade = 10;
