@@ -1,4 +1,4 @@
 module MC322 {
-	exports pt.c40task.l05wumpus;
-	exports invasaoAoRio;
+    requires java.desktop;
+    exports pt.c40task.l05wumpus;
 }
