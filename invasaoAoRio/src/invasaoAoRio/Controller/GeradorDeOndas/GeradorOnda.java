@@ -21,7 +21,6 @@ public class GeradorOnda implements IgeradorDeOndas{
     
     private void partidaNoNavio(Barco navio) {
     	new Thread() {
-
     	    @Override
     	    public void run() {
     	      for(int i = navio.getc(); i < 4; i--) {

@@ -2,10 +2,10 @@ package invasaoAoRio.View;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.Serial;
 
 public class JanelaPadrao extends JFrame{
-    public static String DIRETORIO = "invasaoAoRio/src/invasaoAoRio/assets/";
+    private static final long serialVersionUID = -3425706929777799523L;
+	public static String DIRETORIO = "invasaoAoRio/src/invasaoAoRio/assets/";
     private Container contentPane;
     private JButton bCanhao1;
     private JButton bCanhao2;
