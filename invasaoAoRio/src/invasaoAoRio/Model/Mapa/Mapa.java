@@ -21,28 +21,29 @@ public class Mapa implements IMapa{
 		}
 	}
 	
-	public void removerElemento(int x, int y) {
-		mapa[x][y].removerElemento();
+	public void removerElemento(int l, int c) {
+		mapa[l][c].removerElemento();
 	}
 
-	public void movimentarBarco(int origemX, int origemY, int destinoX, int destinoY) {
-		Barco navio = mapa[origemX][origemY].getBarco();
-		mapa[destinoX][destinoY].addBarco(navio);
-		removerElemento(origemX, origemY);
+	public void movimentarBarco(int origemL, int origemC, int destinoL, int destinoC) {
+		Barco navio = mapa[origemL][origemC].getBarco();
+		navio.setPosicao(destinoL, destinoC);
+		mapa[destinoL][destinoC].addBarco(navio);
+		removerElemento(origemL, origemC);
 	}
 	
-	public void addCanhao(int x, int y, Canhao canhao) {
-		if (mapa[x][y].isTerra())
-			mapa[x][y].addCanhao(canhao);
+	public void addCanhao(int l, int c, Canhao canhao) {
+		if (mapa[l][c].isTerra())
+			mapa[l][c].addCanhao(canhao);
 	}
 
 	public ICelula[][] getMapa() {
 		return this.mapa;
 	}
 
-	public void addBarco(int x, int y, Barco barco) {
-		if (mapa[x][y].isAgua())
-			mapa[x][y].addBarco(barco);
+	public void addBarco(int l, int c, Barco barco) {
+		if (mapa[l][c].isAgua())
+			mapa[l][c].addBarco(barco);
 	}
 
 }

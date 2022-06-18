@@ -2,22 +2,22 @@ package invasaoAoRio.Model.Mapa;
 
 public class Tiro {
 	private static final long velocidade = 10;
-	private int x;
-	private int y;
+	private int l;
+	private int c;
 	private final int dano;
 	
-	public Tiro(int x, int y, int dano) {
-		this.x = x;
-		this.y = y;
+	public Tiro(int l, int c, int dano) {
+		this.l = l;
+		this.c = c;
 		this.dano = dano;
 	}
 	
-	public int getX() {
-		return this.x;
+	public int getl() {
+		return this.l;
 	}
 	
-	public int getY() {
-		return this.y;
+	public int getc() {
+		return this.c;
 	}
 	
 	public int getDano() {
@@ -28,12 +28,12 @@ public class Tiro {
 		return velocidade;
 	}
 	
-	public void setX(int x) {
-		this.x = x;
+	public void setl(int l) {
+		this.l = l;
 	}
 	
-	public void setY(int y) {
-		this.y = y;
+	public void setc(int c) {
+		this.c = c;
 	}
 	
 	

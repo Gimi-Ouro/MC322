@@ -17,8 +17,8 @@ public class Controle implements Icontrole{
 	}
 	//(x, y) é a coordenada do evento do click
 	@Override
-	public void addCanhao(int x, int y) {
-		mapa.addCanhao(x, y, canhao);
+	public void addCanhao(int l, int c) {
+		mapa.addCanhao(l, c, canhao);
 	}
 	
 }

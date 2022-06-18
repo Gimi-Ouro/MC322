@@ -24,8 +24,14 @@ public class GeradorOnda implements IgeradorDeOndas{
 
     	    @Override
     	    public void run() {
-    	      for(int i = navio.getX(); i < 3; i--) {
-    	    	  
+    	      for(int i = navio.getc(); i < 4; i--) {
+    	    	  mapa.movimentarBarco(navio.getl(), i, navio.getl(), i-1);
+    	    	  try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
     	      }
     	    }
     	  }.start();
@@ -47,8 +53,8 @@ public class GeradorOnda implements IgeradorDeOndas{
 	            } else if(tipo == 2){
 	            	navio = new Navio(100, 1, true);
 	            }
-	            mapa.addBarco(posicionamento, 16, navio);
 	            navio.setPosicao(posicionamento, 16);
+	            mapa.addBarco(posicionamento, 16, navio);
 	            partidaNoNavio(navio);
 	            /*não sei se essa função sozinha espera o tempo. Quando coloquei ela, 
 	            o IntelliJ pediu pra colocar aquele throws InterruptedException ali em cima*/

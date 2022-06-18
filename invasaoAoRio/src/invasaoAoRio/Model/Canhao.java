@@ -2,8 +2,8 @@ package invasaoAoRio.Model;
 
 public class Canhao{
 	private int dano;
-	private int x;
-	private int y;
+	private int l;
+	private int c;
 	private int preco;
 	private long tempoDeVida;
 	private float tirosPorSegundo;
@@ -14,9 +14,9 @@ public class Canhao{
 		this.tempoDeVida = tempoDeVida;
 		this.tirosPorSegundo = tirosPorSegundo;
 	}
-	public void setPosicao(int x, int y) {
-		this.x = x;
-		this.y = y;
+	public void setPosicao(int l, int c) {
+		this.l = l;
+		this.c = c;
 	}
 
 	public long getTempoDeVida() {
@@ -32,6 +32,6 @@ public class Canhao{
 		return this.dano;
 	}
 
-	public int getX(){return this.x;}
-	public int getY(){return this.y;}
+	public int getL(){return this.l;}
+	public int getC(){return this.c;}
 }
