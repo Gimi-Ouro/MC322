@@ -1,8 +1,8 @@
 package invasaoAoRio.Controller.Controle;
 
-import invasaoAoRio.Model.Canhao;
+import invasaoAoRio.Model.Tanque;
 
 public interface IcontrolePropriedades {
-	public void conectarCanhao(Canhao canhao);
-	public void addCanhao(int x, int y);
+	public void conectarTanque(Tanque tanque);
+	public void addTanque(int x, int y);
 }

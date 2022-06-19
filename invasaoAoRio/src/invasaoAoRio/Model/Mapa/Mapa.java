@@ -2,7 +2,7 @@ package invasaoAoRio.Model.Mapa;
 
 import invasaoAoRio.Model.Agua;
 import invasaoAoRio.Model.Barco;
-import invasaoAoRio.Model.Canhao;
+import invasaoAoRio.Model.Tanque;
 import invasaoAoRio.Model.ICelula;
 import invasaoAoRio.Model.Terra;
 
@@ -32,9 +32,9 @@ public class Mapa implements IMapa{
 		removerElemento(origemL, origemC);
 	}
 	
-	public void addCanhao(int l, int c, Canhao canhao) {
+	public void addTanque(int l, int c, Tanque tanque) {
 		if (mapa[l][c].isTerra())
-			mapa[l][c].addCanhao(canhao);
+			mapa[l][c].addTanque(tanque);
 	}
 
 	public ICelula[][] getMapa() {

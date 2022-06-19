@@ -4,10 +4,10 @@ public interface ICelula {
     public boolean isTerra();
     public boolean isAgua();
     public Barco getBarco();
-    public Canhao getCanhao();
+    public Tanque getCanhao();
 
     public void addBarco(Barco barco);
-    public void addCanhao(Canhao canhao);
+    public void addTanque(Tanque tanque);
     public void removerElemento();
     public boolean isVazia();
 }

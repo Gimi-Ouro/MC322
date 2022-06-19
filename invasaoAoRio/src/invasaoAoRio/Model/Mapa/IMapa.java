@@ -1,11 +1,11 @@
 package invasaoAoRio.Model.Mapa;
 
 import invasaoAoRio.Model.Barco;
-import invasaoAoRio.Model.Canhao;
+import invasaoAoRio.Model.Tanque;
 import invasaoAoRio.Model.ICelula;
 
 public interface IMapa {
-	public void addCanhao(int x, int y, Canhao canhao);
+	public void addTanque(int x, int y, Tanque tanque);
 	public ICelula[][] getMapa();
 	public void addBarco(int x, int y, Barco barco);
 	public void removerElemento(int l, int c);

@@ -1,7 +1,7 @@
 package invasaoAoRio.Controller.Loja;
 
-import invasaoAoRio.Model.Canhao;
+import invasaoAoRio.Model.Tanque;
 
 public interface Iloja {
-	public Canhao compraCanhao(int produto);
+	public Tanque compraCanhao(int produto);
 }

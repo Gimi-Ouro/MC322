@@ -25,7 +25,7 @@ public class Agua implements ICelula{
 	}
 
 	@Override
-	public Canhao getCanhao() {
+	public Tanque getCanhao() {
 		return null;
 	}
 	@Override
@@ -35,7 +35,7 @@ public class Agua implements ICelula{
 	}
 
 	@Override
-	public void addCanhao(Canhao canhao){
+	public void addTanque(Tanque tanque){
 	}
 
 	@Override

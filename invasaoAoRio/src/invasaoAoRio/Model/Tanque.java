@@ -1,6 +1,6 @@
 package invasaoAoRio.Model;
 
-public class Canhao{
+public class Tanque {
 	private int dano;
 	private int l;
 	private int c;
@@ -8,7 +8,7 @@ public class Canhao{
 	private long tempoDeVida;
 	private float tirosPorSegundo;
 	//posição dele na matriz
-	public Canhao(int dano, int preco, long tempoDeVida, float tirosPorSegundo) {
+	public Tanque(int dano, int preco, long tempoDeVida, float tirosPorSegundo) {
 		this.dano = dano;
 		this.preco = preco;
 		this.tempoDeVida = tempoDeVida;
