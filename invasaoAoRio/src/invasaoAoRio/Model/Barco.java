@@ -5,9 +5,9 @@ public class Barco {
 	protected boolean existe;
 	protected int l, c;
 	
-	public Barco(float velocidade, boolean eliste) {
+	public Barco(float velocidade, boolean existe) {
 		this.velocidade = velocidade;
-		this.existe = eliste;
+		this.existe = existe;
 	}
 	
 	public void setPosicao(int l, int c) {
@@ -15,14 +15,16 @@ public class Barco {
 		this.c = c;
 	}
 	
-	public boolean getEliste() {
+	public boolean getExiste() {
 		return this.existe;
 	}
 	
 	public float getVelocidade() {
 		return this.velocidade;
 	}
-	
+	public void atingir(int dano) {
+		
+	}
 	public int getl() {
 		return this.l;
 	}

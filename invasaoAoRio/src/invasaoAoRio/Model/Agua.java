@@ -3,10 +3,12 @@ package invasaoAoRio.Model;
 public class Agua implements ICelula{
 	private boolean vazia;
 	private Barco barco;
+	private Tiro tiro;
 	
 	public Agua() {
 		this.vazia = true;
 		this.barco = null;
+		this.tiro = null;
 	}
 
 	@Override
@@ -41,11 +43,22 @@ public class Agua implements ICelula{
 	@Override
 	public void removerElemento() {
 		this.barco = null;
+		this.tiro = null;
 		this.vazia = true;
 	}
 
 	@Override
 	public boolean isVazia() {
 		return this.vazia;
+	}
+
+	@Override
+	public Tiro getTiro() {		
+		return tiro;
+	}
+	
+	@Override
+	public void addTiro(Tiro tiro) {
+		this.tiro = tiro;
 	}
 }
