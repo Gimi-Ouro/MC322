@@ -26,9 +26,8 @@ public class GeradorOnda implements IgeradorDeOndas{
     	      for(int i = navio.getc(); i < 4; i--) {
     	    	  mapa.movimentarBarco(navio.getl(), i, navio.getl(), i-1);
     	    	  try {
-					Thread.sleep(1000);
+					Thread.sleep(500);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
     	      }

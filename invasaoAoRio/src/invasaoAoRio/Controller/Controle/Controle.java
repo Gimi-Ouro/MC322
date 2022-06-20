@@ -15,7 +15,7 @@ public class Controle implements Icontrole{
 	public void conectarTanque(Tanque tanque) {
 		this.tanque = tanque;
 	}
-	//(x, y) é a coordenada do evento do click
+	//(l, c) é a coordenada do evento do click
 	@Override
 	public void addTanque(int l, int c) {
 		mapa.addTanque(l, c, tanque);
