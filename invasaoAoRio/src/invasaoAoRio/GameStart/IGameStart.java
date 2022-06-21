@@ -1,5 +1,5 @@
 package invasaoAoRio.GameStart;
 
-public interface IGameStart extends IRcontrole, IRGeradorDeOndas, IRLoja {
+public interface IGameStart extends IRcontrole, IRGeradorDeOndas, IRLoja, IGameStartProperties {
 
 }

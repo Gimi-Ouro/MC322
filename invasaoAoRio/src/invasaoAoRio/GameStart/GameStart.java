@@ -1,6 +1,7 @@
 package invasaoAoRio.GameStart;
 
 import invasaoAoRio.Controller.Controle.Icontrole;
+import invasaoAoRio.Controller.GeradorDeOndas.GeradorOnda;
 import invasaoAoRio.Controller.GeradorDeOndas.IgeradorDeOndas;
 import invasaoAoRio.Controller.Loja.Iloja;
 import invasaoAoRio.View.JanelaPadrao;
@@ -10,11 +11,6 @@ public class GameStart implements IGameStart{
     private IgeradorDeOndas geradorOndas;
     private Iloja loja;
     
-	public static void main(String[] args){
-        JanelaPadrao janela = new JanelaPadrao();
-        janela.configuraJanela();
-    }
-
 	@Override
 	public void connect(Icontrole controle) {
 		this.controle = controle;
@@ -27,4 +23,11 @@ public class GameStart implements IGameStart{
 	public void connect(Iloja loja) {
 		this.loja = loja;
 	}
+	
+	@Override
+	public void iniciarJogo() {
+		JanelaPadrao janela = new JanelaPadrao();
+		janela.configuraJanela();
+	}
+	
 }

@@ -37,12 +37,11 @@ public class Mapa implements IMapa{
 	public boolean moverTiro(int origemL, int origemC, int destinoL, int destinoC) {
 		Tiro tiro = mapa[origemL][origemC].getTiro();
 		//chegou no final da matriz - não movimentou
-		if(destinoC >= 15) {
+		if(destinoC > 15) {
 			this.removerElemento(origemL, origemC);
 			return false;
-		}
-		//atingiu um navio - não movimentou
-		if(!mapa[destinoL][destinoC].isVazia()) {
+		}else if(!mapa[destinoL][destinoC].isVazia()) {
+			//atingiu um navio - não movimentou
 			mapa[destinoL][destinoC].getBarco().atingir(tiro.getDano());
 			this.removerElemento(origemL, origemC);
 			return false;
