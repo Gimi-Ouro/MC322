@@ -14,7 +14,7 @@ public class JanelaPadrao extends JFrame{
     private JButton bCanhao3;
     public JanelaPadrao(){
         super();
-        setSize(1280, 740);
+        setSize(1408, 760);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
@@ -27,9 +27,9 @@ public class JanelaPadrao extends JFrame{
         contentPane.add(bCanhao1);
         contentPane.add(bCanhao2);
         contentPane.add(bCanhao3);
-        bCanhao1.setBounds(640, 5, 120,70);
-        bCanhao2.setBounds(765, 5, 120,70);
-        bCanhao3.setBounds(890, 5, 120,70);
+        bCanhao1.setBounds(5, 5, 120,70);
+        bCanhao2.setBounds(130, 5, 120,70);
+        bCanhao3.setBounds(255, 5, 120,70);
         bCanhao1.setIcon(new ImageIcon(DIRETORIO + "tanqueverde.png"));
         bCanhao2.setIcon(new ImageIcon(DIRETORIO + "tanqueazul.png"));
         bCanhao3.setIcon(new ImageIcon(DIRETORIO + "tanquecinza.png"));
@@ -49,9 +49,9 @@ public class JanelaPadrao extends JFrame{
             }
         });
 
-        Imagem mapa = new Imagem(DIRETORIO + "map.png");
+        Imagem mapa = new Imagem(DIRETORIO + "mapa_final3.png");
         contentPane.add(mapa);
-        mapa.setBounds(0, 65, 1280, 640);
+        mapa.setBounds(0, 85, 1408, 640);
 
         this.setVisible(true);
     }
@@ -63,7 +63,7 @@ public class JanelaPadrao extends JFrame{
         else if(numeroBotao == 3) tanque = new Imagem(DIRETORIO + "tanquecinza.png");
 
         contentPane.add(tanque);
-        if(tanque != null) tanque.setBounds(0, 0, 113, 66);
+        if(tanque != null) tanque.setBounds(500, 5, 113, 66);
         SwingUtilities.updateComponentTreeUI(this);
     }
 }
