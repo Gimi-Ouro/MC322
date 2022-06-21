@@ -5,14 +5,14 @@ public class Tanque {
 	private int l;
 	private int c;
 	private int preco;
-	private long tempoDeVida;
+	private int qtdTiros;
 	private long tirosPorSegundo;
 	private boolean existe;
 	//posição dele na matriz
-	public Tanque(int dano, int preco, long tempoDeVida, long tirosPorSegundo) {
+	public Tanque(int dano, int preco, int qtdTiros, long tirosPorSegundo) {
 		this.dano = dano;
 		this.preco = preco;
-		this.tempoDeVida = tempoDeVida;
+		this.qtdTiros = qtdTiros;
 		this.tirosPorSegundo = tirosPorSegundo;
 	}
 	public void setPosicao(int l, int c) {
@@ -24,8 +24,12 @@ public class Tanque {
 		return existe;
 	}
 	
-	public long getTempoDeVida() {
-		return this.tempoDeVida;
+	public void setExiste(boolean existe) {
+		this.existe = existe;
+	}
+	
+	public int getQtdTiros() {
+		return this.qtdTiros;
 	}
 	public long getTirosPorSegundo() {
 		return this.tirosPorSegundo;

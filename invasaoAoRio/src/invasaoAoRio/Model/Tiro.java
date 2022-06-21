@@ -3,7 +3,7 @@ package invasaoAoRio.Model;
 import invasaoAoRio.Model.Mapa.IMapa;
 
 public class Tiro {
-	private static final long velocidade = 10;
+	public static final long velocidade = 200;
 	private int l;
 	private int c;
 	private IMapa mapa;

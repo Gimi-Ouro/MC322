@@ -17,7 +17,7 @@ public class Controle implements Icontrole{
 		this.tanque = tanque;
 	}
 	
-	private void atirar(Tiro tiro, long tirosPorSeg) {
+	private void atirar(Tiro tiro) {
 		new Thread() {
     	    @Override
     	    public void run() {
@@ -25,7 +25,7 @@ public class Controle implements Icontrole{
     	      while(mapa.moverTiro(tiro.getl(), i, tiro.getl(), i+1)) {
     	    	  i++;
     	    	  try {
-					Thread.sleep(tirosPorSeg);
+					Thread.sleep(Tiro.velocidade);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -35,10 +35,20 @@ public class Controle implements Icontrole{
 	}
 	
 	private void gerarTiros(Tanque tanque) {
+		int i = 0;
 		while(tanque.getExiste()) {
 			Tiro tiro = new Tiro(tanque.getL(), 3, tanque.getDano());
 			mapa.addTiro(tiro);
-			this.atirar(tiro, tanque.getTirosPorSegundo());
+			this.atirar(tiro);
+			i++;
+			if(i == tanque.getQtdTiros()) {
+				tanque.setExiste(false);
+			}
+			try {
+				Thread.sleep(tanque.getTirosPorSegundo());
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
