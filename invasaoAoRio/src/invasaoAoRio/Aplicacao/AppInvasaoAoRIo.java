@@ -15,7 +15,7 @@ public class AppInvasaoAoRIo {
     private static Iloja loja;
     private static IGameStart gameStart;
     
-    public static void main(String[] args) {
+    public static void main(String[] args) { 
     	gameStart = new GameStart();
     	controle = new Controle();
     	geradorOndas = new GeradorOnda();
