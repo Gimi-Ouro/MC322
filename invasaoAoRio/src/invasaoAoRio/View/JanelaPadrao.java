@@ -53,17 +53,17 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         
         bCanhao1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                apertouBotao(1);
+                apertouBotao(1, (JButton) e.getSource());
             }
         });
         bCanhao2.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                apertouBotao(2);
+            	apertouBotao(2, (JButton) e.getSource());
             }
         });
         bCanhao3.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                apertouBotao(3);
+            	apertouBotao(3, (JButton) e.getSource());
             }
         });
 
@@ -75,27 +75,21 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         this.setVisible(true);
     }
 
-    public void apertouBotao(int numeroBotao){
+    public void apertouBotao(int numeroBotao, JButton botao){
         addMouseMotionListener(this);
         addMouseListener(this);
         if(numeroBotao == 1) { 
         	tanqueGerado = new Imagem(DIRETORIO + "tanqueverde.png");
-        	contentPane.add(tanqueGerado);
-        	tanqueGerado.setBounds(5, 5, 113, 66);
         }
         else if(numeroBotao == 2) { 
         	tanqueGerado = new Imagem(DIRETORIO + "tanqueazul.png");
-        	contentPane.add(tanqueGerado);
         }
         else if(numeroBotao == 3) { 
         	tanqueGerado = new Imagem(DIRETORIO + "tanquecinza.png");
-        	contentPane.add(tanqueGerado);
         }
-
-        
+        contentPane.add(tanqueGerado);
+    	tanqueGerado.setBounds(botao.getX(), botao.getY(), 113, 66);
         this.contentPane.setComponentZOrder(tanqueGerado, 1);
-        if(tanqueGerado != null) 
-        	
         SwingUtilities.updateComponentTreeUI(this);
     }
 	@Override
@@ -108,7 +102,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 	public void mouseMoved(MouseEvent e) {
 		this.contentPane.setComponentZOrder(tanqueGerado, 1);
 		tanqueGerado.setLocation(e.getX()-56, e.getY()-33);
-		System.out.println("x: " + e.getX() + "y: " + e.getY());
+		System.out.println("x: " + e.getX() + " y: " + e.getY());
 		
 	}
 	
