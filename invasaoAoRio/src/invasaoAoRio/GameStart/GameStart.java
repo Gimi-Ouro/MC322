@@ -8,7 +8,9 @@ import invasaoAoRio.View.JanelaPadrao;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GameStart implements IGameStart, ActionListener{
+import javax.swing.JButton;
+
+public class GameStart implements IGameStart{
     private Icontrole controle;
     private IgeradorDeOndas geradorOndas;
     private Iloja loja;
@@ -31,10 +33,6 @@ public class GameStart implements IGameStart, ActionListener{
 		JanelaPadrao janela = new JanelaPadrao();
 		janela.configuraJanela();
 	}
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+
 	
 }

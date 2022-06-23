@@ -75,6 +75,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao, MouseInputLis
 
     public void apertouBotao(int numeroBotao){
         addMouseMotionListener(this);
+        addMouseListener(this);
         Imagem tanque = null;
         if(numeroBotao == 1) 
         	tanque = new Imagem(DIRETORIO + "tanqueverde.png");
@@ -93,12 +94,10 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao, MouseInputLis
 	public void mouseClicked(MouseEvent e) {
 		System.out.println("click: " + e.getX() + ", " + e.getY());
 		removeMouseMotionListener(this);
-		
 	}
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+			
 	}
 	@Override
 	public void mouseReleased(MouseEvent e) {
