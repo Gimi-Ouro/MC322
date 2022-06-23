@@ -67,10 +67,10 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao, MouseInputLis
             }
         });
 
-        Imagem mapa = new Imagem(DIRETORIO + "mapa_final3.png");
-        contentPane.add(mapa);
-        this.contentPane.setComponentZOrder(mapa, 0);
-        mapa.setBounds(0, 85, 1408, 640);
+        //Imagem mapa = new Imagem(DIRETORIO + "mapa_final3.png");
+        //contentPane.add(mapa);
+        //contentPane.setComponentZOrder(mapa, 0);
+       // mapa.setBounds(0, 85, 1408, 640);
 
         this.setVisible(true);
     }
@@ -131,6 +131,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao, MouseInputLis
 	public void mouseMoved(MouseEvent e) {
 		this.contentPane.setComponentZOrder(tanqueGerado, 1);
 		tanqueGerado.setLocation(e.getX()-56, e.getY()-33);
+		System.out.println("x: " + e.getX() + "y: " + e.getY());
 		
 	}
 }

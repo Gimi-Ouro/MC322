@@ -28,11 +28,18 @@ public class GameStart implements IGameStart{
 		this.loja = loja;
 	}
 	
+	public void botaoApertado(int i) {
+		controle.conectarTanque(loja.compraCanhao(i));
+	}
+	
+	public void posicaoDatela(int l, int c) {
+		
+	}
+	
 	@Override
 	public void iniciarJogo() {
 		JanelaPadrao janela = new JanelaPadrao();
 		janela.configuraJanela();
 	}
 
-	
 }
