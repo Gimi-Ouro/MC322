@@ -78,17 +78,24 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao, MouseInputLis
     public void apertouBotao(int numeroBotao){
         addMouseMotionListener(this);
         addMouseListener(this);
-        if(numeroBotao == 1) 
+        if(numeroBotao == 1) { 
         	tanqueGerado = new Imagem(DIRETORIO + "tanqueverde.png");
-        else if(numeroBotao == 2) 
+        	contentPane.add(tanqueGerado);
+        	tanqueGerado.setBounds(5, 5, 113, 66);
+        }
+        else if(numeroBotao == 2) { 
         	tanqueGerado = new Imagem(DIRETORIO + "tanqueazul.png");
-        else if(numeroBotao == 3) 
+        	contentPane.add(tanqueGerado);
+        }
+        else if(numeroBotao == 3) { 
         	tanqueGerado = new Imagem(DIRETORIO + "tanquecinza.png");
+        	contentPane.add(tanqueGerado);
+        }
 
-        contentPane.add(tanqueGerado);
+        
         this.contentPane.setComponentZOrder(tanqueGerado, 1);
         if(tanqueGerado != null) 
-        	tanqueGerado.setBounds(500, 5, 113, 66);
+        	
         SwingUtilities.updateComponentTreeUI(this);
     }
 	@Override
@@ -122,7 +129,8 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao, MouseInputLis
 	}
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		tanqueGerado.setLocation(e.getX(), e.getY());
 		this.contentPane.setComponentZOrder(tanqueGerado, 1);
+		tanqueGerado.setLocation(e.getX()-56, e.getY()-33);
+		
 	}
 }
