@@ -1,12 +1,20 @@
 package invasaoAoRio.View;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import invasaoAoRio.GameStart.*;
+import java.awt.event.MouseEvent;
 
-public class JanelaPadrao extends JFrame implements IJanelaPadrao{
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+import javax.swing.WindowConstants;
+import javax.swing.event.MouseInputListener;
+
+import invasaoAoRio.GameStart.GameStart;
+
+public class JanelaPadrao extends JFrame implements IJanelaPadrao, MouseInputListener {
     private static final long serialVersionUID = -3425706929777799523L;
     
 	public static String DIRETORIO = System.getProperty("user.dir") + "/invasaoAoRio/src/invasaoAoRio/assets/";
@@ -65,6 +73,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao{
     }
 
     public void apertouBotao(int numeroBotao){
+        addMouseMotionListener(this);
         Imagem tanque = null;
         if(numeroBotao == 1) tanque = new Imagem(DIRETORIO + "tanqueverde.png");
         else if(numeroBotao == 2) tanque = new Imagem(DIRETORIO + "tanqueazul.png");
@@ -74,4 +83,40 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao{
         if(tanque != null) tanque.setBounds(500, 5, 113, 66);
         SwingUtilities.updateComponentTreeUI(this);
     }
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		System.out.println("removi");
+		removeMouseMotionListener(this);
+		
+	}
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		System.out.println("moveu: " + e.getX() + ", " + e.getY());
+		
+	}
 }
