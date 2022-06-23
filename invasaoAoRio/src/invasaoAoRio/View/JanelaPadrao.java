@@ -23,11 +23,13 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao, MouseInputLis
     private JButton bCanhao2;
     private JButton bCanhao3;
     private GameStart gamestart;
+    private Imagem tanqueGerado;
     
     public JanelaPadrao(){
         super();
         setSize(1408, 760);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        tanqueGerado = null;
     }
     public void conectaGame(GameStart gamestart) {
     	this.gamestart = gamestart;
@@ -76,18 +78,17 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao, MouseInputLis
     public void apertouBotao(int numeroBotao){
         addMouseMotionListener(this);
         addMouseListener(this);
-        Imagem tanque = null;
         if(numeroBotao == 1) 
-        	tanque = new Imagem(DIRETORIO + "tanqueverde.png");
+        	tanqueGerado = new Imagem(DIRETORIO + "tanqueverde.png");
         else if(numeroBotao == 2) 
-        	tanque = new Imagem(DIRETORIO + "tanqueazul.png");
+        	tanqueGerado = new Imagem(DIRETORIO + "tanqueazul.png");
         else if(numeroBotao == 3) 
-        	tanque = new Imagem(DIRETORIO + "tanquecinza.png");
+        	tanqueGerado = new Imagem(DIRETORIO + "tanquecinza.png");
 
-        contentPane.add(tanque);
-        this.contentPane.setComponentZOrder(tanque, 1);
-        if(tanque != null) 
-        	tanque.setBounds(500, 5, 113, 66);
+        contentPane.add(tanqueGerado);
+        this.contentPane.setComponentZOrder(tanqueGerado, 1);
+        if(tanqueGerado != null) 
+        	tanqueGerado.setBounds(500, 5, 113, 66);
         SwingUtilities.updateComponentTreeUI(this);
     }
 	@Override
@@ -121,6 +122,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao, MouseInputLis
 	}
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		System.out.println("moveu: " + e.getX() + ", " + e.getY());
+		tanqueGerado.setLocation(e.getX(), e.getY());
+		this.contentPane.setComponentZOrder(tanqueGerado, 1);
 	}
 }
