@@ -4,18 +4,25 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import invasaoAoRio.GameStart.*;
 
-public class JanelaPadrao extends JFrame{
+public class JanelaPadrao extends JFrame implements IJanelaPadrao{
     private static final long serialVersionUID = -3425706929777799523L;
+    
 	public static String DIRETORIO = System.getProperty("user.dir") + "/invasaoAoRio/src/invasaoAoRio/assets/";
     private Container contentPane;
     private JButton bCanhao1;
     private JButton bCanhao2;
     private JButton bCanhao3;
+    private GameStart gamestart;
+    
     public JanelaPadrao(){
         super();
         setSize(1408, 760);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    }
+    public void conectaGame(GameStart gamestart) {
+    	this.gamestart = gamestart;
     }
 
     public void configuraJanela(){
@@ -33,6 +40,7 @@ public class JanelaPadrao extends JFrame{
         bCanhao1.setIcon(new ImageIcon(DIRETORIO + "tanqueverde.png"));
         bCanhao2.setIcon(new ImageIcon(DIRETORIO + "tanqueazul.png"));
         bCanhao3.setIcon(new ImageIcon(DIRETORIO + "tanquecinza.png"));
+        
         bCanhao1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 apertouBotao(1);

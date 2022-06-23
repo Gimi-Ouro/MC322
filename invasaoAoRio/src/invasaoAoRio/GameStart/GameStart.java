@@ -5,8 +5,10 @@ import invasaoAoRio.Controller.GeradorDeOndas.GeradorOnda;
 import invasaoAoRio.Controller.GeradorDeOndas.IgeradorDeOndas;
 import invasaoAoRio.Controller.Loja.Iloja;
 import invasaoAoRio.View.JanelaPadrao;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class GameStart implements IGameStart{
+public class GameStart implements IGameStart, ActionListener{
     private Icontrole controle;
     private IgeradorDeOndas geradorOndas;
     private Iloja loja;
@@ -28,6 +30,11 @@ public class GameStart implements IGameStart{
 	public void iniciarJogo() {
 		JanelaPadrao janela = new JanelaPadrao();
 		janela.configuraJanela();
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
