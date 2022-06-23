@@ -67,6 +67,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao, MouseInputLis
 
         Imagem mapa = new Imagem(DIRETORIO + "mapa_final3.png");
         contentPane.add(mapa);
+        this.contentPane.setComponentZOrder(mapa, 0);
         mapa.setBounds(0, 85, 1408, 640);
 
         this.setVisible(true);
@@ -75,17 +76,22 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao, MouseInputLis
     public void apertouBotao(int numeroBotao){
         addMouseMotionListener(this);
         Imagem tanque = null;
-        if(numeroBotao == 1) tanque = new Imagem(DIRETORIO + "tanqueverde.png");
-        else if(numeroBotao == 2) tanque = new Imagem(DIRETORIO + "tanqueazul.png");
-        else if(numeroBotao == 3) tanque = new Imagem(DIRETORIO + "tanquecinza.png");
+        if(numeroBotao == 1) 
+        	tanque = new Imagem(DIRETORIO + "tanqueverde.png");
+        else if(numeroBotao == 2) 
+        	tanque = new Imagem(DIRETORIO + "tanqueazul.png");
+        else if(numeroBotao == 3) 
+        	tanque = new Imagem(DIRETORIO + "tanquecinza.png");
 
         contentPane.add(tanque);
-        if(tanque != null) tanque.setBounds(500, 5, 113, 66);
+        this.contentPane.setComponentZOrder(tanque, 1);
+        if(tanque != null) 
+        	tanque.setBounds(500, 5, 113, 66);
         SwingUtilities.updateComponentTreeUI(this);
     }
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		System.out.println("removi");
+		System.out.println("click: " + e.getX() + ", " + e.getY());
 		removeMouseMotionListener(this);
 		
 	}
@@ -117,6 +123,5 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao, MouseInputLis
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		System.out.println("moveu: " + e.getX() + ", " + e.getY());
-		
 	}
 }
