@@ -14,7 +14,7 @@ import javax.swing.event.MouseInputListener;
 
 import invasaoAoRio.GameStart.GameStart;
 
-public class JanelaPadrao extends JFrame implements IJanelaPadrao, MouseInputListener {
+public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     private static final long serialVersionUID = -3425706929777799523L;
     
 	public static String DIRETORIO = System.getProperty("user.dir") + "/invasaoAoRio/src/invasaoAoRio/assets/";
@@ -67,10 +67,10 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao, MouseInputLis
             }
         });
 
-        //Imagem mapa = new Imagem(DIRETORIO + "mapa_final3.png");
-        //contentPane.add(mapa);
-        //contentPane.setComponentZOrder(mapa, 0);
-       // mapa.setBounds(0, 85, 1408, 640);
+        Imagem mapa = new Imagem(DIRETORIO + "mapa_final3.png");
+        contentPane.add(mapa);
+        contentPane.setComponentZOrder(mapa, 0);
+        mapa.setBounds(0, 85, 1408, 640);
 
         this.setVisible(true);
     }
@@ -102,7 +102,20 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao, MouseInputLis
 	public void mouseClicked(MouseEvent e) {
 		System.out.println("click: " + e.getX() + ", " + e.getY());
 		removeMouseMotionListener(this);
+		removeMouseListener(this);
 	}
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		this.contentPane.setComponentZOrder(tanqueGerado, 1);
+		tanqueGerado.setLocation(e.getX()-56, e.getY()-33);
+		System.out.println("x: " + e.getX() + "y: " + e.getY());
+		
+	}
+	
+	
+	
+	
+	//////não utilizado por enquanto
 	@Override
 	public void mousePressed(MouseEvent e) {
 			
@@ -115,7 +128,6 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao, MouseInputLis
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
 	}
 	@Override
 	public void mouseExited(MouseEvent e) {
@@ -125,13 +137,6 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao, MouseInputLis
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void mouseMoved(MouseEvent e) {
-		this.contentPane.setComponentZOrder(tanqueGerado, 1);
-		tanqueGerado.setLocation(e.getX()-56, e.getY()-33);
-		System.out.println("x: " + e.getX() + "y: " + e.getY());
 		
 	}
 }

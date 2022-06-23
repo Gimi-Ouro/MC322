@@ -1,7 +1,7 @@
 package invasaoAoRio.View;
 
-import invasaoAoRio.GameStart.*;
+import javax.swing.event.MouseInputListener;
 
-public interface IJanelaPadrao extends IRGameStart{
+public interface IJanelaPadrao extends IRGameStart, MouseInputListener{
 	
 }
