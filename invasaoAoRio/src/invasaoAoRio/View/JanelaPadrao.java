@@ -68,8 +68,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         });
 
         Imagem mapa = new Imagem(DIRETORIO + "mapa_.png");
-        contentPane.add(mapa);
-        contentPane.setComponentZOrder(mapa, 0);
+        this.add(mapa);
         mapa.setBounds(0, 85, 1408, 640);
 
         this.setVisible(true);
@@ -101,13 +100,10 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		this.contentPane.setComponentZOrder(tanqueGerado, 1);
-		tanqueGerado.setLocation(e.getX()-56, e.getY()-33);
+		tanqueGerado.setLocation(e.getX()-50, e.getY()-63);
 		System.out.println("x: " + e.getX() + " y: " + e.getY());
 		
 	}
-	
-	
-	
 	
 	//////não utilizado por enquanto
 	@Override
