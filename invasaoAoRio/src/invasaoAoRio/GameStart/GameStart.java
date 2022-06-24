@@ -48,8 +48,9 @@ public class GameStart implements IGameStart{
 	
 	@Override
 	public void iniciarJogo() {
-		//JanelaPadrao janela = new JanelaPadrao();
-		//janela.configuraJanela();
+		JanelaPadrao janela = new JanelaPadrao();
+		janela.configuraJanela();
+		janela.conectaGame(this);
 	}
 
 }

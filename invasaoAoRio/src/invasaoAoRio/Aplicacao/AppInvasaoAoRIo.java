@@ -23,13 +23,10 @@ public class AppInvasaoAoRIo {
     	controle = new Controle();
     	geradorOndas = new GeradorOnda();
     	loja = new Loja(100); //inicia com 100 créditos
-    	JanelaPadrao janela = new JanelaPadrao();
-		janela.configuraJanela();
     	///////////////////////
     	gameStart.connect(controle);
     	gameStart.connect(geradorOndas);
     	gameStart.connect(loja);
-    	janela.conectaGame(gameStart);
     	gameStart.iniciarJogo();
     }
 }
