@@ -4,6 +4,7 @@ import invasaoAoRio.Controller.Controle.Icontrole;
 import invasaoAoRio.Controller.GeradorDeOndas.GeradorOnda;
 import invasaoAoRio.Controller.GeradorDeOndas.IgeradorDeOndas;
 import invasaoAoRio.Controller.Loja.Iloja;
+import invasaoAoRio.Model.Tanque;
 import invasaoAoRio.View.JanelaPadrao;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,8 +29,13 @@ public class GameStart implements IGameStart{
 		this.loja = loja;
 	}
 	
-	public void botaoApertado(int i) {
-		controle.conectarTanque(loja.compraCanhao(i));
+	public boolean comprarTanque(int i) {
+		Tanque tanque = loja.compraCanhao(i);
+		if (tanque != null) {
+			controle.conectarTanque(tanque);
+			return true;
+		}
+		return false;
 	}
 	
 	//true se colocou e false se não foi possivel colocar
