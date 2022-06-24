@@ -54,10 +54,13 @@ public class Controle implements Icontrole{
 	
 	//(l, c) é a coordenada do evento do click
 	@Override
-	public void addTanque(int l, int c) {
+	public boolean addTanque(int l, int c) {
 		tanque.setPosicao(l, c);
-		mapa.addTanque(tanque);
-		gerarTiros(tanque);
+		if(mapa.addTanque(tanque)) {
+			gerarTiros(tanque);
+			return true;
+		}
+		return false;
 	}
 	
 }

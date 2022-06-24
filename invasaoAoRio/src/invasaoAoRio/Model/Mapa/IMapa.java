@@ -6,7 +6,7 @@ import invasaoAoRio.Model.Tiro;
 import invasaoAoRio.Model.ICelula;
 
 public interface IMapa {
-	public void addTanque(Tanque tanque);
+	public boolean addTanque(Tanque tanque);
 	public ICelula[][] getMapa();
 	public void addBarco(Barco barco);
 	public void removerElemento(int l, int c);

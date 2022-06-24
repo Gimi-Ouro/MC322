@@ -37,7 +37,8 @@ public class Agua implements ICelula{
 	}
 
 	@Override
-	public void addTanque(Tanque tanque){
+	public boolean addTanque(Tanque tanque){
+		return false;
 	}
 
 	@Override

@@ -60,9 +60,10 @@ public class Mapa implements IMapa{
 		mapa[tiro.getl()][tiro.getc()].addTiro(tiro);
 	}
 	
-	public void addTanque(Tanque tanque) {
+	public boolean addTanque(Tanque tanque) {
 		if (mapa[tanque.getL()][tanque.getC()].isTerra())
-			mapa[tanque.getL()][tanque.getC()].addTanque(tanque);
+			return mapa[tanque.getL()][tanque.getC()].addTanque(tanque);
+		return false;
 	}
 
 	public ICelula[][] getMapa() {

@@ -35,9 +35,13 @@ public class Terra implements ICelula {
 	}
 
 	@Override
-	public void addTanque(Tanque tanque){
-		this.tanque = tanque;
-		this.vazia = false;
+	public boolean addTanque(Tanque tanque){
+		if (vazia) {
+			this.tanque = tanque;
+			this.vazia = false;
+			return true;
+		}else
+			return false;
 	}
 
 	@Override

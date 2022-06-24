@@ -32,8 +32,12 @@ public class GameStart implements IGameStart{
 		controle.conectarTanque(loja.compraCanhao(i));
 	}
 	
-	public void posicaoDatela(int l, int c) {
-		
+	//true se colocou e false se não foi possivel colocar
+	public boolean addTanque(int x, int y) {
+		int l, c;
+		l = (int) (y-112)/106;
+		c = (int) x/88;
+		return controle.addTanque(l, c);
 	}
 	
 	@Override

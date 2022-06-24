@@ -8,7 +8,7 @@ public interface ICelula {
     public Tiro getTiro();
 
     public void addBarco(Barco barco);
-    public void addTanque(Tanque tanque);
+    public boolean addTanque(Tanque tanque);
     public void addTiro(Tiro tiro);
     public void removerElemento();
     public boolean isVazia();
