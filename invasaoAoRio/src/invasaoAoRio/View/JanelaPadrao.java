@@ -92,14 +92,18 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     		tanqueGerado.setBounds(botao.getX(), botao.getY(), 113, 66);
     		this.contentPane.setComponentZOrder(tanqueGerado, 1);
     		SwingUtilities.updateComponentTreeUI(this);
+    	}else {
+    		//falar que não tem créditos suficientes para fazer a compra
     	}
     }
 	@Override
 	public void mouseClicked(MouseEvent e) {
         if(e.getX() < 270 && e.getX() > 40 && e.getY() > 145 && e.getY() < 720){
 			System.out.println("click: " + e.getX() + ", " + e.getY());
-	        removeMouseMotionListener(this);
-	        removeMouseListener(this);
+        	if(gamestart.addTanque(e.getX(), e.getY())) {        		
+        		removeMouseMotionListener(this);
+        		removeMouseListener(this);
+        	}
         }
 
 	}

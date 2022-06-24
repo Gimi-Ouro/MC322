@@ -5,6 +5,8 @@ import invasaoAoRio.Controller.GeradorDeOndas.GeradorOnda;
 import invasaoAoRio.Controller.GeradorDeOndas.IgeradorDeOndas;
 import invasaoAoRio.Controller.Loja.Iloja;
 import invasaoAoRio.Model.Tanque;
+import invasaoAoRio.Model.Mapa.IMapa;
+import invasaoAoRio.Model.Mapa.Mapa;
 import invasaoAoRio.View.JanelaPadrao;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +17,7 @@ public class GameStart implements IGameStart{
     private Icontrole controle;
     private IgeradorDeOndas geradorOndas;
     private Iloja loja;
+    private IMapa mapa;
     
 	@Override
 	public void connect(Icontrole controle) {
@@ -51,6 +54,8 @@ public class GameStart implements IGameStart{
 		JanelaPadrao janela = new JanelaPadrao();
 		janela.configuraJanela();
 		janela.conectaGame(this);
+		mapa = new Mapa();
+		controle.connect(mapa);
 	}
 
 }

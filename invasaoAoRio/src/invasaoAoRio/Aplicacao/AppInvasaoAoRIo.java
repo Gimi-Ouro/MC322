@@ -8,15 +8,12 @@ import invasaoAoRio.Controller.Loja.Iloja;
 import invasaoAoRio.Controller.Loja.Loja;
 import invasaoAoRio.GameStart.GameStart;
 import invasaoAoRio.GameStart.IGameStart;
-import invasaoAoRio.View.IJanelaPadrao;
-import invasaoAoRio.View.JanelaPadrao;
 
 public class AppInvasaoAoRIo {
 	private static Icontrole controle;
     private static IgeradorDeOndas geradorOndas;
     private static Iloja loja;
     private static IGameStart gameStart;
-    private static IJanelaPadrao janela;
     
     public static void main(String[] args) { 
     	gameStart = new GameStart();
