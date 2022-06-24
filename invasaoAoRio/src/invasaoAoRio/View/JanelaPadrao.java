@@ -93,9 +93,12 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     }
 	@Override
 	public void mouseClicked(MouseEvent e) {
+        if(e.getX() < 270 && e.getX() > 40 && e.getY() > 145 && e.getY() < 720){
 		System.out.println("click: " + e.getX() + ", " + e.getY());
-		removeMouseMotionListener(this);
-		removeMouseListener(this);
+        removeMouseMotionListener(this);
+        removeMouseListener(this);
+        }
+
 	}
 	@Override
 	public void mouseMoved(MouseEvent e) {
