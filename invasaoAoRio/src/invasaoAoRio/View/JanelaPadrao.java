@@ -105,6 +105,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         		removeMouseListener(this);
         	}else {
         		//falar que não da para colocar o tanque em cima do outro
+        		//(deixar vermelho a "celula" (área que representa a celula))
         	}
         }
 
