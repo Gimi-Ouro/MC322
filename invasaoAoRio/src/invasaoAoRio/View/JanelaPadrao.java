@@ -13,6 +13,7 @@ import javax.swing.WindowConstants;
 import javax.swing.event.MouseInputListener;
 
 import invasaoAoRio.GameStart.GameStart;
+import invasaoAoRio.GameStart.IGameStart;
 
 public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     private static final long serialVersionUID = -3425706929777799523L;
@@ -22,7 +23,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     private JButton bCanhao1;
     private JButton bCanhao2;
     private JButton bCanhao3;
-    private GameStart gamestart;
+    private IGameStart gamestart;
     private Imagem tanqueGerado;
     
     public JanelaPadrao(){
@@ -31,7 +32,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         tanqueGerado = null;
     }
-    public void conectaGame(GameStart gamestart) {
+    public void conectaGame(IGameStart gamestart) {
     	this.gamestart = gamestart;
     }
 
@@ -75,21 +76,23 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     }
 
     public void apertouBotao(int numeroBotao, JButton botao){
-        addMouseMotionListener(this);
-        addMouseListener(this);
-        if(numeroBotao == 1) { 
-        	tanqueGerado = new Imagem(DIRETORIO + "tanqueverde.png");
-        }
-        else if(numeroBotao == 2) { 
-        	tanqueGerado = new Imagem(DIRETORIO + "tanqueazul.png");
-        }
-        else if(numeroBotao == 3) { 
-        	tanqueGerado = new Imagem(DIRETORIO + "tanquecinza.png");
-        }
-        contentPane.add(tanqueGerado);
-    	tanqueGerado.setBounds(botao.getX(), botao.getY(), 113, 66);
-        this.contentPane.setComponentZOrder(tanqueGerado, 1);
-        SwingUtilities.updateComponentTreeUI(this);
+    	if (gamestart.comprarTanque(numeroBotao)) {
+    		addMouseMotionListener(this);
+    		addMouseListener(this);
+    		if(numeroBotao == 1) { 
+    			tanqueGerado = new Imagem(DIRETORIO + "tanqueverde.png");
+    		}
+    		else if(numeroBotao == 2) { 
+    			tanqueGerado = new Imagem(DIRETORIO + "tanqueazul.png");
+    		}
+    		else if(numeroBotao == 3) { 
+    			tanqueGerado = new Imagem(DIRETORIO + "tanquecinza.png");
+    		}
+    		contentPane.add(tanqueGerado);
+    		tanqueGerado.setBounds(botao.getX(), botao.getY(), 113, 66);
+    		this.contentPane.setComponentZOrder(tanqueGerado, 1);
+    		SwingUtilities.updateComponentTreeUI(this);
+    	}
     }
 	@Override
 	public void mouseClicked(MouseEvent e) {

@@ -2,5 +2,5 @@ package invasaoAoRio.View;
 import invasaoAoRio.GameStart.*;
 
 public interface IRGameStart {
-	public void conectaGame(GameStart gamestart);
+	public void conectaGame(IGameStart gameStart);
 }
