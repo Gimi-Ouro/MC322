@@ -103,6 +103,8 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         	if(gamestart.addTanque(e.getX(), e.getY())) {        		
         		removeMouseMotionListener(this);
         		removeMouseListener(this);
+        	}else {
+        		//falar que não da para colocar o tanque em cima do outro
         	}
         }
 

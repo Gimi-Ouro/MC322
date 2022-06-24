@@ -17,7 +17,6 @@ public class GameStart implements IGameStart{
     private Icontrole controle;
     private IgeradorDeOndas geradorOndas;
     private Iloja loja;
-    private IMapa mapa;
     
 	@Override
 	public void connect(Icontrole controle) {
@@ -54,8 +53,6 @@ public class GameStart implements IGameStart{
 		JanelaPadrao janela = new JanelaPadrao();
 		janela.configuraJanela();
 		janela.conectaGame(this);
-		mapa = new Mapa();
-		controle.connect(mapa);
 	}
 
 }
