@@ -67,7 +67,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
             }
         });
 
-        Imagem mapa = new Imagem(DIRETORIO + "mapa_final3.png");
+        Imagem mapa = new Imagem(DIRETORIO + "mapa_.png");
         contentPane.add(mapa);
         contentPane.setComponentZOrder(mapa, 0);
         mapa.setBounds(0, 85, 1408, 640);
