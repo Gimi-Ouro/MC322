@@ -42,7 +42,7 @@ public class Controle implements Icontrole{
 			this.atirar(tiro);
 			i++;
 			if(i == tanque.getQtdTiros()) {
-				tanque.setExiste(false);
+				tanque.explodir();
 			}
 			try {
 				Thread.sleep(tanque.getTirosPorSegundo());

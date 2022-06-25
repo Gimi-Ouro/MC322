@@ -14,6 +14,7 @@ public class Tanque {
 		this.preco = preco;
 		this.qtdTiros = qtdTiros;
 		this.tirosPorSegundo = tirosPorSegundo;
+		this.existe = true;
 	}
 	public void setPosicao(int l, int c) {
 		this.l = l;
@@ -24,8 +25,8 @@ public class Tanque {
 		return existe;
 	}
 	
-	public void setExiste(boolean existe) {
-		this.existe = existe;
+	public void explodir() {
+		this.existe = false;
 	}
 	
 	public int getQtdTiros() {

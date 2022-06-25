@@ -13,4 +13,5 @@ public interface IMapa {
 	public void movimentarBarco(int origemL, int origemC, int destinoL, int destinoC);
 	public boolean moverTiro(int origemL, int origemC, int destinoL, int destinoC);
 	public void addTiro(Tiro tiro);
+	public void removerTanque(Tanque tanque);
 }

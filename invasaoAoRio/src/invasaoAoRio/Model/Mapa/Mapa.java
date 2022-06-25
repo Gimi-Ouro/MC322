@@ -75,5 +75,10 @@ public class Mapa implements IMapa{
 			mapa[barco.getl()][barco.getc()].addBarco(barco);
 	}
 
+	@Override
+	public void removerTanque(Tanque tanque) {
+		mapa[tanque.getL()][tanque.getC()].removerElemento();
+	}
+
 
 }
