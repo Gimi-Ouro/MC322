@@ -7,4 +7,5 @@ import invasaoAoRio.View.IRGameStart;
 
 public interface IJanelaPadrao extends IRGameStart, MouseInputListener{
     public void removerTanque(Tanque tanque);
+    public String getDIRETORIO();
 }

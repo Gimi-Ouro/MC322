@@ -38,6 +38,10 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     	this.gamestart = gamestart;
     }
 
+    public String getDIRETORIO(){
+        return DIRETORIO;
+    }
+
     public void configuraJanela(){
         this.contentPane = this.getContentPane();
         contentPane.setLayout(null);
