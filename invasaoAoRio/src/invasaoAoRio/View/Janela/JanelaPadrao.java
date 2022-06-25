@@ -4,7 +4,7 @@ import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
-
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,11 +18,12 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     
 	public static String DIRETORIO = System.getProperty("user.dir") + "/invasaoAoRio/src/invasaoAoRio/assets/";
     private Container contentPane;
-    private JButton bCanhao1;
-    private JButton bCanhao2;
-    private JButton bCanhao3;
+    private JButton bTanque1;
+    private JButton bTanque2;
+    private JButton bTanque3;
     private IGameStart gamestart;
     private Imagem tanqueGerado;
+    private ArrayList<Imagem> tanquesPosicionados;
     
     public JanelaPadrao(){
         super();
@@ -37,30 +38,30 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     public void configuraJanela(){
         this.contentPane = this.getContentPane();
         contentPane.setLayout(null);
-        this.bCanhao1 = new JButton();
-        this.bCanhao2 = new JButton();
-        this.bCanhao3 = new JButton();
-        contentPane.add(bCanhao1);
-        contentPane.add(bCanhao2);
-        contentPane.add(bCanhao3);
-        bCanhao1.setBounds(5, 5, 120,70);
-        bCanhao2.setBounds(130, 5, 120,70);
-        bCanhao3.setBounds(255, 5, 120,70);
-        bCanhao1.setIcon(new ImageIcon(DIRETORIO + "tanqueverde.png"));
-        bCanhao2.setIcon(new ImageIcon(DIRETORIO + "tanqueazul.png"));
-        bCanhao3.setIcon(new ImageIcon(DIRETORIO + "tanquecinza.png"));
+        this.bTanque1 = new JButton();
+        this.bTanque2 = new JButton();
+        this.bTanque3 = new JButton();
+        contentPane.add(bTanque1);
+        contentPane.add(bTanque2);
+        contentPane.add(bTanque3);
+        bTanque1.setBounds(5, 5, 120,70);
+        bTanque2.setBounds(130, 5, 120,70);
+        bTanque3.setBounds(255, 5, 120,70);
+        bTanque1.setIcon(new ImageIcon(DIRETORIO + "tanqueverde.png"));
+        bTanque2.setIcon(new ImageIcon(DIRETORIO + "tanqueazul.png"));
+        bTanque3.setIcon(new ImageIcon(DIRETORIO + "tanquecinza.png"));
         
-        bCanhao1.addActionListener(new ActionListener(){
+        bTanque1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 apertouBotao(1, (JButton) e.getSource());
             }
         });
-        bCanhao2.addActionListener(new ActionListener(){
+        bTanque2.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
             	apertouBotao(2, (JButton) e.getSource());
             }
         });
-        bCanhao3.addActionListener(new ActionListener(){
+        bTanque3.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
             	apertouBotao(3, (JButton) e.getSource());
             }
@@ -88,6 +89,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     		}
     		contentPane.add(tanqueGerado);
     		tanqueGerado.setBounds(botao.getX(), botao.getY(), 113, 66);
+            tanquesPosicionados.add(tanqueGerado);
     		this.contentPane.setComponentZOrder(tanqueGerado, 1);
     		SwingUtilities.updateComponentTreeUI(this);
     	}else {
