@@ -67,6 +67,8 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
                 bordasVermelhas[i][j].setBounds(j*88 + 32, i*107 + 85, 88, 107);
                 contentPane.add(bordasVerdes[i][j]);
                 contentPane.add(bordasVermelhas[i][j]);
+                contentPane.setComponentZOrder(bordasVermelhas[i][j], 1);
+                contentPane.setComponentZOrder(bordasVerdes[i][j], 1);
                 bordasVerdes[i][j].setVisible(false);
                 bordasVermelhas[i][j].setVisible(false);
             }
@@ -158,7 +160,13 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 	}
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
+		for(int i = 0; i < 6; i++){
+            for(int j = 0; j < 3; j++){
+                if(e.equals(bordasVermelhas[i][j])){
+                    bordasVerdes[i][j].setVisible(true);
+                }
+            }
+        }
 	}
 	@Override
 	public void mouseExited(MouseEvent e) {
