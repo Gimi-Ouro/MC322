@@ -56,17 +56,17 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         this.bordasVerdes = new Imagem[6][3];
         this.bordasVermelhas = new Imagem[6][3];
         for(int i = 0; i < 6; i++){
-            
+            for(int j = 0; j < 3; j++){
+                bordasVerdes[i][j] = new Imagem(DIRETORIO + "bordaverde.png");
+                bordasVermelhas[i][j] = new Imagem(DIRETORIO + "bordavermelha.png");
+                bordasVerdes[i][j].setBounds(j*88 + 32, i*107 + 85, 88, 107);
+                bordasVermelhas[i][j].setBounds(j*88 + 32, i*107 + 85, 88, 107);
+                contentPane.add(bordasVerdes[i][j]);
+                contentPane.add(bordasVermelhas[i][j]);
+                bordasVerdes[i][j].setVisible(false);
+                bordasVermelhas[i][j].setVisible(false);
+            }
         }
-        /*
-        this.bordaVerdes = new Imagem(DIRETORIO + "bordaverde.png");
-        this.bordaVermelhas = new Imagem(DIRETORIO + "bordavermelha.png");
-        bordaVerde.setBounds(0, 0, 88, 107);
-        bordaVermelha.setBounds(0, 0, 88, 107);
-        contentPane.add(bordaVerde);
-        contentPane.add(bordaVermelha);
-        bordaVerde.setVisible(false);
-        bordaVermelha.setVisible(false);*/
         
         bTanque1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
@@ -106,7 +106,6 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     		}
     		contentPane.add(tanqueGerado);
     		tanqueGerado.setBounds(botao.getX(), botao.getY(), 113, 66);
-            tanqueGerado.transformaParaLC(tanqueGerado.getX(), tanqueGerado.getY());
             tanquesPosicionados.add(tanqueGerado);
     		this.contentPane.setComponentZOrder(tanqueGerado, 1);
     		SwingUtilities.updateComponentTreeUI(this);
@@ -126,8 +125,9 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     public void mouseMoved(MouseEvent e) {
     	this.contentPane.setComponentZOrder(tanqueGerado, 1);
     	tanqueGerado.setLocation(e.getX()-50, e.getY()-63);
-        tanqueGerado.transformaParaLC(tanqueGerado.getX(), tanqueGerado.getY());
-
+        if(e.getX() < 270 && e.getX() > 40 && e.getY() > 145 && e.getY() < 720) {
+            tanqueGerado.transformaParaLC(tanqueGerado.getX(), tanqueGerado.getY());
+        }
     }
 	@Override
 	public void mouseClicked(MouseEvent e) {
