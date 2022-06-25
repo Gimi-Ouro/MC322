@@ -95,7 +95,7 @@ public class Mapa implements IMapa{
 
 	public void removerBarco(Barco barco) {
 		mapa[barco.getl()][barco.getc()].removerElemento();
-		atualizaTela.removeBarco(barco);
+		atualizaTela.removerBarco(barco);
 	}
 
 }

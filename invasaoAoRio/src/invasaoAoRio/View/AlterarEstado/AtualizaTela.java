@@ -38,5 +38,8 @@ public class AtualizaTela implements IAtualizaTela{
 		janela.moverBarco(barco, destinoL, destinoC);
 	}
 	
+	public void removerBarco(Barco barco) {
+		janela.removerBarco(barco);
+	}
 	
 }
