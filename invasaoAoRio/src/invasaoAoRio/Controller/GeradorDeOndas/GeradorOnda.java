@@ -23,10 +23,10 @@ public class GeradorOnda implements IgeradorDeOndas{
     	new Thread() {
     	    @Override
     	    public void run() {
-    	      for(int i = navio.getc(); i > 4; i--) {
+    	      for(int i = 15; i > 4; i--) {
     	    	  mapa.movimentarBarco(navio.getl(), i, navio.getl(), i-1);
     	    	  try {
-					Thread.sleep(2000);
+					Thread.sleep(300);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -53,7 +53,7 @@ public class GeradorOnda implements IgeradorDeOndas{
 	            }
 				navio.setPosicao(posicionamento, 15);
 	            mapa.addBarco(navio);
-	            //partidaNoNavio(navio);
+	            partidaNoNavio(navio);
 	            Thread.sleep(intervaloGeracao);
             }
         }

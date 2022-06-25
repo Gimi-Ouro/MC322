@@ -38,10 +38,12 @@ public class Mapa implements IMapa{
 
 	public void movimentarBarco(int origemL, int origemC, int destinoL, int destinoC) {
 		Barco barco = mapa[origemL][origemC].getBarco();
-		barco.setPosicao(destinoL, destinoC);
-		atualizaTela.moverBarco(barco, destinoL, destinoC);
-		this.addBarco(barco);
-		this.removerElemento(origemL, origemC);
+		if (barco != null) {
+			barco.setPosicao(destinoL, destinoC);
+			atualizaTela.moverBarco(barco, destinoL, destinoC);
+			this.addBarco(barco);
+			this.removerElemento(origemL, origemC);
+		}
 	}
 	
 	@Override
