@@ -30,35 +30,35 @@ public class AtualizaTela implements IAtualizaTela{
 		barcoGerado.setL(barco.getl());
 		barcoGerado.setC(barco.getc());
 		//deve adicionar a imagem gerada do barco no contentPane
-		janela.addBarco(barcoGerado);
+		//janela.addBarco(barcoGerado);
 	}
 	
 	
 	public void moverBarco(Barco barco, int destinoL, int destinoC) {
 		//deve achar a imagem do barco de deslocar ela até o destino
-		janela.moverBarco(barco, destinoL, destinoC);
+		//janela.moverBarco(barco, destinoL, destinoC);
 	}
 	
 	public void removerBarco(Barco barco) {
-		janela.removerBarco(barco);
+		//janela.removerBarco(barco);
 	}
 
 	@Override
 	public void addTiro(Tiro tiro) {
-		Imagem tiro = new Imagem(janela.getDIRETORIO() + "ntiro.png");
+		/*Imagem tiro = new Imagem(janela.getDIRETORIO() + "ntiro.png");
 		tiro.setL(tiro.getL());
 		tiro.setC(tiro.getC());
-		janela.addTiro(tiro);
+		janela.addTiro(tiro);*/
 	}
 
 	@Override
 	public void removerTiro(Tiro tiro) {
-		janela.removerTiro(tiro);
+		//janela.removerTiro(tiro);
 	}
 
 	@Override
 	public void moverTiro(Tiro tiro, int l, int c) {
-		janela.moverTiro(tiro, l, c);
+		//janela.moverTiro(tiro, l, c);
 	}
 	
 }

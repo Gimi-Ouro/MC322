@@ -50,10 +50,11 @@ public class GameStart implements IGameStart{
 	}
 	
 	@Override
-	public void iniciarJogo() {
+	public void iniciarJogo(IMapa mapa) {
 		JanelaPadrao janela = new JanelaPadrao();
 		janela.configuraJanela();
 		janela.conectaGame(this);
+		janela.conecta(mapa);
 	}
 
 }

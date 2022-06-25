@@ -1,6 +1,6 @@
 package invasaoAoRio.View.Janela;
 
-import java.awt.Container;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 import invasaoAoRio.GameStart.IGameStart;
+import invasaoAoRio.Model.Mapa.IMapa;
 import invasaoAoRio.Model.Tanque;
 import invasaoAoRio.View.Imagem;
 
@@ -27,20 +28,25 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     private ArrayList<Imagem> tanquesPosicionados;
     private Imagem[][] bordasVerdes;
     private Imagem[][] bordasVermelhas;
+
+    private IMapa mapa;
     
     public JanelaPadrao(){
         super();
         setSize(1408, 760);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         tanqueGerado = null;
+        tanquesPosicionados = new ArrayList<>();
     }
+    @Override
     public void conectaGame(IGameStart gamestart) {
     	this.gamestart = gamestart;
     }
 
-    public String getDIRETORIO(){
-        return DIRETORIO;
-    }
+    @Override
+    public void conecta(IMapa mapa) { this.mapa = mapa; }
+    @Override
+    public String getDIRETORIO(){ return DIRETORIO; }
 
     public void configuraJanela(){
         this.contentPane = this.getContentPane();
@@ -114,6 +120,12 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     		tanqueGerado.setBounds(botao.getX(), botao.getY(), 113, 66);
             tanquesPosicionados.add(tanqueGerado);
     		this.contentPane.setComponentZOrder(tanqueGerado, 1);
+            for(int i = 0; i < 6; i++){
+                for(int j = 0; j < 3; j++){
+                    if(!posicaoVazia(i, j)) bordasVermelhas[i][j].setVisible(true);
+                    else bordasVerdes[i][j].setVisible(true);
+                }
+            }
     		SwingUtilities.updateComponentTreeUI(this);
     	}else {
     		//falar que não tem créditos suficientes para fazer a compra
@@ -127,6 +139,10 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
             }
         }
     }
+    public boolean posicaoVazia(int l, int c){
+        return mapa.getMapa()[l][c].isVazia();
+    }
+
     @Override
     public void mouseMoved(MouseEvent e) {
     	this.contentPane.setComponentZOrder(tanqueGerado, 1);
@@ -160,13 +176,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 	}
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		for(int i = 0; i < 6; i++){
-            for(int j = 0; j < 3; j++){
-                if(e.equals(bordasVermelhas[i][j])){
-                    bordasVerdes[i][j].setVisible(true);
-                }
-            }
-        }
+
 	}
 	@Override
 	public void mouseExited(MouseEvent e) {
@@ -178,4 +188,6 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 		// TODO Auto-generated method stub
 		
 	}
+
+
 }

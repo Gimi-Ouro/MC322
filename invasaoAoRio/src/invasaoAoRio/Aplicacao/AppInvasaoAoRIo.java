@@ -30,6 +30,6 @@ public class AppInvasaoAoRIo {
     	gameStart.connect(controle);
     	gameStart.connect(geradorOndas);
     	gameStart.connect(loja);
-    	gameStart.iniciarJogo();
+    	gameStart.iniciarJogo(mapa);
     }
 }
