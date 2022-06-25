@@ -6,9 +6,11 @@ import invasaoAoRio.Model.Tanque;
 import invasaoAoRio.Model.ICelula;
 import invasaoAoRio.Model.Terra;
 import invasaoAoRio.Model.Tiro;
+import invasaoAoRio.View.AlterarEstado.IAtualizaTela;
 
 public class Mapa implements IMapa{
 	private ICelula[][] mapa;
+	private IAtualizaTela atualizaTela;
 
 	public Mapa() {
 		mapa = new ICelula[6][16];
@@ -20,6 +22,10 @@ public class Mapa implements IMapa{
 					mapa[i][j] = new Agua();
 			}
 		}
+	}
+	
+	public void connect(IAtualizaTela atualizaTela) {
+		this.atualizaTela = atualizaTela;
 	}
 	
 	public void removerElemento(int l, int c) {
@@ -80,6 +86,7 @@ public class Mapa implements IMapa{
 	@Override
 	public void removerTanque(Tanque tanque) {
 		mapa[tanque.getL()][tanque.getC()].removerElemento();
+		atualizaTela.removerTanque(tanque);
 	}
 
 
