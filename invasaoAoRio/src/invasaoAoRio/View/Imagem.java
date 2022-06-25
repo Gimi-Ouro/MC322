@@ -7,7 +7,6 @@ public class Imagem extends JLabel {
 
     
     private static final long serialVersionUID = -5038526701167212347L;
-    private int tipo;
     private int l;
     private int c;
 
