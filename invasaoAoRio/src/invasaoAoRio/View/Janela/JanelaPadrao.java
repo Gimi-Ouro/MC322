@@ -204,9 +204,9 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 	@Override
 	public void addBarco(Imagem barcoGerado) {
 		contentPane.add(barcoGerado);
-		barcoGerado.setBounds(barcoGerado.getL(), barcoGerado.getC(), 25, 16);
+		barcoGerado.setBounds(barcoGerado.getL() + 500, barcoGerado.getC() + 500, 60, 30);
         navios.add(barcoGerado);
-		this.contentPane.setComponentZOrder(barcoGerado, 1);
+		this.contentPane.setComponentZOrder(barcoGerado, 5);
 	}
 	@Override
 	public void removerBarco(Barco barco) {
