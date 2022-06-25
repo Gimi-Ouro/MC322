@@ -4,6 +4,7 @@ public class Navio extends Barco{
 	private int resistencia;
 	private boolean caminhoLinhaReta;
 	
+	
 	public Navio(int resistencia, float velocidade, boolean caminhoLinhaReta, int tipo) {
 		super(velocidade, true, tipo);
 		this.resistencia = resistencia;
@@ -17,7 +18,9 @@ public class Navio extends Barco{
 	public void atingir(int dano) {
 		if (this.resistencia > 0)
 			this.resistencia -= dano;
-		else
+		else {
 			this.existe = false;
+			this.mapa.removerBarco(this);
+		}
 	}
 }

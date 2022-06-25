@@ -1,15 +1,22 @@
 package invasaoAoRio.Model;
 
+import invasaoAoRio.Model.Mapa.IMapa;
+
 public class Barco {
 	protected float velocidade; //celulas/seg ou pilels/seg
 	protected boolean existe;
 	protected int tipo;
 	protected int l, c;
+	protected IMapa mapa;
 	
 	public Barco(float velocidade, boolean existe, int tipo) {
 		this.velocidade = velocidade;
 		this.existe = existe;
 		this.tipo = tipo;
+	}
+	
+	public void connect(IMapa mapa) {
+		this.mapa = mapa;
 	}
 	
 	public void setPosicao(int l, int c) {

@@ -23,6 +23,7 @@ public class Tanque {
 	public void connect(IMapa mapa) {
 		this.mapa = mapa;
 	}
+	
 	public void setPosicao(int l, int c) {
 		this.l = l;
 		this.c = c;

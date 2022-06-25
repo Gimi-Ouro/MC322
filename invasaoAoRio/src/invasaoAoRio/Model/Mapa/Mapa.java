@@ -33,9 +33,10 @@ public class Mapa implements IMapa{
 	}
 
 	public void movimentarBarco(int origemL, int origemC, int destinoL, int destinoC) {
-		Barco navio = mapa[origemL][origemC].getBarco();
-		navio.setPosicao(destinoL, destinoC);
-		this.addBarco(navio);
+		Barco barco = mapa[origemL][origemC].getBarco();
+		barco.setPosicao(destinoL, destinoC);
+		atualizaTela.moverBarco(barco, destinoL, destinoC);
+		this.addBarco(barco);
 		this.removerElemento(origemL, origemC);
 	}
 	
@@ -80,6 +81,7 @@ public class Mapa implements IMapa{
 
 	public void addBarco(Barco barco) {
 		if (mapa[barco.getl()][barco.getc()].isAgua()) {
+			barco.connect(this);
 			mapa[barco.getl()][barco.getc()].addBarco(barco);
 			atualizaTela.adicionarBarco(barco);
 		}
@@ -91,5 +93,9 @@ public class Mapa implements IMapa{
 		atualizaTela.removerTanque(tanque);
 	}
 
+	public void removerBarco(Barco barco) {
+		mapa[barco.getl()][barco.getc()].removerElemento();
+		atualizaTela.removeBarco(barco);
+	}
 
 }
