@@ -5,7 +5,7 @@ import invasaoAoRio.Model.Tanque;
 import invasaoAoRio.Model.Tiro;
 import invasaoAoRio.Model.ICelula;
 
-public interface IMapa {
+public interface IMapa extends IRLoja, IRAtualizaTela{
 	public boolean addTanque(Tanque tanque);
 	public ICelula[][] getMapa();
 	public void addBarco(Barco barco);

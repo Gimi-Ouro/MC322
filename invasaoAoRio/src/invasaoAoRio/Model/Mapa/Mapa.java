@@ -1,5 +1,6 @@
 package invasaoAoRio.Model.Mapa;
 
+import invasaoAoRio.Controller.Loja.Iloja;
 import invasaoAoRio.Model.Agua;
 import invasaoAoRio.Model.Barco;
 import invasaoAoRio.Model.Tanque;
@@ -11,6 +12,7 @@ import invasaoAoRio.View.AlterarEstado.IAtualizaTela;
 public class Mapa implements IMapa{
 	private ICelula[][] mapa;
 	private IAtualizaTela atualizaTela;
+	private Iloja loja;
 
 	public Mapa() {
 		mapa = new ICelula[6][16];
@@ -23,10 +25,12 @@ public class Mapa implements IMapa{
 			}
 		}
 	}
-	
+	@Override
 	public void connect(IAtualizaTela atualizaTela) {
 		this.atualizaTela = atualizaTela;
 	}
+	@Override
+	public void connect(Iloja loja) { this.loja = loja;}
 	
 	public void removerElemento(int l, int c) {
 		mapa[l][c].removerElemento();
@@ -101,5 +105,6 @@ public class Mapa implements IMapa{
 		mapa[barco.getl()][barco.getc()].removerElemento();
 		atualizaTela.removerBarco(barco);
 	}
+
 
 }
