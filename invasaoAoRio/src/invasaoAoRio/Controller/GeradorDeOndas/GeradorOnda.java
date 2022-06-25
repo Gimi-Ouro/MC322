@@ -26,7 +26,7 @@ public class GeradorOnda implements IgeradorDeOndas{
     	      for(int i = navio.getc(); i > 4; i--) {
     	    	  mapa.movimentarBarco(navio.getl(), i, navio.getl(), i-1);
     	    	  try {
-					Thread.sleep(500);
+					Thread.sleep(2000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -42,7 +42,7 @@ public class GeradorOnda implements IgeradorDeOndas{
             Random rand = new Random();
             Navio navio = null;
             for (int i = 0; i < quantidadeNavios; i++){
-	            posicionamento = rand.nextInt(mapa.getMapa().length - 1);
+	            posicionamento = rand.nextInt(mapa.getMapa().length);
 	            tipo = rand.nextInt(dificuldade); //tipo de navio que será gerado. A dificuldade pode ir de 1 a 3, dependendo de qual onda estamos
 	            if(tipo == 0){
 	            	navio = new Navio(50, 1, true, 0);
@@ -53,8 +53,8 @@ public class GeradorOnda implements IgeradorDeOndas{
 	            }
 				navio.setPosicao(posicionamento, 15);
 	            mapa.addBarco(navio);
-	            partidaNoNavio(navio);
-	            Thread.sleep(1000);
+	            //partidaNoNavio(navio);
+	            Thread.sleep(intervaloGeracao);
             }
         }
     }

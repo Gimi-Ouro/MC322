@@ -57,11 +57,11 @@ public class GameStart implements IGameStart{
 		janela.conectaGame(this);
 		janela.conecta(mapa);
 		atualizaTela.connect(janela);
-		/*try {
-			geradorOndas.gerarOnda(10, 100, 1);
+		try {
+			geradorOndas.gerarOnda(10, 7000, 1);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
-		}da erro aqui*/
+		}//da erro aqui
 	}
 
 }
