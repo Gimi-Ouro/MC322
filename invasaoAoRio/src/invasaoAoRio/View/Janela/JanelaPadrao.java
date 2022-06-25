@@ -39,7 +39,6 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         tanqueGerado = null;
         tanquesPosicionados = new ArrayList<>();
-        navios = new ArrayList<>();
     }
     @Override
     public void conectaGame(IGameStart gamestart) {
@@ -207,6 +206,10 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 		barcoGerado.setBounds(barcoGerado.getL() + 500, barcoGerado.getC() + 500, 60, 30);
         navios.add(barcoGerado);
 		this.contentPane.setComponentZOrder(barcoGerado, 5);
+		contentPane.add(tanqueGerado);
+		tanqueGerado.setBounds(barcoGerado.getL(), barcoGerado.getC(), 25, 16);
+        navios.add(tanqueGerado);
+		this.contentPane.setComponentZOrder(tanqueGerado, 1);
 	}
 	@Override
 	public void removerBarco(Barco barco) {

@@ -35,7 +35,7 @@ public class GeradorOnda implements IgeradorDeOndas{
     	  }.start();
     }
     
-    public void gerarOnda(int quantidadeNavios, long duracao, int dificuldade) {
+    public void gerarOnda(int quantidadeNavios, long duracao, int dificuldade) throws InterruptedException {
         if(mapa != null) {
             long intervaloGeracao = duracao / quantidadeNavios;
             int posicionamento, tipo;
@@ -56,12 +56,7 @@ public class GeradorOnda implements IgeradorDeOndas{
 	            partidaNoNavio(navio);
 	            /*não sei se essa função sozinha espera o tempo. Quando coloquei ela, 
 	            o IntelliJ pediu pra colocar aquele throws InterruptedException ali em cima*/
-	            try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+	            wait(intervaloGeracao);
             }
         }
     }
