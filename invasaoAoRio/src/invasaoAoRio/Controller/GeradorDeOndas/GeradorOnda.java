@@ -42,7 +42,7 @@ public class GeradorOnda implements IgeradorDeOndas{
             Random rand = new Random();
             Navio navio = null;
             for (int i = 0; i < quantidadeNavios; i++){
-	            posicionamento = rand.nextInt(mapa.getMapa().length);
+	            posicionamento = rand.nextInt(mapa.getMapa().length - 1);
 	            tipo = rand.nextInt(dificuldade); //tipo de navio que será gerado. A dificuldade pode ir de 1 a 3, dependendo de qual onda estamos
 	            if(tipo == 0){
 	            	navio = new Navio(50, 1, true, 0);
@@ -51,7 +51,7 @@ public class GeradorOnda implements IgeradorDeOndas{
 	            } else if(tipo == 2){
 	            	navio = new Navio(100, 1, true, 2);
 	            }
-	            navio.setPosicao(posicionamento, 16);
+	            navio.setPosicao(posicionamento, 15);
 	            mapa.addBarco(navio);
 	            partidaNoNavio(navio);
 	            /*não sei se essa função sozinha espera o tempo. Quando coloquei ela, 

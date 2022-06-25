@@ -12,6 +12,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 import invasaoAoRio.GameStart.IGameStart;
 import invasaoAoRio.Model.Mapa.IMapa;
+import invasaoAoRio.Model.Barco;
 import invasaoAoRio.Model.Tanque;
 import invasaoAoRio.View.Imagem;
 
@@ -26,6 +27,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     private IGameStart gamestart;
     private Imagem tanqueGerado;
     private ArrayList<Imagem> tanquesPosicionados;
+    private ArrayList<Imagem> navios;
     private Imagem[][] bordasVerdes;
     private Imagem[][] bordasVermelhas;
 
@@ -191,6 +193,22 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 	}
 	@Override
 	public void mouseDragged(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void moverBarco(Barco barco, int destinoL, int destinoC) {
+		
+	}
+	@Override
+	public void addBarco(Imagem barcoGerado) {
+		contentPane.add(tanqueGerado);
+		tanqueGerado.setBounds(barcoGerado.getL(), barcoGerado.getC(), 25, 16);
+        navios.add(tanqueGerado);
+		this.contentPane.setComponentZOrder(tanqueGerado, 1);
+	}
+	@Override
+	public void removerBarco(Barco barco) {
 		// TODO Auto-generated method stub
 		
 	}

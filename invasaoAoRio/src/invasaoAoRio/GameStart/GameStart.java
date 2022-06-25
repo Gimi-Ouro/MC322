@@ -55,6 +55,11 @@ public class GameStart implements IGameStart{
 		janela.configuraJanela();
 		janela.conectaGame(this);
 		janela.conecta(mapa);
+		try {
+			geradorOndas.gerarOnda(10, 10000, 1);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
