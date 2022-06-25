@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 import invasaoAoRio.GameStart.IGameStart;
+import invasaoAoRio.Model.Tanque;
 import invasaoAoRio.View.Imagem;
 
 public class JanelaPadrao extends JFrame implements IJanelaPadrao {
@@ -24,6 +25,8 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     private IGameStart gamestart;
     private Imagem tanqueGerado;
     private ArrayList<Imagem> tanquesPosicionados;
+    private Imagem[][] bordasVerdes;
+    private Imagem[][] bordasVermelhas;
     
     public JanelaPadrao(){
         super();
@@ -50,6 +53,20 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         bTanque1.setIcon(new ImageIcon(DIRETORIO + "tanqueverde.png"));
         bTanque2.setIcon(new ImageIcon(DIRETORIO + "tanqueazul.png"));
         bTanque3.setIcon(new ImageIcon(DIRETORIO + "tanquecinza.png"));
+        this.bordasVerdes = new Imagem[6][3];
+        this.bordasVermelhas = new Imagem[6][3];
+        for(int i = 0; i < 6; i++){
+            
+        }
+        /*
+        this.bordaVerdes = new Imagem(DIRETORIO + "bordaverde.png");
+        this.bordaVermelhas = new Imagem(DIRETORIO + "bordavermelha.png");
+        bordaVerde.setBounds(0, 0, 88, 107);
+        bordaVermelha.setBounds(0, 0, 88, 107);
+        contentPane.add(bordaVerde);
+        contentPane.add(bordaVermelha);
+        bordaVerde.setVisible(false);
+        bordaVermelha.setVisible(false);*/
         
         bTanque1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
@@ -89,6 +106,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     		}
     		contentPane.add(tanqueGerado);
     		tanqueGerado.setBounds(botao.getX(), botao.getY(), 113, 66);
+            tanqueGerado.transformaParaLC(tanqueGerado.getX(), tanqueGerado.getY());
             tanquesPosicionados.add(tanqueGerado);
     		this.contentPane.setComponentZOrder(tanqueGerado, 1);
     		SwingUtilities.updateComponentTreeUI(this);
@@ -96,10 +114,20 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     		//falar que não tem créditos suficientes para fazer a compra
     	}
     }
+    public void removerTanque(Tanque tanque){
+        for(Imagem itanque: tanquesPosicionados){
+            if(itanque.getL() == tanque.getL() && itanque.getC() == tanque.getC()){
+                contentPane.remove(itanque);
+                tanquesPosicionados.remove(itanque);
+            }
+        }
+    }
     @Override
     public void mouseMoved(MouseEvent e) {
     	this.contentPane.setComponentZOrder(tanqueGerado, 1);
     	tanqueGerado.setLocation(e.getX()-50, e.getY()-63);
+        tanqueGerado.transformaParaLC(tanqueGerado.getX(), tanqueGerado.getY());
+
     }
 	@Override
 	public void mouseClicked(MouseEvent e) {
