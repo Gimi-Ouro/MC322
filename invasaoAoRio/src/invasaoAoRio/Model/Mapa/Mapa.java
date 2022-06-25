@@ -79,8 +79,10 @@ public class Mapa implements IMapa{
 	}
 
 	public void addBarco(Barco barco) {
-		if (mapa[barco.getl()][barco.getc()].isAgua())
+		if (mapa[barco.getl()][barco.getc()].isAgua()) {
 			mapa[barco.getl()][barco.getc()].addBarco(barco);
+			atualizaTela.adicionarBarco(barco);
+		}
 	}
 
 	@Override

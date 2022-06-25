@@ -3,16 +3,22 @@ package invasaoAoRio.Model;
 public class Barco {
 	protected float velocidade; //celulas/seg ou pilels/seg
 	protected boolean existe;
+	protected int tipo;
 	protected int l, c;
 	
-	public Barco(float velocidade, boolean existe) {
+	public Barco(float velocidade, boolean existe, int tipo) {
 		this.velocidade = velocidade;
 		this.existe = existe;
+		this.tipo = tipo;
 	}
 	
 	public void setPosicao(int l, int c) {
 		this.l = l;
 		this.c = c;
+	}
+	
+	public int getTipo() {
+		return this.tipo;
 	}
 	
 	public boolean getExiste() {
