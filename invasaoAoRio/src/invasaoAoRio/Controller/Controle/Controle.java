@@ -34,7 +34,7 @@ public class Controle implements Icontrole{
     	  }.start();
 	}
 	
-	private void gerarTiros(Tanque tanque) {
+	/*private void gerarTiros(Tanque tanque) {
 		int i = 0;
 		while(tanque.getExiste()) {
 			Tiro tiro = new Tiro(tanque.getL(), 3, tanque.getDano());
@@ -50,14 +50,14 @@ public class Controle implements Icontrole{
 				e.printStackTrace();
 			}
 		}
-	}
+	}da erro aqui*/
 	
 	//(l, c) é a coordenada do evento do click
 	@Override
 	public boolean addTanque(int l, int c) {
 		tanque.setPosicao(l, c);
 		if(mapa.addTanque(tanque)) {
-			gerarTiros(tanque);
+			//gerarTiros(tanque); da erro aqui
 			return true;
 		}
 		return false;

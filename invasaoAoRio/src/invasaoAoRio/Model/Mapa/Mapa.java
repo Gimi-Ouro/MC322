@@ -72,7 +72,7 @@ public class Mapa implements IMapa{
 	@Override
 	public void addTiro(Tiro tiro) {
 		mapa[tiro.getl()][tiro.getc()].addTiro(tiro);
-		//atualizaTela.addTiro(tiro);
+		atualizaTela.addTiro(tiro);
 	}
 	
 	public boolean addTanque(Tanque tanque) {

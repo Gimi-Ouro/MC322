@@ -1,5 +1,7 @@
 package invasaoAoRio.View.AlterarEstado;
 
-public interface IAtualizaTela extends IAtualizaTelaProperties{
+import invasaoAoRio.Model.Mapa.IRAtualizaTela;
+
+public interface IAtualizaTela extends IAtualizaTelaProperties, IRJanelaPadrao {
 
 }

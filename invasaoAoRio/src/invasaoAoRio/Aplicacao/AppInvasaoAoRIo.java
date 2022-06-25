@@ -12,6 +12,7 @@ import invasaoAoRio.Model.Mapa.IMapa;
 import invasaoAoRio.Model.Mapa.Mapa;
 import invasaoAoRio.View.AlterarEstado.AtualizaTela;
 import invasaoAoRio.View.AlterarEstado.IAtualizaTela;
+import invasaoAoRio.View.Janela.JanelaPadrao;
 
 public class AppInvasaoAoRIo {
 	private static Icontrole controle;
@@ -35,6 +36,6 @@ public class AppInvasaoAoRIo {
     	gameStart.connect(controle);
     	gameStart.connect(geradorOndas);
     	gameStart.connect(loja);
-    	gameStart.iniciarJogo(mapa);
+    	gameStart.iniciarJogo(mapa, atualizaTela);
     }
 }

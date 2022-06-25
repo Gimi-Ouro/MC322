@@ -7,6 +7,7 @@ import invasaoAoRio.Controller.Loja.Iloja;
 import invasaoAoRio.Model.Tanque;
 import invasaoAoRio.Model.Mapa.IMapa;
 import invasaoAoRio.Model.Mapa.Mapa;
+import invasaoAoRio.View.AlterarEstado.IAtualizaTela;
 import invasaoAoRio.View.Janela.JanelaPadrao;
 
 import java.awt.event.ActionEvent;
@@ -50,16 +51,17 @@ public class GameStart implements IGameStart{
 	}
 	
 	@Override
-	public void iniciarJogo(IMapa mapa) {
+	public void iniciarJogo(IMapa mapa, IAtualizaTela atualizaTela) {
 		JanelaPadrao janela = new JanelaPadrao();
 		janela.configuraJanela();
 		janela.conectaGame(this);
 		janela.conecta(mapa);
-		try {
-			geradorOndas.gerarOnda(10, 10000, 1);
+		atualizaTela.connect(janela);
+		/*try {
+			geradorOndas.gerarOnda(10, 100, 1);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
-		}
+		}da erro aqui*/
 	}
 
 }
