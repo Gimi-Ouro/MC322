@@ -1,5 +1,7 @@
 package invasaoAoRio.Model;
 
+import invasaoAoRio.Model.Mapa.IMapa;
+
 public class Tanque {
 	private int dano;
 	private int l;
@@ -8,6 +10,7 @@ public class Tanque {
 	private int qtdTiros;
 	private long tirosPorSegundo;
 	private boolean existe;
+	private IMapa mapa;
 	//posição dele na matriz
 	public Tanque(int dano, int preco, int qtdTiros, long tirosPorSegundo) {
 		this.dano = dano;
@@ -15,6 +18,10 @@ public class Tanque {
 		this.qtdTiros = qtdTiros;
 		this.tirosPorSegundo = tirosPorSegundo;
 		this.existe = true;
+	}
+	
+	public void connect(IMapa mapa) {
+		this.mapa = mapa;
 	}
 	public void setPosicao(int l, int c) {
 		this.l = l;
@@ -27,6 +34,7 @@ public class Tanque {
 	
 	public void explodir() {
 		this.existe = false;
+		mapa.removerTanque(this);
 	}
 	
 	public int getQtdTiros() {

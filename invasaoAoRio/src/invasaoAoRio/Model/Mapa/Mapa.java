@@ -61,8 +61,10 @@ public class Mapa implements IMapa{
 	}
 	
 	public boolean addTanque(Tanque tanque) {
-		if (mapa[tanque.getL()][tanque.getC()].isTerra())
+		if (mapa[tanque.getL()][tanque.getC()].isTerra()) {
+			tanque.connect(this);
 			return mapa[tanque.getL()][tanque.getC()].addTanque(tanque);
+		}
 		return false;
 	}
 
