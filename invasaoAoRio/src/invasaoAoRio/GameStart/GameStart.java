@@ -7,7 +7,8 @@ import invasaoAoRio.Controller.Loja.Iloja;
 import invasaoAoRio.Model.Tanque;
 import invasaoAoRio.Model.Mapa.IMapa;
 import invasaoAoRio.Model.Mapa.Mapa;
-import invasaoAoRio.View.JanelaPadrao;
+import invasaoAoRio.View.Janela.JanelaPadrao;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

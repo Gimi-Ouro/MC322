@@ -1,4 +1,4 @@
-package invasaoAoRio.View;
+package invasaoAoRio.View.Janela;
 
 import java.awt.Container;
 import java.awt.event.ActionEvent;
@@ -10,10 +10,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
-import javax.swing.event.MouseInputListener;
-
-import invasaoAoRio.GameStart.GameStart;
 import invasaoAoRio.GameStart.IGameStart;
+import invasaoAoRio.View.Imagem;
 
 public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     private static final long serialVersionUID = -3425706929777799523L;
@@ -96,10 +94,15 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     		//falar que não tem créditos suficientes para fazer a compra
     	}
     }
+    @Override
+    public void mouseMoved(MouseEvent e) {
+    	this.contentPane.setComponentZOrder(tanqueGerado, 1);
+    	tanqueGerado.setLocation(e.getX()-50, e.getY()-63);
+    }
 	@Override
 	public void mouseClicked(MouseEvent e) {
         if(e.getX() < 270 && e.getX() > 40 && e.getY() > 145 && e.getY() < 720){
-			System.out.println("click: " + e.getX() + ", " + e.getY());
+			//System.out.println("click: " + e.getX() + ", " + e.getY());
         	if(gamestart.addTanque(e.getX(), e.getY())) {        		
         		removeMouseMotionListener(this);
         		removeMouseListener(this);
@@ -108,16 +111,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         		//(deixar vermelho a "celula" (área que representa a celula))
         	}
         }
-
 	}
-	@Override
-	public void mouseMoved(MouseEvent e) {
-		this.contentPane.setComponentZOrder(tanqueGerado, 1);
-		tanqueGerado.setLocation(e.getX()-50, e.getY()-63);
-		System.out.println("x: " + e.getX() + " y: " + e.getY());
-		
-	}
-	
 	//////não utilizado por enquanto
 	@Override
 	public void mousePressed(MouseEvent e) {
