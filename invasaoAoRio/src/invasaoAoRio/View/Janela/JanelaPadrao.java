@@ -143,6 +143,15 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         return mapa.getMapa()[l][c].isVazia();
     }
 
+    public void alteraVisibilidadeBordas(boolean estado){
+        for(int i = 0; i < 6; i++){
+            for(int j = 0; j < 3; j++){
+                bordasVermelhas[i][j].setVisible(estado);
+                bordasVerdes[i][j].setVisible(estado);
+            }
+        }
+    }
+
     @Override
     public void mouseMoved(MouseEvent e) {
     	this.contentPane.setComponentZOrder(tanqueGerado, 1);
@@ -158,6 +167,8 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         	if(gamestart.addTanque(e.getX(), e.getY())) {        		
         		removeMouseMotionListener(this);
         		removeMouseListener(this);
+                alteraVisibilidadeBordas(false);
+
         	}else {
         		//falar que não da para colocar o tanque em cima do outro
         		//(deixar vermelho a "celula" (área que representa a celula))
