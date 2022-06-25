@@ -4,4 +4,5 @@ import invasaoAoRio.Model.Tanque;
 
 public interface Iloja {
 	public Tanque compraCanhao(int produto);
+	public void navioAbatido(int tipo);
 }
