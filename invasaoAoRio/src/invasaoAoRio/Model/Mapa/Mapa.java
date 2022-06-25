@@ -46,14 +46,17 @@ public class Mapa implements IMapa{
 		//chegou no final da matriz - não movimentou
 		if(destinoC > 15) {
 			this.removerElemento(origemL, origemC);
+			atualizaTela.removerTiro(tiro);
 			return false;
 		}else if(!mapa[destinoL][destinoC].isVazia()) {
 			//atingiu um navio - não movimentou
 			mapa[destinoL][destinoC].getBarco().atingir(tiro.getDano());
 			this.removerElemento(origemL, origemC);
+			atualizaTela.removerTiro(tiro);
 			return false;
 		}else {
 			//celula vazia o tiro se movimentou
+			atualizaTela.moverTiro(tiro, destinoL, destinoC);
 			tiro.setc(destinoC); 
 			tiro.setl(destinoL);
 			this.addTiro(tiro);
@@ -65,6 +68,7 @@ public class Mapa implements IMapa{
 	@Override
 	public void addTiro(Tiro tiro) {
 		mapa[tiro.getl()][tiro.getc()].addTiro(tiro);
+		atualizaTela.addTiro(tiro);
 	}
 	
 	public boolean addTanque(Tanque tanque) {
