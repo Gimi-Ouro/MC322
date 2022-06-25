@@ -12,6 +12,7 @@ import invasaoAoRio.Model.Mapa.IMapa;
 import invasaoAoRio.Model.Mapa.Mapa;
 import invasaoAoRio.View.AlterarEstado.AtualizaTela;
 import invasaoAoRio.View.AlterarEstado.IAtualizaTela;
+import invasaoAoRio.View.Janela.JanelaPadrao;
 
 public class AppInvasaoAoRIo {
 	private static Icontrole controle;
@@ -26,8 +27,13 @@ public class AppInvasaoAoRIo {
     	controle = new Controle();
     	geradorOndas = new GeradorOnda();
     	atualizaTela = new AtualizaTela();
+    	JanelaPadrao janela = new JanelaPadrao();
+		janela.configuraJanela();
+		janela.conectaGame(gameStart);
+		janela.conecta(mapa);
     	loja = new Loja(600); //inicia com 100 créditos
     	mapa = new Mapa();
+    	atualizaTela.connect(janela);
     	mapa.connect(atualizaTela);
     	geradorOndas.connect(mapa);
     	controle.connect(mapa);

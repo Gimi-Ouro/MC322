@@ -51,12 +51,8 @@ public class GameStart implements IGameStart{
 	
 	@Override
 	public void iniciarJogo(IMapa mapa) {
-		JanelaPadrao janela = new JanelaPadrao();
-		janela.configuraJanela();
-		janela.conectaGame(this);
-		janela.conecta(mapa);
 		try {
-			geradorOndas.gerarOnda(10, 10000, 1);
+			geradorOndas.gerarOnda(10, 100, 1);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
