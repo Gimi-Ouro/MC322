@@ -41,7 +41,7 @@ public class Mapa implements IMapa{
 		if (barco != null) {
 			atualizaTela.moverBarco(barco, destinoL, destinoC);
 			barco.setPosicao(destinoL, destinoC);
-			this.addBarco(barco);
+			this.addBarcoNaMatriz(barco);
 			this.removerElemento(origemL, origemC);
 		}
 	}
@@ -88,13 +88,18 @@ public class Mapa implements IMapa{
 	public ICelula[][] getMapa() {
 		return this.mapa;
 	}
-
-	public void addBarco(Barco barco) {
+	
+	public void addBarcoNaMatriz(Barco barco) {
 		if (mapa[barco.getl()][barco.getc()].isAgua()) {
 			barco.connect(this);
 			mapa[barco.getl()][barco.getc()].addBarco(barco);
-			atualizaTela.adicionarBarco(barco);
 		}
+	}
+
+	public void addBarco(Barco barco) {
+		this.addBarcoNaMatriz(barco);
+		atualizaTela.adicionarBarco(barco);
+		
 	}
 
 	@Override
