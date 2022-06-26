@@ -42,10 +42,10 @@ public class GeradorOnda implements IgeradorDeOndas{
     	t.start();
     }
     
-    public void pararOnda() {
-    	
+    @SuppressWarnings("deprecation")
+	public void pararOnda() {
     	for (Thread t: threads) {
-    		t.stop();
+    		t.stop();;
     	}
     }
     
