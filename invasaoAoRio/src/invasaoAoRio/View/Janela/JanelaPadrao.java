@@ -170,16 +170,16 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     @Override
     public void mouseMoved(MouseEvent e) {
     	this.contentPane.setComponentZOrder(tanqueGerado, 1);
-    	tanqueGerado.setLocation(e.getX()-50, e.getY()-63);
-        if(e.getX() < 270 && e.getX() > 40 && e.getY() > 145 && e.getY() < 720) {
+    	tanqueGerado.setLocation(e.getX() - 44/2, e.getY() - 69);
+        if(e.getX() < 296 && e.getX() > 32 && e.getY() > 85 && e.getY() < 727) {
             tanqueGerado.transformaParaLC(tanqueGerado.getX(), tanqueGerado.getY());
-            tanqueGerado.setLocation(32 + tanqueGerado.getC()*88, 105 + tanqueGerado.getL()*107);
+            tanqueGerado.setLocation(32 + tanqueGerado.getC()*88, 110 + tanqueGerado.getL()*107);
         }
     }
 	@Override
 	public void mouseClicked(MouseEvent e) {
-        if(e.getX() < 270 && e.getX() > 40 && e.getY() > 145 && e.getY() < 720){
-        	if(gamestart.addTanque(e.getX(), e.getY())) {        		
+        if(e.getX() < 296 && e.getX() > 32 && e.getY() > 85 && e.getY() < 727){
+        	if(gamestart.addTanque(tanqueGerado.getX(), tanqueGerado.getY())) {
         		removeMouseMotionListener(this);
         		removeMouseListener(this);
                 alteraVisibilidadeBordas(false);
