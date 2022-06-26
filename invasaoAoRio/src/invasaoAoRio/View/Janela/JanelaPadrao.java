@@ -5,11 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
-import javax.swing.WindowConstants;
+import javax.swing.*;
+
 import invasaoAoRio.GameStart.IGameStart;
 import invasaoAoRio.Model.Mapa.IMapa;
 import invasaoAoRio.Model.Barco;
@@ -24,6 +21,9 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     private JButton bTanque1;
     private JButton bTanque2;
     private JButton bTanque3;
+    private JButton bStart;
+    private JTextField textoStart;
+    private JTextField textoEnd;
     private IGameStart gamestart;
     private Imagem tanqueGerado;
     private ArrayList<Imagem> tanquesPosicionados;
@@ -57,15 +57,28 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         this.bTanque1 = new JButton();
         this.bTanque2 = new JButton();
         this.bTanque3 = new JButton();
+        this.bStart = new JButton();
+        this.textoStart = new JTextField();
+        this.textoEnd = new JTextField();
         contentPane.add(bTanque1);
         contentPane.add(bTanque2);
         contentPane.add(bTanque3);
+        contentPane.add(bStart);
+        contentPane.add(textoStart);
+        contentPane.add(textoEnd);
+        textoStart.setText("APERTE PARA INICIAR");
+        textoEnd.setText("VOCE PERDEU");
+        textoStart.setBounds(1255, 60, 135, 25);
+        textoEnd.setBounds(730,355, 100, 25);
+        textoEnd.setVisible(false);
         bTanque1.setBounds(5, 5, 120,70);
         bTanque2.setBounds(130, 5, 120,70);
         bTanque3.setBounds(255, 5, 120,70);
+        bStart.setBounds(1300, 5, 48, 48);
         bTanque1.setIcon(new ImageIcon(DIRETORIO + "tanqueverde.png"));
         bTanque2.setIcon(new ImageIcon(DIRETORIO + "tanqueazul.png"));
         bTanque3.setIcon(new ImageIcon(DIRETORIO + "tanquecinza.png"));
+        bStart.setIcon(new ImageIcon(DIRETORIO + "botao_start.png"));
         this.bordasVerdes = new Imagem[6][3];
         this.bordasVermelhas = new Imagem[6][3];
         for(int i = 0; i < 6; i++){
@@ -154,7 +167,6 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
             }
         }
     }
-
     @Override
     public void mouseMoved(MouseEvent e) {
     	this.contentPane.setComponentZOrder(tanqueGerado, 1);
