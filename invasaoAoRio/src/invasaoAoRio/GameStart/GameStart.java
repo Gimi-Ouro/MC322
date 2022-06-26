@@ -45,8 +45,8 @@ public class GameStart implements IGameStart{
 	//true se colocou e false se não foi possivel colocar
 	public boolean addTanque(int x, int y) {
 		int l, c;
-		l = (int) (y-112)/106;
-		c = (int) x/88;
+		l = (y-107/2)/107;
+		c = x/88;
 		return controle.addTanque(l, c);
 	}
 	
