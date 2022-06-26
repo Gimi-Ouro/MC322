@@ -126,7 +126,12 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     }
 
     public void teste() {
-    	gamestart.start();
+    	new Thread() {
+    	    @Override
+    	    public void run() {
+    	    	gamestart.start();    	      
+    	    }
+    	  }.start();
     }
     
     public void apertouBotao(int numeroBotao, JButton botao){
