@@ -69,17 +69,20 @@ public class Mapa implements IMapa{
 			if(mapa[tiro.getl()][tiro.getc() + 1].isAgua() && !mapa[tiro.getl()][tiro.getc() + 1].isVazia()){
 				tiro.atingir(mapa[tiro.getl()][tiro.getc() + 1].getBarco());
 				removerTiro(tiro);
+				//atualizaTela.removerTiro(tiro);
 				return false;
 			}
 			else{
 				removerTiro(tiro);
 				tiro.setc(tiro.getc() + 1);
-				addTiro(tiro);
+				addTiro(tiro, false);
+				atualizaTela.moverTiro(tiro);
 				return true;
 			}
 		}
 		else{
 			removerTiro(tiro);
+			//atualizaTela.removerTiro(tiro);
 			return true;
 		}
 
@@ -107,9 +110,9 @@ public class Mapa implements IMapa{
 	}
 	
 	@Override
-	public void addTiro(Tiro tiro) {
+	public void addTiro(Tiro tiro, boolean addNaTela) {
 		mapa[tiro.getl()][tiro.getc()].addTiro(tiro);
-		atualizaTela.addTiro(tiro);
+		if(addNaTela){ atualizaTela.addTiro(tiro);}
 	}
 	
 	public boolean addTanque(Tanque tanque) {

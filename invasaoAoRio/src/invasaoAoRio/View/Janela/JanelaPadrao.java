@@ -11,6 +11,7 @@ import invasaoAoRio.GameStart.IGameStart;
 import invasaoAoRio.Model.Mapa.IMapa;
 import invasaoAoRio.Model.Barco;
 import invasaoAoRio.Model.Tanque;
+import invasaoAoRio.Model.Tiro;
 import invasaoAoRio.View.Imagem;
 
 public class JanelaPadrao extends JFrame implements IJanelaPadrao {
@@ -28,6 +29,8 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     private Imagem tanqueGerado;
     private ArrayList<Imagem> tanquesPosicionados;
     private ArrayList<Imagem> navios;
+
+    private ArrayList<Imagem> tiros;
     private Imagem[][] bordasVerdes;
     private Imagem[][] bordasVermelhas;
 
@@ -40,6 +43,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         tanqueGerado = null;
         tanquesPosicionados = new ArrayList<>();
         navios = new ArrayList<>();
+        tiros = new ArrayList<>();
     }
     @Override
     public void conectaGame(IGameStart gamestart) {
@@ -179,11 +183,15 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 	@Override
 	public void mouseClicked(MouseEvent e) {
         if(e.getX() < 296 && e.getX() > 32 && e.getY() > 85 && e.getY() < 727){
-        	if(gamestart.addTanque(tanqueGerado.getX(), tanqueGerado.getY())) {
-        		removeMouseMotionListener(this);
-        		removeMouseListener(this);
-                alteraVisibilidadeBordas(false);
-        	}
+            try {
+                if(gamestart.addTanque(tanqueGerado.getX(), tanqueGerado.getY())) {
+                    removeMouseMotionListener(this);
+                    removeMouseListener(this);
+                    alteraVisibilidadeBordas(false);
+                }
+            } catch (InterruptedException ex) {
+                throw new RuntimeException(ex);
+            }
         }
 	}
 	//////não utilizado por enquanto
@@ -240,6 +248,36 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 		contentPane.add(mensagem);
 		gamestart.acabarJogo();
 	}
+
+    public void addTiro(Imagem itiro){
+        contentPane.add(itiro);
+        itiro.setBounds(32 + itiro.getC()*88, 112 + itiro.getL()*107, 38, 26);
+        contentPane.setComponentZOrder(itiro, 2);
+        tiros.add(itiro);
+        SwingUtilities.updateComponentTreeUI(this);
+    }
+
+    public void moverTiro(Tiro tiro){
+        Imagem tiro1 = null;
+        for(Imagem iTiro: tiros){
+            if(iTiro.getId() == tiro.getid()){
+                tiro1 = iTiro;
+                tiro1.setLocation(tiro1.getX() + 120, tiro1.getY());
+                break;
+            }
+        }
+    }
+
+    public void removerTiro(Tiro tiro){
+        Imagem tiro1;
+        for(Imagem iTiro: tiros){
+            if(iTiro.getId() == tiro.getid()) {
+                tiro1 = iTiro;
+                tiros.remove(tiro1);
+                tiro1.setVisible(false);
+            }
+        }
+    }
 
 
 }

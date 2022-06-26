@@ -43,7 +43,7 @@ public class GameStart implements IGameStart{
 	}
 	
 	//true se colocou e false se não foi possivel colocar
-	public boolean addTanque(int x, int y) {
+	public boolean addTanque(int x, int y) throws InterruptedException {
 		int l, c;
 		l = (y-107/2)/107;
 		c = x/88;

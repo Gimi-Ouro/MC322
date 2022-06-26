@@ -12,6 +12,8 @@ public class Controle implements Icontrole{
 
 	private ArrayList<ThreadMovimentoTiro> threads;
 
+	private static int nids = 0;
+
 	public Controle(){
 		threads = new ArrayList<>();
 	}
@@ -43,8 +45,9 @@ public class Controle implements Icontrole{
 	}*/
 	
 	private void gerarTiros(Tanque tanque) {
-		Tiro tiro = new Tiro(tanque.getL(), tanque.getC() + 1, tanque.getDano());
-		mapa.addTiro(tiro);
+		Tiro tiro = new Tiro(tanque.getL(), tanque.getC() + 1, tanque.getDano(), nids);
+		nids++;
+		mapa.addTiro(tiro, true);
 		ThreadMovimentoTiro t = new ThreadMovimentoTiro(tiro, mapa);
 		threads.add(t);
 		t.start();
@@ -52,10 +55,10 @@ public class Controle implements Icontrole{
 	
 	//(l, c) é a coordenada do evento do click
 	@Override
-	public boolean addTanque(int l, int c) {
+	public boolean addTanque(int l, int c) throws InterruptedException {
 		tanque.setPosicao(l, c);
 		if(mapa.addTanque(tanque)) {
-			//gerarTiros(tanque); //da erro aqui
+			gerarTiros(tanque); //da erro aqui
 			return true;
 		}
 		return false;

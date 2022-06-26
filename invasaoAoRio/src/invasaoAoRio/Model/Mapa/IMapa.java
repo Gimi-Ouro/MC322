@@ -12,7 +12,7 @@ public interface IMapa extends IRLoja, IRAtualizaTela{
 	public void removerElemento(int l, int c);
 	public void movimentarBarco(int origemL, int origemC, int destinoL, int destinoC);
 	public boolean moverTiro(Tiro tiro);
-	public void addTiro(Tiro tiro);
+	public void addTiro(Tiro tiro, boolean addNaTela);
 	public void removerTanque(Tanque tanque);
 	public void removerBarco(Barco barco);
 }

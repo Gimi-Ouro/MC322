@@ -22,7 +22,7 @@ public class ThreadMovimentoTiro extends Thread{
         for(int i = 15; i > colunaInicial; i--) {
             mapa.moverTiro(tiro);
             try {
-                Thread.sleep(300);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
