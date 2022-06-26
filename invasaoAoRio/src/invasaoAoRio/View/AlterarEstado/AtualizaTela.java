@@ -29,6 +29,7 @@ public class AtualizaTela implements IAtualizaTela{
 		}
 		barcoGerado.setL(barco.getl());
 		barcoGerado.setC(barco.getc());
+		barcoGerado.setId(barco.getId());
 		//deve adicionar a imagem gerada do barco no contentPane
 		janela.addBarco(barcoGerado);
 	}

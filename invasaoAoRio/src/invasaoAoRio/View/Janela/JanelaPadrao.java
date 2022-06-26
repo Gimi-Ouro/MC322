@@ -201,7 +201,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 	public void moverBarco(Barco barco, int destinoL, int destinoC) {
 		Imagem barco1 = null;
 		for(Imagem iBarco: navios){
-            if(iBarco.getL() == barco.getl() && iBarco.getC() == barco.getc()){
+            if(iBarco.getId() == barco.getId()){
             	barco1 = iBarco;
             	barco1.setLocation(barco1.getX() - 120, barco1.getY());
             	break;

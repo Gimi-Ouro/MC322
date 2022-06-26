@@ -90,7 +90,8 @@ public class Mapa implements IMapa{
 	}
 	
 	public void addBarcoNaMatriz(Barco barco) {
-		if (mapa[barco.getl()][barco.getc()].isAgua()) {
+		if (mapa[barco.getl()][barco.getc()].isAgua()
+				&& mapa[barco.getl()][barco.getc()].isVazia()) {
 			barco.connect(this);
 			mapa[barco.getl()][barco.getc()].addBarco(barco);
 		}

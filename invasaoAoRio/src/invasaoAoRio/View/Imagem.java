@@ -9,11 +9,20 @@ public class Imagem extends JLabel {
     private static final long serialVersionUID = -5038526701167212347L;
     private int l;
     private int c;
+    private int id;
 
 	public Imagem(String arquivoImagem){
         super(new ImageIcon(arquivoImagem));
     }
 
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
     public int getL(){
         return this.l;
     }

@@ -4,8 +4,8 @@ public class Kamikaze extends Barco{
 	private int dano;
 	private int preco;
 	
-	public Kamikaze(int velocidade, int dano, int preco, int tipo) {
-		super(velocidade, true, tipo);
+	public Kamikaze(int velocidade, int dano, int preco, int tipo, int id) {
+		super(velocidade, true, tipo, id);
 		this.dano = dano;
 		this.preco = preco;
 	}

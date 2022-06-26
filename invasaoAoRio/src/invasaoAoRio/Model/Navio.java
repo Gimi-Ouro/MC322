@@ -5,8 +5,8 @@ public class Navio extends Barco{
 	private boolean caminhoLinhaReta;
 	
 	
-	public Navio(int resistencia, float velocidade, boolean caminhoLinhaReta, int tipo) {
-		super(velocidade, true, tipo);
+	public Navio(int resistencia, float velocidade, boolean caminhoLinhaReta, int tipo, int id) {
+		super(velocidade, true, tipo, id);
 		this.resistencia = resistencia;
 		this.caminhoLinhaReta = caminhoLinhaReta;
 	}

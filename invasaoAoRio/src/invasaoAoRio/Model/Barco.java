@@ -8,11 +8,17 @@ public class Barco {
 	protected int tipo;
 	protected int l, c;
 	protected IMapa mapa;
+	protected int id;
 	
-	public Barco(float velocidade, boolean existe, int tipo) {
+	public int getId() {
+		return id;
+	}
+	
+	public Barco(float velocidade, boolean existe, int tipo, int id) {
 		this.velocidade = velocidade;
 		this.existe = existe;
 		this.tipo = tipo;
+		this.id = id;
 	}
 	
 	public void connect(IMapa mapa) {
