@@ -9,12 +9,13 @@ public class Barco {
 	protected int l, c;
 	protected IMapa mapa;
 	protected int id;
-	
+	protected int resistencia;
 	public int getId() {
 		return id;
 	}
 	
-	public Barco(float velocidade, boolean existe, int tipo, int id) {
+	public Barco(int resistencia, float velocidade, boolean existe, int tipo, int id) {
+		this.resistencia = resistencia;
 		this.velocidade = velocidade;
 		this.existe = existe;
 		this.tipo = tipo;
@@ -33,6 +34,7 @@ public class Barco {
 	public int getTipo() {
 		return this.tipo;
 	}
+	public int getResistencia(){ return this.resistencia;}
 	
 	public boolean getExiste() {
 		return this.existe;
@@ -41,9 +43,8 @@ public class Barco {
 	public float getVelocidade() {
 		return this.velocidade;
 	}
-	public void atingir(int dano) {
-		
-	}
+
+	public void atingir(int dano){}
 	public int getl() {
 		return this.l;
 	}

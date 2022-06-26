@@ -32,5 +32,9 @@ public class Tiro {
 	}	
 	public void setc(int c) {
 		this.c = c;
-	}		
+	}
+
+    public void atingir(Barco barco) {
+		barco.atingir(dano);
+    }
 }

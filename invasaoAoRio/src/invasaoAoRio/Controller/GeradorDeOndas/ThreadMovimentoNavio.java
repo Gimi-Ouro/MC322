@@ -8,6 +8,7 @@ public class ThreadMovimentoNavio extends Thread {
 	private IMapa mapa;
 	
 	public ThreadMovimentoNavio(IMapa mapa, Barco navio) {
+		super();
 		this.mapa = mapa;
 		this.navio = navio;
 	}

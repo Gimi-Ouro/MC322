@@ -37,6 +37,10 @@ public class Mapa implements IMapa{
 	public void removerElemento(int l, int c) {
 		mapa[l][c].removerElemento();
 	}
+
+	public void removerTiro(Tiro tiro){
+		mapa[tiro.getl()][tiro.getc()].removerTiro();
+	}
 	
 	private void verificarEstado() {
 		for (int i = 0; i < 6; i++) {
@@ -60,9 +64,27 @@ public class Mapa implements IMapa{
 	}
 	
 	@Override
-	public boolean moverTiro(int origemL, int origemC, int destinoL, int destinoC) {
-		Tiro tiro = mapa[origemL][origemC].getTiro();
-		//chegou no final da matriz - não movimentou
+	public boolean moverTiro(Tiro tiro) {
+		if(tiro.getc() != 15){
+			if(mapa[tiro.getl()][tiro.getc() + 1].isAgua() && !mapa[tiro.getl()][tiro.getc() + 1].isVazia()){
+				tiro.atingir(mapa[tiro.getl()][tiro.getc() + 1].getBarco());
+				removerTiro(tiro);
+				return false;
+			}
+			else{
+				removerTiro(tiro);
+				tiro.setc(tiro.getc() + 1);
+				addTiro(tiro);
+				return true;
+			}
+		}
+		else{
+			removerTiro(tiro);
+			return true;
+		}
+
+
+		/*chegou no final da matriz - não movimentou
 		if(destinoC > 15) {
 			this.removerElemento(origemL, origemC);
 			atualizaTela.removerTiro(tiro);
@@ -81,7 +103,7 @@ public class Mapa implements IMapa{
 			this.addTiro(tiro);
 			this.removerElemento(origemL, origemC);
 			return true;
-		}
+		}*/
 	}
 	
 	@Override

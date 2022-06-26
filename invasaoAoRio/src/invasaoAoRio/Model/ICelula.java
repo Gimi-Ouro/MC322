@@ -12,4 +12,6 @@ public interface ICelula {
     public void addTiro(Tiro tiro);
     public void removerElemento();
     public boolean isVazia();
+
+    void removerTiro();
 }

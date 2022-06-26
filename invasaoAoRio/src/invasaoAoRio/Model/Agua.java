@@ -54,6 +54,11 @@ public class Agua implements ICelula{
 	}
 
 	@Override
+	public void removerTiro() {
+		this.tiro = null;
+	}
+
+	@Override
 	public Tiro getTiro() {		
 		return tiro;
 	}

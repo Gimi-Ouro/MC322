@@ -1,13 +1,12 @@
 package invasaoAoRio.Model;
 
 public class Navio extends Barco{
-	private int resistencia;
+
 	private boolean caminhoLinhaReta;
 	
 	
 	public Navio(int resistencia, float velocidade, boolean caminhoLinhaReta, int tipo, int id) {
-		super(velocidade, true, tipo, id);
-		this.resistencia = resistencia;
+		super(resistencia, velocidade, true, tipo, id);
 		this.caminhoLinhaReta = caminhoLinhaReta;
 	}
 	
@@ -15,6 +14,7 @@ public class Navio extends Barco{
 		return this.caminhoLinhaReta;
 	}
 	
+	@Override
 	public void atingir(int dano) {
 		if (this.resistencia > 0)
 			this.resistencia -= dano;
