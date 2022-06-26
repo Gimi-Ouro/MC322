@@ -203,7 +203,8 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 		for(Imagem iBarco: navios){
             if(iBarco.getId() == barco.getId()){
             	barco1 = iBarco;
-            	barco1.setLocation(barco1.getX() - 120, barco1.getY());
+            	if (barco1.getX() - 120 > 260)
+            		barco1.setLocation(barco1.getX() - 120, barco1.getY());
             	break;
             }
         }
@@ -211,7 +212,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 	@Override
 	public void addBarco(Imagem barcoGerado) {
 		contentPane.add(barcoGerado);
-		barcoGerado.setBounds(1200/*1408-120*/, barcoGerado.getL()*100 + 112, 113, 65);
+		barcoGerado.setBounds(1408-120, barcoGerado.getL()*100 + 112, 113, 65);
         navios.add(barcoGerado);
         contentPane.setComponentZOrder(barcoGerado, 1);
         SwingUtilities.updateComponentTreeUI(this);

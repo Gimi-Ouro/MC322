@@ -1,6 +1,7 @@
 package invasaoAoRio.Model.Mapa;
 
 import invasaoAoRio.Controller.Loja.Iloja;
+import invasaoAoRio.GameStart.IGameStart;
 import invasaoAoRio.Model.Agua;
 import invasaoAoRio.Model.Barco;
 import invasaoAoRio.Model.Tanque;
@@ -13,6 +14,7 @@ public class Mapa implements IMapa{
 	private ICelula[][] mapa;
 	private IAtualizaTela atualizaTela;
 	private Iloja loja;
+	private IGameStart gameStart;
 
 	public Mapa() {
 		mapa = new ICelula[6][16];
@@ -32,8 +34,23 @@ public class Mapa implements IMapa{
 	@Override
 	public void connect(Iloja loja) { this.loja = loja;}
 	
+	public void connect(IGameStart gameStart) {
+		this.gameStart = gameStart;
+	}
+	
 	public void removerElemento(int l, int c) {
 		mapa[l][c].removerElemento();
+	}
+	
+	private void verificarEstado() {
+		int qtdNavios = 0;
+		for (int i = 0; i < 6; i++) {
+			if(!mapa[i][3].isVazia())
+				qtdNavios++;
+		}
+		//if (qtdNavios > 2) {
+		//	gameStart.
+		//}
 	}
 
 	public void movimentarBarco(int origemL, int origemC, int destinoL, int destinoC) {
@@ -43,6 +60,7 @@ public class Mapa implements IMapa{
 			barco.setPosicao(destinoL, destinoC);
 			this.addBarcoNaMatriz(barco);
 			this.removerElemento(origemL, origemC);
+			verificarEstado();
 		}
 	}
 	
