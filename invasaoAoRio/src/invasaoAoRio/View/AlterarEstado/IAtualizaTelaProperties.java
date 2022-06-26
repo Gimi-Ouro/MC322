@@ -12,4 +12,5 @@ public interface IAtualizaTelaProperties {
 	public void addTiro(Tiro tiro);
 	public void removerTiro(Tiro tiro);
 	public void moverTiro(Tiro tiro, int l, int c);
+	public void acabarJogo();
 }

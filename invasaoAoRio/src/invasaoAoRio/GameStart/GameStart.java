@@ -50,8 +50,16 @@ public class GameStart implements IGameStart{
 		return controle.addTanque(l, c);
 	}
 	
+	public void start() {
+		try {
+			geradorOndas.gerarOnda(10, 20000, 1);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void acabarJogo() {
-		
+		Thread.interrupted();
 	} 
 	
 	@Override
@@ -61,11 +69,7 @@ public class GameStart implements IGameStart{
 		janela.conectaGame(this);
 		janela.conecta(mapa);
 		atualizaTela.connect(janela);
-		try {
-			geradorOndas.gerarOnda(10, 20000, 1);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		start();
 	}
 
 }

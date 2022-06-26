@@ -222,6 +222,11 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public void acabarJogo(Imagem mensagem) {
+		contentPane.add(mensagem);
+		gamestart.acabarJogo();
+	}
 
 
 }

@@ -61,5 +61,11 @@ public class AtualizaTela implements IAtualizaTela{
 	public void moverTiro(Tiro tiro, int l, int c) {
 		//janela.moverTiro(tiro, l, c);
 	}
+
+	@Override
+	public void acabarJogo() {
+		Imagem mensagem = new Imagem(janela.getDIRETORIO() + "pvz.png");
+		janela.acabarJogo(mensagem);
+	}
 	
 }

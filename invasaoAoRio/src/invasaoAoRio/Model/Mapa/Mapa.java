@@ -14,7 +14,6 @@ public class Mapa implements IMapa{
 	private ICelula[][] mapa;
 	private IAtualizaTela atualizaTela;
 	private Iloja loja;
-	private IGameStart gameStart;
 
 	public Mapa() {
 		mapa = new ICelula[6][16];
@@ -34,10 +33,6 @@ public class Mapa implements IMapa{
 	@Override
 	public void connect(Iloja loja) { this.loja = loja;}
 	
-	public void connect(IGameStart gameStart) {
-		this.gameStart = gameStart;
-	}
-	
 	public void removerElemento(int l, int c) {
 		mapa[l][c].removerElemento();
 	}
@@ -48,9 +43,9 @@ public class Mapa implements IMapa{
 			if(!mapa[i][3].isVazia())
 				qtdNavios++;
 		}
-		//if (qtdNavios > 2) {
-		//	gameStart.
-		//}
+		if (qtdNavios > 3) {
+			atualizaTela.acabarJogo();
+		}
 	}
 
 	public void movimentarBarco(int origemL, int origemC, int destinoL, int destinoC) {
