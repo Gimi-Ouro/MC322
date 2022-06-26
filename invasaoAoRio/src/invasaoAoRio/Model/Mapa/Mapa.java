@@ -14,6 +14,7 @@ public class Mapa implements IMapa{
 	private ICelula[][] mapa;
 	private IAtualizaTela atualizaTela;
 	private Iloja loja;
+	private static int qtdNaviosParados = 0;
 
 	public Mapa() {
 		mapa = new ICelula[6][16];
@@ -38,12 +39,11 @@ public class Mapa implements IMapa{
 	}
 	
 	private void verificarEstado() {
-		int qtdNavios = 0;
 		for (int i = 0; i < 6; i++) {
 			if(!mapa[i][3].isVazia())
-				qtdNavios++;
+				qtdNaviosParados++;
 		}
-		if (qtdNavios > 3) {
+		if (qtdNaviosParados > 2) {
 			atualizaTela.acabarJogo();
 		}
 	}

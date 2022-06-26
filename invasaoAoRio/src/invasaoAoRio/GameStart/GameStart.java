@@ -59,7 +59,7 @@ public class GameStart implements IGameStart{
 	}
 	
 	public void acabarJogo() {
-		Thread.interrupted();
+		geradorOndas.pararOnda();
 	} 
 	
 	@Override

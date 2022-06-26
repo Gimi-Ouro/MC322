@@ -1,5 +1,6 @@
 package invasaoAoRio.Controller.GeradorDeOndas;
 
+import java.util.ArrayList;
 import java.util.Random;
 //import java.util.Timer;
 
@@ -10,6 +11,7 @@ import invasaoAoRio.Model.Mapa.IMapa;
 public class GeradorOnda implements IgeradorDeOndas{
     //private Timer tempoInterno;
     private IMapa mapa;
+    private ArrayList<ThreadMovimentoNavio> threads;
 
     //public GeradorOnda(){
         //tempoInterno = new Timer();
@@ -20,7 +22,7 @@ public class GeradorOnda implements IgeradorDeOndas{
     }
     
     private void partidaNoNavio(Barco navio) {
-    	new Thread() {
+    	/*new Thread() {
     	    @Override
     	    public void run() {
     	    	Thread t = Thread.currentThread();
@@ -34,11 +36,22 @@ public class GeradorOnda implements IgeradorDeOndas{
 				}
     	      }
     	    }
-    	  }.start();
+    	  }.start();*/
+    	ThreadMovimentoNavio t = new ThreadMovimentoNavio(mapa, navio);
+    	threads.add(t);
+    	t.start();
+    }
+    
+    public void pararOnda() {
+    	
+    	for (Thread t: threads) {
+    		t.stop();
+    	}
     }
     
     public void gerarOnda(int quantidadeNavios, long duracao, int dificuldade) throws InterruptedException {
         if(mapa != null) {
+        	threads = new ArrayList<>();
             long intervaloGeracao = duracao / quantidadeNavios;
             int posicionamento, tipo;
             Random rand = new Random();
