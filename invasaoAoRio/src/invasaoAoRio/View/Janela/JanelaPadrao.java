@@ -133,7 +133,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     			tanqueGerado = new Imagem(DIRETORIO + "tanquecinza.png");
     		}
     		contentPane.add(tanqueGerado);
-    		tanqueGerado.setBounds(botao.getX(), botao.getY(), 113, 66);
+    		tanqueGerado.setBounds(botao.getX(), botao.getY(), 92, 69);
             tanquesPosicionados.add(tanqueGerado);
     		this.contentPane.setComponentZOrder(tanqueGerado, 1);
             for(int i = 0; i < 6; i++){
@@ -173,6 +173,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     	tanqueGerado.setLocation(e.getX()-50, e.getY()-63);
         if(e.getX() < 270 && e.getX() > 40 && e.getY() > 145 && e.getY() < 720) {
             tanqueGerado.transformaParaLC(tanqueGerado.getX(), tanqueGerado.getY());
+            tanqueGerado.setLocation(32 + tanqueGerado.getC()*88, 105 + tanqueGerado.getL()*107);
         }
     }
 	@Override

@@ -37,7 +37,7 @@ public class Imagem extends JLabel {
     }
 
     public void transformaParaLC(int x, int y){
-        l = (int) (y-112)/106;
-        c = (int) x/88;
+        l = (y-69) /106;
+        c = x/88;
     }
 }
