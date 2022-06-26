@@ -45,9 +45,21 @@ public class Mapa implements IMapa{
 		}
 		if (qtdNaviosParados > 2) {
 			atualizaTela.acabarJogo();
+			this.acabarJogo();
 		}
 	}
 
+	public void acabarJogo() {
+		for (int i = 0; i < mapa.length; i++) {
+			for (int j = 0; j < mapa[i].length; j++) {
+				if (j < 3 && !mapa[i][j].isVazia())
+					removerTanque(mapa[i][j].getCanhao());
+				else
+					removerBarco(mapa[i][j].getBarco());
+			}
+		}
+	}
+	
 	public void movimentarBarco(int origemL, int origemC, int destinoL, int destinoC) {
 		Barco barco = mapa[origemL][origemC].getBarco();
 		if (barco != null) {

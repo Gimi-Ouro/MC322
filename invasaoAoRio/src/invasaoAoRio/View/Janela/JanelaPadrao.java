@@ -114,7 +114,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         
         bStart.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-              teste();
+              iniciar();
             }
         });
 
@@ -125,7 +125,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         this.setVisible(true);
     }
 
-    public void teste() {
+    public void iniciar() {
     	new Thread() {
     	    @Override
     	    public void run() {
@@ -252,8 +252,11 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 	}
 	@Override
 	public void acabarJogo(Imagem mensagem) {
+		//mensagem.setBounds(500, 500, 120, 40);
 		contentPane.add(mensagem);
+		contentPane.setComponentZOrder(mensagem, 1);
 		gamestart.acabarJogo();
+		
 	}
 
 

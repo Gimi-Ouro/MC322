@@ -60,6 +60,7 @@ public class GameStart implements IGameStart{
 	
 	public void acabarJogo() {
 		geradorOndas.pararOnda();
+		
 	} 
 	
 	@Override

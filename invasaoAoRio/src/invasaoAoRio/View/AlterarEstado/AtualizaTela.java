@@ -64,7 +64,7 @@ public class AtualizaTela implements IAtualizaTela{
 
 	@Override
 	public void acabarJogo() {
-		Imagem mensagem = new Imagem(janela.getDIRETORIO() + "pvz.png");
+		Imagem mensagem = new Imagem(janela.getDIRETORIO() + "naviovermelho.png");
 		janela.acabarJogo(mensagem);
 	}
 	
