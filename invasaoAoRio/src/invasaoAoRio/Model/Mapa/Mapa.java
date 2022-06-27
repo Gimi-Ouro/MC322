@@ -74,14 +74,15 @@ public class Mapa implements IMapa{
 		if(tiro.getc() < 15){
 			if(mapa[tiro.getl()][tiro.getc() + 1].getBarco() != null && !tiro.getAcertou()){
 				System.out.println("TIRO ACERTOU");
+				removerTiro(tiro);
 				if(tiro.atingir(mapa[tiro.getl()][tiro.getc() + 1].getBarco())){
 					atualizaTela.removerBarco(mapa[tiro.getl()][tiro.getc() + 1].getBarco());
 				}
 				tiro.setAcertou(true);
-				removerTiro(tiro);
 				return false;
 			}
 			else{
+				Thread.sleep(10);
 				removerTiroMatriz(tiro);
 				tiro.setc(tiro.getc() + 1);
 				addTiro(tiro, false);

@@ -326,7 +326,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         for(Imagem iTiro: tiros){
             if(iTiro.getId() == tiro.getid()){
                 tiro1 = iTiro;
-                tiro1.setLocation(tiro1.getX() + 120, tiro1.getY());
+                tiro1.setLocation(tiro1.getX() + 100, tiro1.getY());
                 SwingUtilities.updateComponentTreeUI(this);
                 break;
             }
