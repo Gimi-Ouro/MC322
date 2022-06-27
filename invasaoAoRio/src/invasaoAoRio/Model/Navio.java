@@ -15,12 +15,16 @@ public class Navio extends Barco{
 	}
 	
 	@Override
-	public void atingir(int dano) {
-		if (this.resistencia > 0)
+	public boolean atingir(int dano) throws InterruptedException {
+		//retorna true se o barco for destruído
+		if (this.resistencia > 0){
 			this.resistencia -= dano;
+			return false;
+		}
 		else {
 			this.existe = false;
 			this.mapa.removerBarco(this);
+			return true;
 		}
 	}
 }

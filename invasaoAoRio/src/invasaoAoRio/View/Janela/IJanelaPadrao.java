@@ -13,7 +13,7 @@ public interface IJanelaPadrao extends IRGameStart, MouseInputListener, IRMapa{
     public String getDIRETORIO();
 	public void moverBarco(Barco barco, int destinoL, int destinoC);
 	public void addBarco(Imagem barcoGerado);
-	public void removerBarco(Barco barco);
+	public void removerBarco(Barco barco) throws InterruptedException;
 	public void acabarJogo(Imagem mensagem);
 	public void addTiro(Imagem itiro);
 	public void moverTiro(Tiro tiro);

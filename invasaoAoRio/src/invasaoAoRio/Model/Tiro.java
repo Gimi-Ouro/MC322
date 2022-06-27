@@ -8,6 +8,7 @@ public class Tiro {
 	private int c;
 	private IMapa mapa;
 	private final int dano;
+	private boolean acertou;
 
 	private int id;
 	
@@ -16,10 +17,12 @@ public class Tiro {
 		this.c = c;
 		this.dano = dano;
 		this.id = id;
+		this.acertou = false;
 	}
 
 	public int getid(){ return this.id;}
-	
+	public boolean getAcertou(){return this.acertou;}
+	public void setAcertou(boolean acertou){this.acertou = acertou;}
 	public int getl() {
 		return this.l;
 	}
@@ -39,7 +42,7 @@ public class Tiro {
 		this.c = c;
 	}
 
-    public void atingir(Barco barco) {
-		barco.atingir(dano);
+    public boolean atingir(Barco barco) throws InterruptedException {
+		return barco.atingir(dano);
     }
 }

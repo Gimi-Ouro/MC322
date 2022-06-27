@@ -27,6 +27,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     private JTextField textoEnd;
     private IGameStart gamestart;
     private Imagem tanqueGerado;
+    private Imagem explosao;
     private ArrayList<Imagem> tanquesPosicionados;
     private ArrayList<Imagem> navios;
 
@@ -83,6 +84,10 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         bTanque2.setIcon(new ImageIcon(DIRETORIO + "tanqueazul.png"));
         bTanque3.setIcon(new ImageIcon(DIRETORIO + "tanquecinza.png"));
         bStart.setIcon(new ImageIcon(DIRETORIO + "botao_start.png"));
+        explosao = new Imagem(DIRETORIO + "explosion2.png");
+        contentPane.add(explosao);
+        explosao.setBounds(0, 0, 60, 59);
+        explosao.setVisible(false);
         this.bordasVerdes = new Imagem[6][3];
         this.bordasVermelhas = new Imagem[6][3];
         for(int i = 0; i < 6; i++){
@@ -224,8 +229,8 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 		for(Imagem iBarco: navios){
             if(iBarco.getId() == barco.getId()){
             	barco1 = iBarco;
-            	if (barco1.getX() - 120 > 260)
-            		barco1.setLocation(barco1.getX() - 120, barco1.getY());
+            	if (barco1.getX() - 88 > 260)
+            		barco1.setLocation(barco1.getX() - 88, barco1.getY());
             	break;
             }
         }
@@ -239,9 +244,23 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         SwingUtilities.updateComponentTreeUI(this);
 	}
 	@Override
-	public void removerBarco(Barco barco) {
-		// TODO Auto-generated method stub
-		
+	public void removerBarco(Barco barco) throws InterruptedException {
+        if(barco != null){
+            for(Imagem ibarco: navios){
+                    if (ibarco.getId() == barco.getId()){
+                        System.out.println("removeu navio");
+                        ibarco.setVisible(false);
+                        explosao.setLocation(ibarco.getX(), ibarco.getY());
+                        explosao.setVisible(true);
+                        Thread.sleep(800);
+                        explosao.setVisible(false);
+                        navios.remove(ibarco);
+                        SwingUtilities.updateComponentTreeUI(this);
+                        break;
+                    }
+
+                }
+        }
 	}
 	@Override
 	public void acabarJogo(Imagem mensagem) {
@@ -263,6 +282,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
             if(iTiro.getId() == tiro.getid()){
                 tiro1 = iTiro;
                 tiro1.setLocation(tiro1.getX() + 120, tiro1.getY());
+                //SwingUtilities.updateComponentTreeUI(this);
                 break;
             }
         }
@@ -275,6 +295,8 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
                 tiro1 = iTiro;
                 tiros.remove(tiro1);
                 tiro1.setVisible(false);
+                System.out.println("Tiro removido");
+                break;
             }
         }
     }

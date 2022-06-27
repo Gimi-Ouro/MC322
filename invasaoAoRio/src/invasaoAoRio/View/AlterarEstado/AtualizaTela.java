@@ -40,7 +40,7 @@ public class AtualizaTela implements IAtualizaTela{
 		janela.moverBarco(barco, destinoL, destinoC);
 	}
 	
-	public void removerBarco(Barco barco) {
+	public void removerBarco(Barco barco) throws InterruptedException {
 		janela.removerBarco(barco);
 	}
 

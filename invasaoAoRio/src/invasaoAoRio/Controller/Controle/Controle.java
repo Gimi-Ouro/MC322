@@ -11,11 +11,13 @@ public class Controle implements Icontrole{
 	private Tanque tanque;
 
 	private ArrayList<ThreadMovimentoTiro> threads;
+	private ArrayList<Tanque> tanques;
 
-	private static int nids = 0;
+	private static int nIds = 0;
 
 	public Controle(){
 		threads = new ArrayList<>();
+		tanques = new ArrayList<>();
 	}
 	
 	@Override
@@ -44,23 +46,34 @@ public class Controle implements Icontrole{
     	  }.start();
 	}*/
 	
-	private void gerarTiros(Tanque tanque) {
-		Tiro tiro = new Tiro(tanque.getL(), tanque.getC() + 1, tanque.getDano(), nids);
-		nids++;
-		mapa.addTiro(tiro, true);
-		ThreadMovimentoTiro t = new ThreadMovimentoTiro(tiro, mapa);
-		threads.add(t);
-		t.start();
+	private void gerarTiros(Tanque tanque) throws InterruptedException {
+			new Thread() {
+				public void run() {
+					for(int i = 0; i < tanque.getQtdTiros(); i++){
+						Tiro tiro = new Tiro(tanque.getL(), tanque.getC() + 1, tanque.getDano(), nIds);
+						nIds++;
+						mapa.addTiro(tiro, true);
+						ThreadMovimentoTiro t = new ThreadMovimentoTiro(tiro, mapa);
+						threads.add(t);
+						t.start();
+						try {
+							Thread.sleep(3000);
+						} catch (InterruptedException e) {
+							throw new RuntimeException(e);
+						}
+				}}
+			}.start();
+
 	}
 	
 	//(l, c) é a coordenada do evento do click
 	@Override
 	public boolean addTanque(int l, int c) throws InterruptedException {
-		tanque.setPosicao(l, c);
-		if(mapa.addTanque(tanque)) {
-			gerarTiros(tanque); //da erro aqui
-			return true;
-		}
+		this.tanque.setPosicao(l, c);
+		if(mapa.addTanque(this.tanque)) {
+			tanques.add(this.tanque);
+			gerarTiros(tanques.get(tanques.size() - 1));
+			return true;}
 		return false;
 	}
 	

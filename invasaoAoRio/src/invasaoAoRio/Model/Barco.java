@@ -44,7 +44,7 @@ public class Barco {
 		return this.velocidade;
 	}
 
-	public void atingir(int dano){}
+	public boolean atingir(int dano) throws InterruptedException {return false;}
 	public int getl() {
 		return this.l;
 	}

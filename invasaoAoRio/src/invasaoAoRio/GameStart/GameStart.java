@@ -52,7 +52,7 @@ public class GameStart implements IGameStart{
 	
 	public void start() {
 		try {
-			geradorOndas.gerarOnda(10, 20000, 1);
+			geradorOndas.gerarOnda(5, 20000, 1);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
