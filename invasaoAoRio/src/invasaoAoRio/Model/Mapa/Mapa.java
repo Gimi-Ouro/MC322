@@ -92,7 +92,7 @@ public class Mapa implements IMapa{
 		else{
 			removerTiro(tiro);
 			System.out.println("CHEGOU");
-			return true;
+			return false;
 		}
 
 	}

@@ -21,15 +21,17 @@ public class ThreadMovimentoTiro extends Thread{
         Thread t = Thread.currentThread();
         for(int i = colunaInicial; i < 16; i++) {
             try {
-                mapa.moverTiro(tiro);
+                if(mapa.moverTiro(tiro)){
+                    try {
+                        Thread.sleep(400);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            try {
-                Thread.sleep(400);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
         }
     }
 }

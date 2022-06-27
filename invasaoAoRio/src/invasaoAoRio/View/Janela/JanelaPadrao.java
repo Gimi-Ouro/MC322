@@ -295,6 +295,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
                     if (ibarco.getId() == barco.getId()){
                         System.out.println("removeu navio");
                         ibarco.setVisible(false);
+                        contentPane.remove(ibarco);
                         explosao.setLocation(ibarco.getX(), ibarco.getY());
                         explosao.setVisible(true);
                         Thread.sleep(800);
@@ -303,7 +304,6 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
                         SwingUtilities.updateComponentTreeUI(this);
                         break;
                     }
-
                 }
         }
 	}
@@ -327,7 +327,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
             if(iTiro.getId() == tiro.getid()){
                 tiro1 = iTiro;
                 tiro1.setLocation(tiro1.getX() + 120, tiro1.getY());
-                //SwingUtilities.updateComponentTreeUI(this);
+                SwingUtilities.updateComponentTreeUI(this);
                 break;
             }
         }
