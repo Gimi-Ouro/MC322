@@ -37,9 +37,12 @@ public class Mapa implements IMapa{
 	public void removerElemento(int l, int c) {
 		mapa[l][c].removerElemento();
 	}
-
-	public void removerTiro(Tiro tiro){
+	public void removerTiroMatriz(Tiro tiro){
 		mapa[tiro.getl()][tiro.getc()].removerTiro();
+	}
+	public void removerTiro(Tiro tiro){
+		removerTiroMatriz(tiro);
+		atualizaTela.removerTiro(tiro);
 	}
 	
 	private void verificarEstado() {
@@ -68,19 +71,18 @@ public class Mapa implements IMapa{
 	
 	@Override
 	public boolean moverTiro(Tiro tiro) throws InterruptedException {
-		if(tiro.getc() != 15){
+		if(tiro.getc() < 15){
 			if(mapa[tiro.getl()][tiro.getc() + 1].getBarco() != null && !tiro.getAcertou()){
 				System.out.println("TIRO ACERTOU");
 				if(tiro.atingir(mapa[tiro.getl()][tiro.getc() + 1].getBarco())){
 					atualizaTela.removerBarco(mapa[tiro.getl()][tiro.getc() + 1].getBarco());
 				}
 				tiro.setAcertou(true);
-				atualizaTela.removerTiro(tiro);
 				removerTiro(tiro);
 				return false;
 			}
 			else{
-				removerTiro(tiro);
+				removerTiroMatriz(tiro);
 				tiro.setc(tiro.getc() + 1);
 				addTiro(tiro, false);
 				atualizaTela.moverTiro(tiro);
@@ -89,7 +91,7 @@ public class Mapa implements IMapa{
 		}
 		else{
 			removerTiro(tiro);
-			atualizaTela.removerTiro(tiro);
+			System.out.println("CHEGOU");
 			return true;
 		}
 
@@ -134,9 +136,10 @@ public class Mapa implements IMapa{
 	}
 
 	public void removerBarco(Barco barco) throws InterruptedException {
-		mapa[barco.getl()][barco.getc()].removerElemento();
 		loja.navioAbatido(barco.getTipo());
+		mapa[barco.getl()][barco.getc()].removerElemento();
 		atualizaTela.atualizaCreditos(loja.getCreditos());
+		System.out.println("+50");
 		atualizaTela.removerBarco(barco);
 	}
 

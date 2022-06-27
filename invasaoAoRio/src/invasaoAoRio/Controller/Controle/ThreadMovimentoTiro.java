@@ -19,7 +19,7 @@ public class ThreadMovimentoTiro extends Thread{
     public void run(){
         int colunaInicial = tiro.getc();
         Thread t = Thread.currentThread();
-        for(int i = 15; i > colunaInicial; i--) {
+        for(int i = colunaInicial; i < 16; i++) {
             try {
                 mapa.moverTiro(tiro);
             } catch (InterruptedException e) {

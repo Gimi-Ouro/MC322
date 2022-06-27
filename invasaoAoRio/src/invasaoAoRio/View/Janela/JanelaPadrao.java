@@ -339,7 +339,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
             if(iTiro.getId() == tiro.getid()) {
                 tiro1 = iTiro;
                 tiros.remove(tiro1);
-                tiro1.setVisible(false);
+                contentPane.remove(tiro1);
                 System.out.println("Tiro removido");
                 break;
             }
