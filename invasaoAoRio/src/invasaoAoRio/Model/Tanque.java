@@ -30,9 +30,9 @@ public class Tanque {
 	}
 	
 	public boolean getExiste() {
-		return existe;
+		return this.existe;
 	}
-	
+	public void setExiste(boolean existe){this.existe = existe;}
 	public void explodir() {
 		this.existe = false;
 		mapa.removerTanque(this);
@@ -41,6 +41,7 @@ public class Tanque {
 	public int getQtdTiros() {
 		return this.qtdTiros;
 	}
+	public void setQtdTiros(int qtdTiros){this.qtdTiros = qtdTiros;}
 	public long getTirosPorSegundo() {
 		return this.tirosPorSegundo;
 	}

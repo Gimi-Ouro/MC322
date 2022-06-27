@@ -37,6 +37,10 @@ public class Mapa implements IMapa{
 	public void removerElemento(int l, int c) {
 		mapa[l][c].removerElemento();
 	}
+
+	public void removerTiro(Tiro tiro){
+		mapa[tiro.getl()][tiro.getc()].removerTiro();
+	}
 	
 	private void verificarEstado() {
 		for (int i = 0; i < 6; i++) {
@@ -49,6 +53,7 @@ public class Mapa implements IMapa{
 		}
 	}
 
+<<<<<<< HEAD
 	public void acabarJogo() {
 		for (int i = 0; i < mapa.length; i++) {
 			for (int j = 0; j < mapa[i].length; j++) {
@@ -61,8 +66,14 @@ public class Mapa implements IMapa{
 	}
 	
 	public void movimentarBarco(int origemL, int origemC, int destinoL, int destinoC) {
+=======
+	public void movimentarBarco(int origemL, int origemC, int destinoL, int destinoC) throws InterruptedException {
+>>>>>>> centralizaTanque
 		Barco barco = mapa[origemL][origemC].getBarco();
 		if (barco != null) {
+			if(mapa[destinoL][destinoC].getTiro() != null){
+				Thread.sleep(500);
+			}
 			atualizaTela.moverBarco(barco, destinoL, destinoC);
 			barco.setPosicao(destinoL, destinoC);
 			this.addBarcoNaMatriz(barco);
@@ -72,34 +83,38 @@ public class Mapa implements IMapa{
 	}
 	
 	@Override
-	public boolean moverTiro(int origemL, int origemC, int destinoL, int destinoC) {
-		Tiro tiro = mapa[origemL][origemC].getTiro();
-		//chegou no final da matriz - não movimentou
-		if(destinoC > 15) {
-			this.removerElemento(origemL, origemC);
+	public boolean moverTiro(Tiro tiro) throws InterruptedException {
+		if(tiro.getc() != 15){
+			if(mapa[tiro.getl()][tiro.getc() + 1].getBarco() != null && !tiro.getAcertou()){
+				System.out.println("TIRO ACERTOU");
+				if(tiro.atingir(mapa[tiro.getl()][tiro.getc() + 1].getBarco())){
+					atualizaTela.removerBarco(mapa[tiro.getl()][tiro.getc() + 1].getBarco());
+				}
+				tiro.setAcertou(true);
+				atualizaTela.removerTiro(tiro);
+				removerTiro(tiro);
+				return false;
+			}
+			else{
+				removerTiro(tiro);
+				tiro.setc(tiro.getc() + 1);
+				addTiro(tiro, false);
+				atualizaTela.moverTiro(tiro);
+				return true;
+			}
+		}
+		else{
+			removerTiro(tiro);
 			atualizaTela.removerTiro(tiro);
-			return false;
-		}else if(!mapa[destinoL][destinoC].isVazia()) {
-			//atingiu um navio - não movimentou
-			mapa[destinoL][destinoC].getBarco().atingir(tiro.getDano());
-			this.removerElemento(origemL, origemC);
-			atualizaTela.removerTiro(tiro);
-			return false;
-		}else {
-			//celula vazia o tiro se movimentou
-			atualizaTela.moverTiro(tiro, destinoL, destinoC);
-			tiro.setc(destinoC); 
-			tiro.setl(destinoL);
-			this.addTiro(tiro);
-			this.removerElemento(origemL, origemC);
 			return true;
 		}
+
 	}
 	
 	@Override
-	public void addTiro(Tiro tiro) {
+	public void addTiro(Tiro tiro, boolean addNaTela) {
 		mapa[tiro.getl()][tiro.getc()].addTiro(tiro);
-		atualizaTela.addTiro(tiro);
+		if(addNaTela){ atualizaTela.addTiro(tiro);}
 	}
 	
 	public boolean addTanque(Tanque tanque) {
@@ -134,9 +149,10 @@ public class Mapa implements IMapa{
 		atualizaTela.removerTanque(tanque);
 	}
 
-	public void removerBarco(Barco barco) {
+	public void removerBarco(Barco barco) throws InterruptedException {
 		mapa[barco.getl()][barco.getc()].removerElemento();
 		loja.navioAbatido(barco.getTipo());
+		atualizaTela.atualizaCreditos(loja.getCreditos());
 		atualizaTela.removerBarco(barco);
 	}
 

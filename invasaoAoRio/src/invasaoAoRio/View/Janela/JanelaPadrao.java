@@ -11,6 +11,7 @@ import invasaoAoRio.GameStart.IGameStart;
 import invasaoAoRio.Model.Mapa.IMapa;
 import invasaoAoRio.Model.Barco;
 import invasaoAoRio.Model.Tanque;
+import invasaoAoRio.Model.Tiro;
 import invasaoAoRio.View.Imagem;
 
 public class JanelaPadrao extends JFrame implements IJanelaPadrao {
@@ -26,10 +27,16 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     private JTextField textoEnd;
     private IGameStart gamestart;
     private Imagem tanqueGerado;
+    private Imagem explosao;
+    private Imagem[] ondas;
     private ArrayList<Imagem> tanquesPosicionados;
     private ArrayList<Imagem> navios;
+
+    private ArrayList<Imagem> tiros;
     private Imagem[][] bordasVerdes;
     private Imagem[][] bordasVermelhas;
+    private Imagem creditos;
+    private JTextField textoCreditos;
 
     private IMapa mapa;
     
@@ -40,6 +47,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         tanqueGerado = null;
         tanquesPosicionados = new ArrayList<>();
         navios = new ArrayList<>();
+        tiros = new ArrayList<>();
     }
     @Override
     public void conectaGame(IGameStart gamestart) {
@@ -54,23 +62,51 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     public void configuraJanela(){
         this.contentPane = this.getContentPane();
         contentPane.setLayout(null);
+        configuraBotoes();
+        configuraTexto();
+        explosao = new Imagem(DIRETORIO + "explosion2.png");
+        contentPane.add(explosao);
+        explosao.setBounds(0, 0, 60, 59);
+        explosao.setVisible(false);
+        configuraBordas();
+        configuraHUD();
+        bTanque1.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                apertouBotao(1, (JButton) e.getSource());
+            }
+        });
+        bTanque2.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+            	apertouBotao(2, (JButton) e.getSource());
+            }
+        });
+        bTanque3.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+            	apertouBotao(3, (JButton) e.getSource());
+            }
+        });
+        
+        bStart.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+              teste();
+            }
+        });
+
+        Imagem mapa = new Imagem(DIRETORIO + "mapa_.png");
+        this.add(mapa);
+        mapa.setBounds(0, 85, 1408, 640);
+
+        this.setVisible(true);
+    }
+    public void configuraBotoes(){
         this.bTanque1 = new JButton();
         this.bTanque2 = new JButton();
         this.bTanque3 = new JButton();
         this.bStart = new JButton();
-        this.textoStart = new JTextField();
-        this.textoEnd = new JTextField();
         contentPane.add(bTanque1);
         contentPane.add(bTanque2);
         contentPane.add(bTanque3);
         contentPane.add(bStart);
-        contentPane.add(textoStart);
-        contentPane.add(textoEnd);
-        textoStart.setText("APERTE PARA INICIAR");
-        textoEnd.setText("VOCE PERDEU");
-        textoStart.setBounds(1255, 60, 135, 25);
-        textoEnd.setBounds(730,355, 100, 25);
-        textoEnd.setVisible(false);
         bTanque1.setBounds(5, 5, 120,70);
         bTanque2.setBounds(130, 5, 120,70);
         bTanque3.setBounds(255, 5, 120,70);
@@ -79,6 +115,22 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         bTanque2.setIcon(new ImageIcon(DIRETORIO + "tanqueazul.png"));
         bTanque3.setIcon(new ImageIcon(DIRETORIO + "tanquecinza.png"));
         bStart.setIcon(new ImageIcon(DIRETORIO + "botao_start.png"));
+    }
+    public void configuraTexto(){
+        this.textoStart = new JTextField();
+        this.textoEnd = new JTextField();
+        this.textoCreditos = new JTextField();
+        contentPane.add(textoCreditos);
+        contentPane.add(textoStart);
+        contentPane.add(textoEnd);
+        textoStart.setText("APERTE PARA INICIAR");
+        textoEnd.setText("VOCE PERDEU");
+        textoStart.setBounds(1255, 60, 135, 25);
+        textoEnd.setBounds(730,355, 100, 25);
+        textoCreditos.setBounds(665, 22, 60, 44);
+        textoEnd.setVisible(false);
+    }
+    public void configuraBordas(){
         this.bordasVerdes = new Imagem[6][3];
         this.bordasVermelhas = new Imagem[6][3];
         for(int i = 0; i < 6; i++){
@@ -95,6 +147,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
                 bordasVermelhas[i][j].setVisible(false);
             }
         }
+<<<<<<< HEAD
         
         bTanque1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
@@ -126,6 +179,25 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     }
 
     public void iniciar() {
+=======
+    }
+
+    public void configuraHUD(){
+        ondas = new Imagem[10];
+        for(int i = 0; i < 10; i++){
+            ondas[i] = new Imagem(DIRETORIO + "onda" + String.valueOf(i+1) + ".png");
+            ondas[i].setBounds(900, 15, 164, 44);
+            contentPane.add(ondas[i]);
+            ondas[i].setVisible(false);
+            contentPane.setComponentZOrder(ondas[i], 1);
+        }
+        creditos = new Imagem(DIRETORIO + "creditos_texto.png");
+        creditos.setBounds(500, 15, 154, 44);
+        contentPane.add(creditos);
+        contentPane.setComponentZOrder(creditos, 1);
+    }
+    public void teste() {
+>>>>>>> centralizaTanque
     	new Thread() {
     	    @Override
     	    public void run() {
@@ -167,6 +239,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
             if(itanque.getL() == tanque.getL() && itanque.getC() == tanque.getC()){
                 contentPane.remove(itanque);
                 tanquesPosicionados.remove(itanque);
+                break;
             }
         }
     }
@@ -194,11 +267,15 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 	@Override
 	public void mouseClicked(MouseEvent e) {
         if(e.getX() < 296 && e.getX() > 32 && e.getY() > 85 && e.getY() < 727){
-        	if(gamestart.addTanque(tanqueGerado.getX(), tanqueGerado.getY())) {
-        		removeMouseMotionListener(this);
-        		removeMouseListener(this);
-                alteraVisibilidadeBordas(false);
-        	}
+            try {
+                if(gamestart.addTanque(tanqueGerado.getX(), tanqueGerado.getY())) {
+                    removeMouseMotionListener(this);
+                    removeMouseListener(this);
+                    alteraVisibilidadeBordas(false);
+                }
+            } catch (InterruptedException ex) {
+                throw new RuntimeException(ex);
+            }
         }
 	}
 	//////não utilizado por enquanto
@@ -231,8 +308,8 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 		for(Imagem iBarco: navios){
             if(iBarco.getId() == barco.getId()){
             	barco1 = iBarco;
-            	if (barco1.getX() - 120 > 260)
-            		barco1.setLocation(barco1.getX() - 120, barco1.getY());
+            	if (barco1.getX() - 88 > 260)
+            		barco1.setLocation(barco1.getX() - 88, barco1.getY());
             	break;
             }
         }
@@ -246,9 +323,23 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         SwingUtilities.updateComponentTreeUI(this);
 	}
 	@Override
-	public void removerBarco(Barco barco) {
-		// TODO Auto-generated method stub
-		
+	public void removerBarco(Barco barco) throws InterruptedException {
+        if(barco != null){
+            for(Imagem ibarco: navios){
+                    if (ibarco.getId() == barco.getId()){
+                        System.out.println("removeu navio");
+                        ibarco.setVisible(false);
+                        explosao.setLocation(ibarco.getX(), ibarco.getY());
+                        explosao.setVisible(true);
+                        Thread.sleep(800);
+                        explosao.setVisible(false);
+                        navios.remove(ibarco);
+                        SwingUtilities.updateComponentTreeUI(this);
+                        break;
+                    }
+
+                }
+        }
 	}
 	@Override
 	public void acabarJogo(Imagem mensagem) {
@@ -259,5 +350,49 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 		
 	}
 
+    public void addTiro(Imagem itiro){
+        contentPane.add(itiro);
+        itiro.setBounds(32 + itiro.getC()*88, 112 + itiro.getL()*107, 38, 26);
+        contentPane.setComponentZOrder(itiro, 2);
+        tiros.add(itiro);
+        SwingUtilities.updateComponentTreeUI(this);
+    }
+
+    public void moverTiro(Tiro tiro){
+        Imagem tiro1 = null;
+        for(Imagem iTiro: tiros){
+            if(iTiro.getId() == tiro.getid()){
+                tiro1 = iTiro;
+                tiro1.setLocation(tiro1.getX() + 120, tiro1.getY());
+                //SwingUtilities.updateComponentTreeUI(this);
+                break;
+            }
+        }
+    }
+
+    public void removerTiro(Tiro tiro){
+        Imagem tiro1;
+        for(Imagem iTiro: tiros){
+            if(iTiro.getId() == tiro.getid()) {
+                tiro1 = iTiro;
+                tiros.remove(tiro1);
+                tiro1.setVisible(false);
+                System.out.println("Tiro removido");
+                break;
+            }
+        }
+    }
+
+    public void trocaImagemOnda(int ondaAnterior, int novaOnda){
+        ondas[novaOnda - 1].setVisible(true);
+        if(ondaAnterior > 0)
+            ondas[ondaAnterior - 1].setVisible(false);
+        SwingUtilities.updateComponentTreeUI(this);
+    }
+
+    public void atualizaCreditos(int nCreditos){
+        textoCreditos.setText(String.valueOf(nCreditos));
+        SwingUtilities.updateComponentTreeUI(this);
+    }
 
 }

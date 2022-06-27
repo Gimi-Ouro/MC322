@@ -40,32 +40,41 @@ public class AtualizaTela implements IAtualizaTela{
 		janela.moverBarco(barco, destinoL, destinoC);
 	}
 	
-	public void removerBarco(Barco barco) {
+	public void removerBarco(Barco barco) throws InterruptedException {
 		janela.removerBarco(barco);
 	}
 
 	@Override
 	public void addTiro(Tiro tiro) {
-		/*Imagem tiro = new Imagem(janela.getDIRETORIO() + "ntiro.png");
-		tiro.setL(tiro.getL());
-		tiro.setC(tiro.getC());
-		janela.addTiro(tiro);*/
+		Imagem itiro = new Imagem(janela.getDIRETORIO() + "tank_bullet4.png");
+		itiro.setL(tiro.getl());
+		itiro.setC(tiro.getc());
+		itiro.setId(tiro.getid());
+		janela.addTiro(itiro);
 	}
 
 	@Override
 	public void removerTiro(Tiro tiro) {
-		//janela.removerTiro(tiro);
+		janela.removerTiro(tiro);
 	}
 
 	@Override
-	public void moverTiro(Tiro tiro, int l, int c) {
-		//janela.moverTiro(tiro, l, c);
+	public void moverTiro(Tiro tiro) {
+		janela.moverTiro(tiro);
 	}
 
 	@Override
 	public void acabarJogo() {
 		Imagem mensagem = new Imagem(janela.getDIRETORIO() + "naviovermelho.png");
 		janela.acabarJogo(mensagem);
+	}
+
+	public void trocaImagemOnda(int ondaAnterior, int novaOnda){
+		janela.trocaImagemOnda(ondaAnterior, novaOnda);
+	}
+
+	public void atualizaCreditos(int nCreditos){
+		janela.atualizaCreditos(nCreditos);
 	}
 	
 }

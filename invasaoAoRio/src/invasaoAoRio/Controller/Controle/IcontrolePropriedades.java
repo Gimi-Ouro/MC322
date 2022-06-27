@@ -4,5 +4,5 @@ import invasaoAoRio.Model.Tanque;
 
 public interface IcontrolePropriedades {
 	public void conectarTanque(Tanque tanque);
-	public boolean addTanque(int x, int y);
+	public boolean addTanque(int x, int y) throws InterruptedException;
 }

@@ -1,13 +1,12 @@
 package invasaoAoRio.Model;
 
 public class Navio extends Barco{
-	private int resistencia;
+
 	private boolean caminhoLinhaReta;
 	
 	
-	public Navio(int resistencia, float velocidade, boolean caminhoLinhaReta, int tipo, int id) {
-		super(velocidade, true, tipo, id);
-		this.resistencia = resistencia;
+	public Navio(int resistencia, long velocidade, boolean caminhoLinhaReta, int tipo, int id) {
+		super(resistencia, velocidade, true, tipo, id);
 		this.caminhoLinhaReta = caminhoLinhaReta;
 	}
 	
@@ -15,12 +14,17 @@ public class Navio extends Barco{
 		return this.caminhoLinhaReta;
 	}
 	
-	public void atingir(int dano) {
-		if (this.resistencia > 0)
+	@Override
+	public boolean atingir(int dano) throws InterruptedException {
+		//retorna true se o barco for destruído
+		if (this.resistencia > 0){
 			this.resistencia -= dano;
+			return false;
+		}
 		else {
 			this.existe = false;
 			this.mapa.removerBarco(this);
+			return true;
 		}
 	}
 }

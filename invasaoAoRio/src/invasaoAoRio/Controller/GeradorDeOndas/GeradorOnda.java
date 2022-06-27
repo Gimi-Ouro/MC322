@@ -60,11 +60,11 @@ public class GeradorOnda implements IgeradorDeOndas{
 	            posicionamento = rand.nextInt(mapa.getMapa().length);
 	            tipo = rand.nextInt(dificuldade); //tipo de navio que será gerado. A dificuldade pode ir de 1 a 3, dependendo de qual onda estamos
 	            if(tipo == 0){
-	            	navio = new Navio(50, 1, true, 0, i);
+	            	navio = new Navio(20, 1, true, 0, i);
 	            } else if(tipo == 1){
-	            	navio = new Navio(50, 2, true, 1, i);
+	            	navio = new Navio(40, 2, true, 1, i);
 	            } else if(tipo == 2){
-	            	navio = new Navio(100, 1, true, 2, i);
+	            	navio = new Navio(60, 1, true, 2, i);
 	            }
 	            navio.setPosicao(posicionamento, 15);
 	            mapa.addBarco(navio);

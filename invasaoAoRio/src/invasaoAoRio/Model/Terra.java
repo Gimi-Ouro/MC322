@@ -57,6 +57,11 @@ public class Terra implements ICelula {
 	}
 
 	@Override
+	public void removerTiro() {
+
+	}
+
+	@Override
 	public Tiro getTiro() {		
 		return tiro;
 	}

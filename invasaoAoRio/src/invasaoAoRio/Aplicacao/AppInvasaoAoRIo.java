@@ -32,8 +32,10 @@ public class AppInvasaoAoRIo {
     	mapa.connect(atualizaTela);
     	geradorOndas.connect(mapa);
     	controle.connect(mapa);
+		mapa.connect(loja);
     	///////////////////////
     	gameStart.connect(controle);
+		gameStart.connect(atualizaTela);
     	gameStart.connect(geradorOndas);
     	gameStart.connect(loja);
     	gameStart.iniciarJogo(mapa, atualizaTela);

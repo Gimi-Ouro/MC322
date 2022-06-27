@@ -19,6 +19,8 @@ public class GameStart implements IGameStart{
     private Icontrole controle;
     private IgeradorDeOndas geradorOndas;
     private Iloja loja;
+
+	private IAtualizaTela atualizaTela;
     
 	@Override
 	public void connect(Icontrole controle) {
@@ -32,18 +34,23 @@ public class GameStart implements IGameStart{
 	public void connect(Iloja loja) {
 		this.loja = loja;
 	}
+	@Override
+	public void connect(IAtualizaTela atualizaTela) {
+		this.atualizaTela = atualizaTela;
+	}
 	
 	public boolean comprarTanque(int i) {
 		Tanque tanque = loja.compraCanhao(i);
 		if (tanque != null) {
 			controle.conectarTanque(tanque);
+			atualizaTela.atualizaCreditos(loja.getCreditos());
 			return true;
 		}
 		return false;
 	}
 	
 	//true se colocou e false se não foi possivel colocar
-	public boolean addTanque(int x, int y) {
+	public boolean addTanque(int x, int y) throws InterruptedException {
 		int l, c;
 		l = (y-107/2)/107;
 		c = x/88;
@@ -52,7 +59,35 @@ public class GameStart implements IGameStart{
 	
 	public void start() {
 		try {
-			geradorOndas.gerarOnda(10, 20000, 1);
+			atualizaTela.trocaImagemOnda(0, 1);
+			geradorOndas.gerarOnda(5, 20000, 1);
+			Thread.sleep(10000);
+			atualizaTela.trocaImagemOnda(1, 2);
+			geradorOndas.gerarOnda(10, 30000, 1);
+			Thread.sleep(10000);
+			atualizaTela.trocaImagemOnda(2, 3);
+			geradorOndas.gerarOnda(5, 20000, 2);
+			Thread.sleep(10000);
+			atualizaTela.trocaImagemOnda(3, 4);
+			geradorOndas.gerarOnda(10, 40000, 2);
+			Thread.sleep(10000);
+			atualizaTela.trocaImagemOnda(4, 5);
+			geradorOndas.gerarOnda(10, 30000, 2);
+			Thread.sleep(10000);
+			atualizaTela.trocaImagemOnda(5, 6);
+			geradorOndas.gerarOnda(5, 30000, 3);
+			Thread.sleep(10000);
+			atualizaTela.trocaImagemOnda(6, 7);
+			geradorOndas.gerarOnda(10, 30000, 3);
+			Thread.sleep(10000);
+			atualizaTela.trocaImagemOnda(7, 8);
+			geradorOndas.gerarOnda(15, 40000, 3);
+			Thread.sleep(10000);
+			atualizaTela.trocaImagemOnda(8, 9);
+			geradorOndas.gerarOnda(10, 20000, 3);
+			Thread.sleep(10000);
+			atualizaTela.trocaImagemOnda(9, 10);
+			geradorOndas.gerarOnda(25, 50000, 3);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -70,6 +105,8 @@ public class GameStart implements IGameStart{
 		janela.conectaGame(this);
 		janela.conecta(mapa);
 		atualizaTela.connect(janela);
+		atualizaTela.atualizaCreditos(loja.getCreditos());
 	}
+
 
 }

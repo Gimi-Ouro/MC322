@@ -43,14 +43,18 @@ public class Agua implements ICelula{
 
 	@Override
 	public void removerElemento() {
-		//this.barco = null;
-		this.tiro = null;
+		this.barco = null;
 		this.vazia = true;
 	}
 
 	@Override
 	public boolean isVazia() {
 		return this.vazia;
+	}
+
+	@Override
+	public void removerTiro() {
+		this.tiro = null;
 	}
 
 	@Override
