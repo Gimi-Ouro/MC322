@@ -37,12 +37,9 @@ public class Mapa implements IMapa{
 	public void removerElemento(int l, int c) {
 		mapa[l][c].removerElemento();
 	}
-	public void removerTiroMatriz(Tiro tiro){
-		mapa[tiro.getl()][tiro.getc()].removerTiro();
-	}
-	public void removerTiro(Tiro tiro){
-		removerTiroMatriz(tiro);
-		atualizaTela.removerTiro(tiro);
+	
+	public ICelula[][] getMapa() {
+		return this.mapa;
 	}
 	
 	private void verificarEstado() {
@@ -54,19 +51,13 @@ public class Mapa implements IMapa{
 			atualizaTela.acabarJogo();
 		}
 	}
-
-	public void movimentarBarco(int origemL, int origemC, int destinoL, int destinoC) throws InterruptedException {
-		Barco barco = mapa[origemL][origemC].getBarco();
-		if (barco != null) {
-			if(mapa[destinoL][destinoC].getTiro() != null){
-				Thread.sleep(500);
-			}
-			atualizaTela.moverBarco(barco, destinoL, destinoC);
-			barco.setPosicao(destinoL, destinoC);
-			this.addBarcoNaMatriz(barco);
-			this.removerElemento(origemL, origemC);
-			verificarEstado();
-		}
+	////////TIROS/////////////////
+	public void removerTiroMatriz(Tiro tiro){
+		mapa[tiro.getl()][tiro.getc()].removerTiro();
+	}
+	public void removerTiro(Tiro tiro){
+		removerTiroMatriz(tiro);
+		atualizaTela.removerTiro(tiro);
 	}
 	
 	@Override
@@ -104,16 +95,19 @@ public class Mapa implements IMapa{
 		if(addNaTela){ atualizaTela.addTiro(tiro);}
 	}
 	
-	public boolean addTanque(Tanque tanque) {
-		if (mapa[tanque.getL()][tanque.getC()].isTerra()) {
-			tanque.connect(this);
-			return mapa[tanque.getL()][tanque.getC()].addTanque(tanque);
+	//////////////BARCOS///////////////////
+	public void movimentarBarco(int origemL, int origemC, int destinoL, int destinoC) throws InterruptedException {
+		Barco barco = mapa[origemL][origemC].getBarco();
+		if (barco != null) {
+			if(mapa[destinoL][destinoC].getTiro() != null){
+				Thread.sleep(500);
+			}
+			atualizaTela.moverBarco(barco, destinoL, destinoC);
+			barco.setPosicao(destinoL, destinoC);
+			this.addBarcoNaMatriz(barco);
+			this.removerElemento(origemL, origemC);
+			verificarEstado();
 		}
-		return false;
-	}
-
-	public ICelula[][] getMapa() {
-		return this.mapa;
 	}
 	
 	public void addBarcoNaMatriz(Barco barco) {
@@ -123,17 +117,11 @@ public class Mapa implements IMapa{
 			mapa[barco.getl()][barco.getc()].addBarco(barco);
 		}
 	}
-
+	
 	public void addBarco(Barco barco) {
 		this.addBarcoNaMatriz(barco);
 		atualizaTela.adicionarBarco(barco);
 		
-	}
-
-	@Override
-	public void removerTanque(Tanque tanque) {
-		mapa[tanque.getL()][tanque.getC()].removerElemento();
-		atualizaTela.removerTanque(tanque);
 	}
 
 	public void removerBarco(Barco barco) throws InterruptedException {
@@ -143,6 +131,19 @@ public class Mapa implements IMapa{
 		System.out.println("+50");
 		atualizaTela.removerBarco(barco);
 	}
+	
+	//////////TANQUE////////////////////
+	public boolean addTanque(Tanque tanque) {
+		if (mapa[tanque.getL()][tanque.getC()].isTerra()) {
+			tanque.connect(this);
+			return mapa[tanque.getL()][tanque.getC()].addTanque(tanque);
+		}
+		return false;
+	}
 
-
+	@Override
+	public void removerTanque(Tanque tanque) {
+		mapa[tanque.getL()][tanque.getC()].removerElemento();
+		atualizaTela.removerTanque(tanque);
+	}
 }
