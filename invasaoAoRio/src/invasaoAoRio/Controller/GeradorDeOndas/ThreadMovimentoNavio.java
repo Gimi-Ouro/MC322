@@ -23,7 +23,7 @@ public class ThreadMovimentoNavio extends Thread {
 			  throw new RuntimeException(e);
 		  }
 		  try {
-			Thread.sleep(2000);
+			Thread.sleep(2000/ navio.getVelocidade());
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

@@ -316,5 +316,8 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         }
     }
 
+    public void trocaImagemOnda(int nOnda){
+
+    }
 
 }

@@ -19,6 +19,8 @@ public class GameStart implements IGameStart{
     private Icontrole controle;
     private IgeradorDeOndas geradorOndas;
     private Iloja loja;
+
+	private IAtualizaTela atualizaTela;
     
 	@Override
 	public void connect(Icontrole controle) {
@@ -31,6 +33,10 @@ public class GameStart implements IGameStart{
 	@Override
 	public void connect(Iloja loja) {
 		this.loja = loja;
+	}
+	@Override
+	public void connect(IAtualizaTela atualizaTela) {
+		this.atualizaTela = atualizaTela;
 	}
 	
 	public boolean comprarTanque(int i) {
@@ -52,7 +58,11 @@ public class GameStart implements IGameStart{
 	
 	public void start() {
 		try {
-			geradorOndas.gerarOnda(5, 20000, 1);
+			atualizaTela.trocaImagemOnda(1);
+			geradorOndas.gerarOnda(10, 30000, 1);
+			Thread.sleep(10000);
+			atualizaTela.trocaImagemOnda(2);
+			geradorOndas.gerarOnda(5, 20000, 2);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -70,5 +80,6 @@ public class GameStart implements IGameStart{
 		janela.conecta(mapa);
 		atualizaTela.connect(janela);
 	}
+
 
 }

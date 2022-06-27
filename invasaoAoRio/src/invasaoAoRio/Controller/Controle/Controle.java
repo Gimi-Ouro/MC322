@@ -61,6 +61,9 @@ public class Controle implements Icontrole{
 						} catch (InterruptedException e) {
 							throw new RuntimeException(e);
 						}
+						if(i == tanque.getQtdTiros() - 1){
+							mapa.removerTanque(tanque);
+						}
 				}}
 			}.start();
 

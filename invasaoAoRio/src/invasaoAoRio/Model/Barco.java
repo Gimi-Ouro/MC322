@@ -3,7 +3,7 @@ package invasaoAoRio.Model;
 import invasaoAoRio.Model.Mapa.IMapa;
 
 public class Barco {
-	protected float velocidade; //celulas/seg ou pilels/seg
+	protected long velocidade; //celulas/seg ou pilels/seg
 	protected boolean existe;
 	protected int tipo;
 	protected int l, c;
@@ -14,7 +14,7 @@ public class Barco {
 		return id;
 	}
 	
-	public Barco(int resistencia, float velocidade, boolean existe, int tipo, int id) {
+	public Barco(int resistencia, long velocidade, boolean existe, int tipo, int id) {
 		this.resistencia = resistencia;
 		this.velocidade = velocidade;
 		this.existe = existe;
@@ -40,7 +40,7 @@ public class Barco {
 		return this.existe;
 	}
 	
-	public float getVelocidade() {
+	public long getVelocidade() {
 		return this.velocidade;
 	}
 

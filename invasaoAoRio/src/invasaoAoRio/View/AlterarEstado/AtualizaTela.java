@@ -68,5 +68,9 @@ public class AtualizaTela implements IAtualizaTela{
 		Imagem mensagem = new Imagem(janela.getDIRETORIO() + "pvz.png");
 		janela.acabarJogo(mensagem);
 	}
+
+	public void trocaImagemOnda(int nOnda){
+		janela.trocaImagemOnda(nOnda);
+	}
 	
 }
