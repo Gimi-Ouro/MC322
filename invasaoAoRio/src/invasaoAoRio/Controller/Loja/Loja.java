@@ -24,10 +24,11 @@ public class Loja implements Iloja{
         }
         return null;
     }
+    public int getCreditos(){return this.creditos;}
 
     public void navioAbatido(int tipo){
-        if(tipo == 1) creditos += 25;
-        else if(tipo == 2) creditos += 50;
+        if(tipo == 1) creditos += 50;
+        else if(tipo == 2) creditos += 75;
         else if(tipo == 3) creditos += 100;
     }
 }

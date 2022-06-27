@@ -18,6 +18,6 @@ public interface IJanelaPadrao extends IRGameStart, MouseInputListener, IRMapa{
 	public void addTiro(Imagem itiro);
 	public void moverTiro(Tiro tiro);
 	public void removerTiro(Tiro tiro);
-
 	public void trocaImagemOnda(int ondaAnterior, int novaOnda);
+	public void atualizaCreditos(int nCreditos);
 }

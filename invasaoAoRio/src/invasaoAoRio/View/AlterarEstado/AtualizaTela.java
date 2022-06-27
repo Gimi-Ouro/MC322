@@ -72,5 +72,9 @@ public class AtualizaTela implements IAtualizaTela{
 	public void trocaImagemOnda(int ondaAnterior, int novaOnda){
 		janela.trocaImagemOnda(ondaAnterior, novaOnda);
 	}
+
+	public void atualizaCreditos(int nCreditos){
+		janela.atualizaCreditos(nCreditos);
+	}
 	
 }

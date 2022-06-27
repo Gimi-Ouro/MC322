@@ -35,6 +35,8 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     private ArrayList<Imagem> tiros;
     private Imagem[][] bordasVerdes;
     private Imagem[][] bordasVermelhas;
+    private Imagem creditos;
+    private JTextField textoCreditos;
 
     private IMapa mapa;
     
@@ -117,12 +119,15 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     public void configuraTexto(){
         this.textoStart = new JTextField();
         this.textoEnd = new JTextField();
+        this.textoCreditos = new JTextField();
+        contentPane.add(textoCreditos);
         contentPane.add(textoStart);
         contentPane.add(textoEnd);
         textoStart.setText("APERTE PARA INICIAR");
         textoEnd.setText("VOCE PERDEU");
         textoStart.setBounds(1255, 60, 135, 25);
         textoEnd.setBounds(730,355, 100, 25);
+        textoCreditos.setBounds(665, 22, 60, 44);
         textoEnd.setVisible(false);
     }
     public void configuraBordas(){
@@ -148,11 +153,15 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         ondas = new Imagem[10];
         for(int i = 0; i < 10; i++){
             ondas[i] = new Imagem(DIRETORIO + "onda" + String.valueOf(i+1) + ".png");
-            ondas[i].setBounds(1100, 15, 164, 44);
+            ondas[i].setBounds(900, 15, 164, 44);
             contentPane.add(ondas[i]);
             ondas[i].setVisible(false);
             contentPane.setComponentZOrder(ondas[i], 1);
         }
+        creditos = new Imagem(DIRETORIO + "creditos_texto.png");
+        creditos.setBounds(500, 15, 154, 44);
+        contentPane.add(creditos);
+        contentPane.setComponentZOrder(creditos, 1);
     }
     public void teste() {
     	new Thread() {
@@ -341,6 +350,11 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         ondas[novaOnda - 1].setVisible(true);
         if(ondaAnterior > 0)
             ondas[ondaAnterior - 1].setVisible(false);
+        SwingUtilities.updateComponentTreeUI(this);
+    }
+
+    public void atualizaCreditos(int nCreditos){
+        textoCreditos.setText(String.valueOf(nCreditos));
         SwingUtilities.updateComponentTreeUI(this);
     }
 

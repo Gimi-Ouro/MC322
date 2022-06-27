@@ -136,6 +136,7 @@ public class Mapa implements IMapa{
 	public void removerBarco(Barco barco) throws InterruptedException {
 		mapa[barco.getl()][barco.getc()].removerElemento();
 		loja.navioAbatido(barco.getTipo());
+		atualizaTela.atualizaCreditos(loja.getCreditos());
 		atualizaTela.removerBarco(barco);
 	}
 

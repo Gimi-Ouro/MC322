@@ -43,6 +43,7 @@ public class GameStart implements IGameStart{
 		Tanque tanque = loja.compraCanhao(i);
 		if (tanque != null) {
 			controle.conectarTanque(tanque);
+			atualizaTela.atualizaCreditos(loja.getCreditos());
 			return true;
 		}
 		return false;
@@ -103,6 +104,7 @@ public class GameStart implements IGameStart{
 		janela.conectaGame(this);
 		janela.conecta(mapa);
 		atualizaTela.connect(janela);
+		atualizaTela.atualizaCreditos(loja.getCreditos());
 	}
 
 

@@ -28,24 +28,7 @@ public class Controle implements Icontrole{
 	public void conectarTanque(Tanque tanque) {
 		this.tanque = tanque;
 	}
-	
-	/*private void atirar(Tiro tiro) {
-		new Thread() {
-    	    @Override
-    	    public void run() {
-    	      int i = 3;
-    	      while(mapa.moverTiro(tiro.getl(), i, tiro.getl(), i+1)) {
-    	    	  i++;
-    	    	  try {
-					Thread.sleep(Tiro.velocidade);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-    	      }
-    	    }
-    	  }.start();
-	}*/
-	
+
 	private void gerarTiros(Tanque tanque) throws InterruptedException {
 			new Thread() {
 				public void run() {

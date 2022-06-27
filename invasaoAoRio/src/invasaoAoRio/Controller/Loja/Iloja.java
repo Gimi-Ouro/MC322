@@ -5,6 +5,7 @@ import invasaoAoRio.Model.Tanque;
 
 public interface Iloja {
 	public Tanque compraCanhao(int produto);
+	public int getCreditos();
 	public void navioAbatido(int tipo);
 
 }
