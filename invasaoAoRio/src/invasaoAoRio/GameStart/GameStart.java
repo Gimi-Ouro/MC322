@@ -58,11 +58,35 @@ public class GameStart implements IGameStart{
 	
 	public void start() {
 		try {
-			atualizaTela.trocaImagemOnda(1);
+			atualizaTela.trocaImagemOnda(0, 1);
+			geradorOndas.gerarOnda(5, 20000, 1);
+			Thread.sleep(10000);
+			atualizaTela.trocaImagemOnda(1, 2);
 			geradorOndas.gerarOnda(10, 30000, 1);
 			Thread.sleep(10000);
-			atualizaTela.trocaImagemOnda(2);
+			atualizaTela.trocaImagemOnda(2, 3);
 			geradorOndas.gerarOnda(5, 20000, 2);
+			Thread.sleep(10000);
+			atualizaTela.trocaImagemOnda(3, 4);
+			geradorOndas.gerarOnda(10, 40000, 2);
+			Thread.sleep(10000);
+			atualizaTela.trocaImagemOnda(4, 5);
+			geradorOndas.gerarOnda(10, 30000, 2);
+			Thread.sleep(10000);
+			atualizaTela.trocaImagemOnda(5, 6);
+			geradorOndas.gerarOnda(5, 30000, 3);
+			Thread.sleep(10000);
+			atualizaTela.trocaImagemOnda(6, 7);
+			geradorOndas.gerarOnda(10, 30000, 3);
+			Thread.sleep(10000);
+			atualizaTela.trocaImagemOnda(7, 8);
+			geradorOndas.gerarOnda(15, 40000, 3);
+			Thread.sleep(10000);
+			atualizaTela.trocaImagemOnda(8, 9);
+			geradorOndas.gerarOnda(10, 20000, 3);
+			Thread.sleep(10000);
+			atualizaTela.trocaImagemOnda(9, 10);
+			geradorOndas.gerarOnda(25, 50000, 3);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

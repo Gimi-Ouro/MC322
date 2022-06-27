@@ -69,8 +69,8 @@ public class AtualizaTela implements IAtualizaTela{
 		janela.acabarJogo(mensagem);
 	}
 
-	public void trocaImagemOnda(int nOnda){
-		janela.trocaImagemOnda(nOnda);
+	public void trocaImagemOnda(int ondaAnterior, int novaOnda){
+		janela.trocaImagemOnda(ondaAnterior, novaOnda);
 	}
 	
 }

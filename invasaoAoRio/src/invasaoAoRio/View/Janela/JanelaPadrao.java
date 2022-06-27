@@ -28,6 +28,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     private IGameStart gamestart;
     private Imagem tanqueGerado;
     private Imagem explosao;
+    private Imagem[] ondas;
     private ArrayList<Imagem> tanquesPosicionados;
     private ArrayList<Imagem> navios;
 
@@ -59,52 +60,14 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     public void configuraJanela(){
         this.contentPane = this.getContentPane();
         contentPane.setLayout(null);
-        this.bTanque1 = new JButton();
-        this.bTanque2 = new JButton();
-        this.bTanque3 = new JButton();
-        this.bStart = new JButton();
-        this.textoStart = new JTextField();
-        this.textoEnd = new JTextField();
-        contentPane.add(bTanque1);
-        contentPane.add(bTanque2);
-        contentPane.add(bTanque3);
-        contentPane.add(bStart);
-        contentPane.add(textoStart);
-        contentPane.add(textoEnd);
-        textoStart.setText("APERTE PARA INICIAR");
-        textoEnd.setText("VOCE PERDEU");
-        textoStart.setBounds(1255, 60, 135, 25);
-        textoEnd.setBounds(730,355, 100, 25);
-        textoEnd.setVisible(false);
-        bTanque1.setBounds(5, 5, 120,70);
-        bTanque2.setBounds(130, 5, 120,70);
-        bTanque3.setBounds(255, 5, 120,70);
-        bStart.setBounds(1300, 5, 48, 48);
-        bTanque1.setIcon(new ImageIcon(DIRETORIO + "tanqueverde.png"));
-        bTanque2.setIcon(new ImageIcon(DIRETORIO + "tanqueazul.png"));
-        bTanque3.setIcon(new ImageIcon(DIRETORIO + "tanquecinza.png"));
-        bStart.setIcon(new ImageIcon(DIRETORIO + "botao_start.png"));
+        configuraBotoes();
+        configuraTexto();
         explosao = new Imagem(DIRETORIO + "explosion2.png");
         contentPane.add(explosao);
         explosao.setBounds(0, 0, 60, 59);
         explosao.setVisible(false);
-        this.bordasVerdes = new Imagem[6][3];
-        this.bordasVermelhas = new Imagem[6][3];
-        for(int i = 0; i < 6; i++){
-            for(int j = 0; j < 3; j++){
-                bordasVerdes[i][j] = new Imagem(DIRETORIO + "bordaverde.png");
-                bordasVermelhas[i][j] = new Imagem(DIRETORIO + "bordavermelha.png");
-                bordasVerdes[i][j].setBounds(j*88 + 32, i*107 + 85, 88, 107);
-                bordasVermelhas[i][j].setBounds(j*88 + 32, i*107 + 85, 88, 107);
-                contentPane.add(bordasVerdes[i][j]);
-                contentPane.add(bordasVermelhas[i][j]);
-                contentPane.setComponentZOrder(bordasVermelhas[i][j], 1);
-                contentPane.setComponentZOrder(bordasVerdes[i][j], 1);
-                bordasVerdes[i][j].setVisible(false);
-                bordasVermelhas[i][j].setVisible(false);
-            }
-        }
-        
+        configuraBordas();
+        configuraHUD();
         bTanque1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 apertouBotao(1, (JButton) e.getSource());
@@ -133,7 +96,64 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 
         this.setVisible(true);
     }
+    public void configuraBotoes(){
+        this.bTanque1 = new JButton();
+        this.bTanque2 = new JButton();
+        this.bTanque3 = new JButton();
+        this.bStart = new JButton();
+        contentPane.add(bTanque1);
+        contentPane.add(bTanque2);
+        contentPane.add(bTanque3);
+        contentPane.add(bStart);
+        bTanque1.setBounds(5, 5, 120,70);
+        bTanque2.setBounds(130, 5, 120,70);
+        bTanque3.setBounds(255, 5, 120,70);
+        bStart.setBounds(1300, 5, 48, 48);
+        bTanque1.setIcon(new ImageIcon(DIRETORIO + "tanqueverde.png"));
+        bTanque2.setIcon(new ImageIcon(DIRETORIO + "tanqueazul.png"));
+        bTanque3.setIcon(new ImageIcon(DIRETORIO + "tanquecinza.png"));
+        bStart.setIcon(new ImageIcon(DIRETORIO + "botao_start.png"));
+    }
+    public void configuraTexto(){
+        this.textoStart = new JTextField();
+        this.textoEnd = new JTextField();
+        contentPane.add(textoStart);
+        contentPane.add(textoEnd);
+        textoStart.setText("APERTE PARA INICIAR");
+        textoEnd.setText("VOCE PERDEU");
+        textoStart.setBounds(1255, 60, 135, 25);
+        textoEnd.setBounds(730,355, 100, 25);
+        textoEnd.setVisible(false);
+    }
+    public void configuraBordas(){
+        this.bordasVerdes = new Imagem[6][3];
+        this.bordasVermelhas = new Imagem[6][3];
+        for(int i = 0; i < 6; i++){
+            for(int j = 0; j < 3; j++){
+                bordasVerdes[i][j] = new Imagem(DIRETORIO + "bordaverde.png");
+                bordasVermelhas[i][j] = new Imagem(DIRETORIO + "bordavermelha.png");
+                bordasVerdes[i][j].setBounds(j*88 + 32, i*107 + 85, 88, 107);
+                bordasVermelhas[i][j].setBounds(j*88 + 32, i*107 + 85, 88, 107);
+                contentPane.add(bordasVerdes[i][j]);
+                contentPane.add(bordasVermelhas[i][j]);
+                contentPane.setComponentZOrder(bordasVermelhas[i][j], 1);
+                contentPane.setComponentZOrder(bordasVerdes[i][j], 1);
+                bordasVerdes[i][j].setVisible(false);
+                bordasVermelhas[i][j].setVisible(false);
+            }
+        }
+    }
 
+    public void configuraHUD(){
+        ondas = new Imagem[10];
+        for(int i = 0; i < 10; i++){
+            ondas[i] = new Imagem(DIRETORIO + "onda" + String.valueOf(i+1) + ".png");
+            ondas[i].setBounds(1100, 15, 164, 44);
+            contentPane.add(ondas[i]);
+            ondas[i].setVisible(false);
+            contentPane.setComponentZOrder(ondas[i], 1);
+        }
+    }
     public void teste() {
     	new Thread() {
     	    @Override
@@ -176,6 +196,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
             if(itanque.getL() == tanque.getL() && itanque.getC() == tanque.getC()){
                 contentPane.remove(itanque);
                 tanquesPosicionados.remove(itanque);
+                break;
             }
         }
     }
@@ -316,8 +337,11 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         }
     }
 
-    public void trocaImagemOnda(int nOnda){
-
+    public void trocaImagemOnda(int ondaAnterior, int novaOnda){
+        ondas[novaOnda - 1].setVisible(true);
+        if(ondaAnterior > 0)
+            ondas[ondaAnterior - 1].setVisible(false);
+        SwingUtilities.updateComponentTreeUI(this);
     }
 
 }
