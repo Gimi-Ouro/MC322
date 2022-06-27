@@ -69,7 +69,6 @@ public class GameStart implements IGameStart{
 		janela.conectaGame(this);
 		janela.conecta(mapa);
 		atualizaTela.connect(janela);
-		start();
 	}
 
 }

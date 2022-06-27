@@ -120,6 +120,12 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
             	apertouBotao(3, (JButton) e.getSource());
             }
         });
+        
+        bStart.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+              teste();
+            }
+        });
 
         Imagem mapa = new Imagem(DIRETORIO + "mapa_.png");
         this.add(mapa);
@@ -128,6 +134,15 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         this.setVisible(true);
     }
 
+    public void teste() {
+    	new Thread() {
+    	    @Override
+    	    public void run() {
+    	    	gamestart.start();    	      
+    	    }
+    	  }.start();
+    }
+    
     public void apertouBotao(int numeroBotao, JButton botao){
     	if (gamestart.comprarTanque(numeroBotao)) {
     		addMouseMotionListener(this);

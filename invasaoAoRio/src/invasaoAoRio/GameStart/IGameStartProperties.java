@@ -8,4 +8,5 @@ public interface IGameStartProperties {
 	public boolean addTanque(int x, int y) throws InterruptedException;
 	public boolean comprarTanque(int i);
 	public void acabarJogo();
+	public void start();
 }
