@@ -113,11 +113,13 @@ public class Mapa implements IMapa{
 			if(mapa[destinoL][destinoC].getTiro() != null){
 				Thread.sleep(500);
 			}
-			atualizaTela.moverBarco(barco, destinoL, destinoC);
-			barco.setPosicao(destinoL, destinoC);
-			this.addBarcoNaMatriz(barco);
-			this.removerElemento(origemL, origemC);
-			verificarEstado();
+			if(mapa[destinoL][destinoC].isVazia()) {
+				atualizaTela.moverBarco(barco, destinoL, destinoC);
+				barco.setPosicao(destinoL, destinoC);
+				this.addBarcoNaMatriz(barco);
+				this.removerElemento(origemL, origemC);
+				verificarEstado();
+			}
 		}
 	}
 	

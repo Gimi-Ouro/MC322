@@ -111,7 +111,7 @@ public class GameStart implements IGameStart{
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		k.interrupt();
+		k.stop();
 	} 
 	
 	@Override
