@@ -47,9 +47,9 @@ public class GeradorOnda implements IgeradorDeOndas{
 	            if(tipo == 0){
 	            	navio = new Navio(20, 1, true, 0, i);
 	            } else if(tipo == 1){
-	            	navio = new Navio(40, 2, true, 1, i);
+	            	navio = new Navio(50, 1, true, 1, i);
 	            } else if(tipo == 2){
-	            	navio = new Navio(60, 1, true, 2, i);
+	            	navio = new Navio(70, 1, true, 2, i);
 	            }
 	            navio.setPosicao(posicionamento, 15);
 	            mapa.addBarco(navio);
