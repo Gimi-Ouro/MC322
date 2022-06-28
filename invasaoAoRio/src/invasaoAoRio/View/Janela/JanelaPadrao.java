@@ -88,7 +88,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         
         bStart.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-              teste();
+              eventoStart();
             }
         });
 
@@ -166,7 +166,8 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         contentPane.add(creditos);
         contentPane.setComponentZOrder(creditos, 1);
     }
-    public void teste() {
+    public void eventoStart() {
+    	this.habilitarBotaoStart(false);
     	new Thread() {
     	    @Override
     	    public void run() {
@@ -332,16 +333,24 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 		}
 		for (int i = 0; i < navios.size(); i++) {
 			contentPane.remove(navios.get(navios.size() - 1));
-			tanques.remove(navios.get(navios.size() - 1));
+			navios.remove(navios.get(navios.size() - 1));
 		}
 		SwingUtilities.updateComponentTreeUI(this);
 		System.out.println("RETIROU TIROS DA TELA");
+	}
+	
+	public void habilitarBotaoStart(boolean k) {
+		bTanque1.setEnabled(!k);
+		bTanque2.setEnabled(!k);
+		bTanque3.setEnabled(!k);
+		bStart.setEnabled(k);
 	}
 	
 	@Override
 	public void acabarJogo(Imagem mensagem) {
 		contentPane.add(mensagem);
 		mensagem.setBounds(700, 500, 100, 70);
+		habilitarBotaoStart(true);
 		contentPane.setComponentZOrder(mensagem, 1);
 		retirarImagens();
 		gamestart.acabarJogo();
