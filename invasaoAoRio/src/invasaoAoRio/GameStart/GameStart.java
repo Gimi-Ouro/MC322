@@ -93,6 +93,7 @@ public class GameStart implements IGameStart{
 					Thread.sleep(10000);
 					atualizaTela.trocaImagemOnda(9, 10);
 					geradorOndas.gerarOnda(30, 50000, 3);
+					atualizaTela.acabarJogo(1);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

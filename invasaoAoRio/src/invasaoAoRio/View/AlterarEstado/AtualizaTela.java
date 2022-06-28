@@ -64,8 +64,8 @@ public class AtualizaTela implements IAtualizaTela{
 	}
 
 	@Override
-	public void acabarJogo() {
-		janela.acabarJogo();
+	public void acabarJogo(int flag) {
+		janela.acabarJogo(flag);
 	}
 
 	public void trocaImagemOnda(int ondaAnterior, int novaOnda){

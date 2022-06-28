@@ -352,8 +352,13 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 	
 	
 	@Override
-	public void acabarJogo() {
-		voceperdeu.setVisible(true);
+	public void acabarJogo(int flag) {
+		if(flag == 1) {
+			voceganhou.setVisible(true);
+		}
+		else {
+			voceperdeu.setVisible(true);
+		}
 		retirarImagens();
 		gamestart.acabarJogo();
 	}

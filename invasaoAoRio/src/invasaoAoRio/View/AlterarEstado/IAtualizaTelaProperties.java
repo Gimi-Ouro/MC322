@@ -14,5 +14,5 @@ public interface IAtualizaTelaProperties {
 	public void moverTiro(Tiro tiro);
 	public void trocaImagemOnda(int ondaAnterior, int novaOnda);
 	public void atualizaCreditos(int nCreditos);
-	public void acabarJogo();
+	public void acabarJogo(int flag);
 }

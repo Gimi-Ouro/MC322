@@ -56,7 +56,7 @@ public class Mapa implements IMapa{
 	private void verificarEstado() {
 		if (qtdNaviosParados > 2) {
 			resetar();
-			atualizaTela.acabarJogo();
+			atualizaTela.acabarJogo(0);
 		}
 	}
 	////////TIROS/////////////////
@@ -82,10 +82,12 @@ public class Mapa implements IMapa{
 			}
 			else{
 				Thread.sleep(10);
-				removerTiroMatriz(tiro);
-				tiro.setc(tiro.getc() + 1);
-				addTiro(tiro, false);
-				atualizaTela.moverTiro(tiro);
+				if(mapa[tiro.getl()][tiro.getc() + 1].getTiro() == null) {
+					removerTiroMatriz(tiro);
+					tiro.setc(tiro.getc() + 1);
+					addTiro(tiro, false);
+					atualizaTela.moverTiro(tiro);
+				}
 				return true;
 			}
 		}
@@ -94,7 +96,7 @@ public class Mapa implements IMapa{
 			System.out.println("CHEGOU");
 			return false;
 		}
-
+		
 	}
 	
 	@Override
