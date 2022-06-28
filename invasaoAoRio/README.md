@@ -11,3 +11,6 @@ https://docs.google.com/presentation/d/1VWDClihfaZlSJoE1NP40EWEMPne-HWDpHEoTdNXv
 # Slides da Apresentação Final
 https://docs.google.com/presentation/d/1A17BexgyANxj-jKuBHobm8QDrC6Caz9vlF-jknswN2U/edit?usp=sharing 
 
+# Diagrama Geral da Arquitetura do Jogo
+![arquitetura](https://user-images.githubusercontent.com/69171865/176242330-a5ba7a8b-a0ce-427c-8324-cff737f9649e.png)
+
