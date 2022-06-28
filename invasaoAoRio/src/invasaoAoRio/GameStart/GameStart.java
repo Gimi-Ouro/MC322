@@ -61,10 +61,10 @@ public class GameStart implements IGameStart{
 		try {
 			atualizaTela.trocaImagemOnda(0, 1);
 			geradorOndas.gerarOnda(10, 10000, 1);
-			/*Thread.sleep(10000);
+			Thread.sleep(5000);
 			atualizaTela.trocaImagemOnda(1, 2);
-			geradorOndas.gerarOnda(10, 30000, 1);
-			Thread.sleep(10000);
+			geradorOndas.gerarOnda(10, 30000, 3);
+			Thread.sleep(5000);
 			atualizaTela.trocaImagemOnda(2, 3);
 			geradorOndas.gerarOnda(5, 20000, 2);
 			Thread.sleep(10000);
@@ -87,7 +87,7 @@ public class GameStart implements IGameStart{
 			geradorOndas.gerarOnda(10, 20000, 3);
 			Thread.sleep(10000);
 			atualizaTela.trocaImagemOnda(9, 10);
-			geradorOndas.gerarOnda(25, 50000, 3);*/
+			geradorOndas.gerarOnda(25, 50000, 3);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
