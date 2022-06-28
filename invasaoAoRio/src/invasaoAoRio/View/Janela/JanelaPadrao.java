@@ -167,7 +167,6 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         contentPane.setComponentZOrder(creditos, 1);
     }
     public void eventoStart() {
-    	this.habilitarBotaoStart(false);
     	new Thread() {
     	    @Override
     	    public void run() {
@@ -339,18 +338,11 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 		System.out.println("RETIROU TIROS DA TELA");
 	}
 	
-	public void habilitarBotaoStart(boolean k) {
-		bTanque1.setEnabled(!k);
-		bTanque2.setEnabled(!k);
-		bTanque3.setEnabled(!k);
-		bStart.setEnabled(k);
-	}
 	
 	@Override
 	public void acabarJogo(Imagem mensagem) {
 		contentPane.add(mensagem);
 		mensagem.setBounds(700, 500, 100, 70);
-		habilitarBotaoStart(true);
 		contentPane.setComponentZOrder(mensagem, 1);
 		retirarImagens();
 		gamestart.acabarJogo();
