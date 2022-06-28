@@ -176,6 +176,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         contentPane.setComponentZOrder(voceperdeu, 1);
         contentPane.setComponentZOrder(voceganhou, 1);
         voceperdeu.setVisible(false);
+        voceganhou.setVisible(false);
     }
     public void eventoStart() {
     	new Thread() {
@@ -352,9 +353,10 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 	
 	@Override
 	public void acabarJogo(Imagem mensagem) {
-		contentPane.add(mensagem);
-		mensagem.setBounds(700, 500, 100, 70);
-		contentPane.setComponentZOrder(mensagem, 1);
+		//contentPane.add(mensagem);
+		//mensagem.setBounds(700, 500, 100, 70);
+		//contentPane.setComponentZOrder(mensagem, 1);
+		voceperdeu.setVisible(true);
 		retirarImagens();
 		gamestart.acabarJogo();
 	}
