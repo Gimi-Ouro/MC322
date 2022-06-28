@@ -37,6 +37,8 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     private Imagem[][] bordasVermelhas;
     private Imagem creditos;
     private JTextField textoCreditos;
+    private Imagem voceganhou;
+    private Imagem voceperdeu;
 
     private IMapa mapa;
     
@@ -119,7 +121,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     }
     
     public void configuraTexto(){
-       /* this.textoStart = new JTextField();
+        this.textoStart = new JTextField();
         this.textoEnd = new JTextField();
         this.textoCreditos = new JTextField();
         contentPane.add(textoCreditos);
@@ -130,7 +132,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         textoStart.setBounds(1255, 60, 135, 25);
         textoEnd.setBounds(730,355, 100, 25);
         textoCreditos.setBounds(665, 22, 60, 44);
-        textoEnd.setVisible(false);*/
+        textoEnd.setVisible(false);
     }
     
     public void configuraBordas(){
@@ -161,10 +163,19 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
             ondas[i].setVisible(false);
             contentPane.setComponentZOrder(ondas[i], 1);
         }
+        voceganhou = new Imagem(DIRETORIO + "voceganhou.png");
+        voceperdeu = new Imagem(DIRETORIO + "voceperdeu.png");
         creditos = new Imagem(DIRETORIO + "creditos_texto.png");
+        voceganhou.setBounds(365, 338, 678, 84);
+        voceperdeu.setBounds(380, 338, 678, 84);
         creditos.setBounds(500, 15, 154, 44);
         contentPane.add(creditos);
+        contentPane.add(voceganhou);
+        contentPane.add(voceperdeu);
         contentPane.setComponentZOrder(creditos, 1);
+        contentPane.setComponentZOrder(voceperdeu, 1);
+        contentPane.setComponentZOrder(voceganhou, 1);
+        voceperdeu.setVisible(false);
     }
     public void eventoStart() {
     	new Thread() {
@@ -389,7 +400,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     }
 
     public void atualizaCreditos(int nCreditos){
-        //textoCreditos.setText(String.valueOf(nCreditos));
+        textoCreditos.setText(String.valueOf(nCreditos));
         SwingUtilities.updateComponentTreeUI(this);
     }
 
