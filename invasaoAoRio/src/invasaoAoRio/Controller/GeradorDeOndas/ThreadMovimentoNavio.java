@@ -14,8 +14,6 @@ public class ThreadMovimentoNavio extends Thread {
 	}
 	
 	public void run() {
-    	Thread t = Thread.currentThread();
-    	System.out.println(t.getName());
       for(int i = 15; i > 3; i--) {
 		  try {
 			  mapa.movimentarBarco(navio.getl(), navio.getc(), navio.getl(), navio.getc() - 1);

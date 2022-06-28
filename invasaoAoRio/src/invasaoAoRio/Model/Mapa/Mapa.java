@@ -72,7 +72,6 @@ public class Mapa implements IMapa{
 	public boolean moverTiro(Tiro tiro) throws InterruptedException {
 		if(tiro.getc() < 15){
 			if(mapa[tiro.getl()][tiro.getc() + 1].getBarco() != null && !tiro.getAcertou()){
-				System.out.println("TIRO ACERTOU");
 				removerTiro(tiro);
 				if(tiro.atingir(mapa[tiro.getl()][tiro.getc() + 1].getBarco())){
 					atualizaTela.removerBarco(mapa[tiro.getl()][tiro.getc() + 1].getBarco());
@@ -82,18 +81,15 @@ public class Mapa implements IMapa{
 			}
 			else{
 				Thread.sleep(10);
-				if(mapa[tiro.getl()][tiro.getc() + 1].getTiro() == null) {
-					removerTiroMatriz(tiro);
-					tiro.setc(tiro.getc() + 1);
-					addTiro(tiro, false);
-					atualizaTela.moverTiro(tiro);
-				}
+				removerTiroMatriz(tiro);
+				tiro.setc(tiro.getc() + 1);
+				addTiro(tiro, false);
+				atualizaTela.moverTiro(tiro);
 				return true;
 			}
 		}
 		else{
 			removerTiro(tiro);
-			System.out.println("CHEGOU");
 			return false;
 		}
 		
@@ -143,7 +139,6 @@ public class Mapa implements IMapa{
 		loja.navioAbatido(barco.getTipo());
 		mapa[barco.getl()][barco.getc()].removerElemento();
 		atualizaTela.atualizaCreditos(loja.getCreditos());
-		System.out.println("+50");
 		atualizaTela.removerBarco(barco);
 	}
 	

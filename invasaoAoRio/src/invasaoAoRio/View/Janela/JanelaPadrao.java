@@ -173,8 +173,8 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         contentPane.add(voceganhou);
         contentPane.add(voceperdeu);
         contentPane.setComponentZOrder(creditos, 1);
-        contentPane.setComponentZOrder(voceperdeu, 1);
-        contentPane.setComponentZOrder(voceganhou, 1);
+        contentPane.setComponentZOrder(voceperdeu, 2);
+        contentPane.setComponentZOrder(voceganhou, 2);
         voceperdeu.setVisible(false);
         voceganhou.setVisible(false);
     }
@@ -318,7 +318,6 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         if(barco != null){
             for(Imagem ibarco: navios){
                     if (ibarco.getId() == barco.getId()){
-                        System.out.println("removeu navio");
                         ibarco.setVisible(false);
                         contentPane.remove(ibarco);
                         explosao.setLocation(ibarco.getX(), ibarco.getY());
@@ -347,7 +346,6 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 			navios.remove(navios.get(navios.size() - 1));
 		}
 		SwingUtilities.updateComponentTreeUI(this);
-		System.out.println("RETIROU TIROS DA TELA");
 	}
 	
 	
@@ -390,7 +388,6 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
                 tiro1 = iTiro;
                 tiros.remove(tiro1);
                 contentPane.remove(tiro1);
-                System.out.println("Tiro removido");
                 break;
             }
         }

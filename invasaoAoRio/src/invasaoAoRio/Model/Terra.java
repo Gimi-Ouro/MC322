@@ -47,7 +47,7 @@ public class Terra implements ICelula {
 	@Override
 	public void removerElemento() {
 		this.tanque = null;
-		this.tiro = null;
+		//this.tiro = null;
 		this.vazia = true;
 	}
 
@@ -58,7 +58,7 @@ public class Terra implements ICelula {
 
 	@Override
 	public void removerTiro() {
-
+		this.tiro = null;
 	}
 
 	@Override
