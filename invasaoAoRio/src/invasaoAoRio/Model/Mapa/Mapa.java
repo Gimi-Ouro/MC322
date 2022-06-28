@@ -32,7 +32,9 @@ public class Mapa implements IMapa{
 		this.atualizaTela = atualizaTela;
 	}
 	@Override
-	public void connect(Iloja loja) { this.loja = loja;}
+	public void connect(Iloja loja) {
+		this.loja = loja;
+	}
 	
 	public void removerElemento(int l, int c) {
 		mapa[l][c].removerElemento();
@@ -42,12 +44,18 @@ public class Mapa implements IMapa{
 		return this.mapa;
 	}
 	
-	private void verificarEstado() {
-		for (int i = 0; i < 6; i++) {
-			if(!mapa[i][3].isVazia())
-				qtdNaviosParados++;
+	//////ESTADO DO MAPA//////////
+	private void resetar() {
+		for (int i = 0; i < mapa.length; i++) {
+			for (int j = 0; j < mapa[i].length; j++) {
+				removerElemento(i, j);
+			}
 		}
+	}
+	
+	private void verificarEstado() {
 		if (qtdNaviosParados > 2) {
+			resetar();
 			atualizaTela.acabarJogo();
 		}
 	}
@@ -98,6 +106,9 @@ public class Mapa implements IMapa{
 	//////////////BARCOS///////////////////
 	public void movimentarBarco(int origemL, int origemC, int destinoL, int destinoC) throws InterruptedException {
 		Barco barco = mapa[origemL][origemC].getBarco();
+		if (destinoC == 3) {
+			qtdNaviosParados++;
+		}
 		if (barco != null) {
 			if(mapa[destinoL][destinoC].getTiro() != null){
 				Thread.sleep(500);

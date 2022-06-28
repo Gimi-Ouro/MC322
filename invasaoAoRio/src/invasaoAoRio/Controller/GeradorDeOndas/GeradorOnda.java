@@ -22,21 +22,6 @@ public class GeradorOnda implements IgeradorDeOndas{
     }
     
     private void partidaNoNavio(Barco navio) {
-    	/*new Thread() {
-    	    @Override
-    	    public void run() {
-    	    	Thread t = Thread.currentThread();
-    	    	System.out.println(t.getName());
-    	      for(int i = 15; i > 3; i--) {
-    	    	  mapa.movimentarBarco(navio.getl(), navio.getc(), navio.getl(), navio.getc() - 1);
-    	    	  try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-    	      }
-    	    }
-    	  }.start();*/
     	ThreadMovimentoNavio t = new ThreadMovimentoNavio(mapa, navio);
     	threads.add(t);
     	t.start();
@@ -45,7 +30,7 @@ public class GeradorOnda implements IgeradorDeOndas{
     @SuppressWarnings("deprecation")
 	public void pararOnda() {
     	for (Thread t: threads) {
-    		t.stop();;
+    		t.stop();
     	}
     }
     

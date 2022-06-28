@@ -29,7 +29,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     private Imagem tanqueGerado;
     private Imagem explosao;
     private Imagem[] ondas;
-    private ArrayList<Imagem> tanquesPosicionados;
+    private ArrayList<Imagem> tanques;
     private ArrayList<Imagem> navios;
 
     private ArrayList<Imagem> tiros;
@@ -45,7 +45,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         setSize(1408, 760);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         tanqueGerado = null;
-        tanquesPosicionados = new ArrayList<>();
+        tanques = new ArrayList<>();
         navios = new ArrayList<>();
         tiros = new ArrayList<>();
     }
@@ -98,6 +98,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 
         this.setVisible(true);
     }
+    
     public void configuraBotoes(){
         this.bTanque1 = new JButton();
         this.bTanque2 = new JButton();
@@ -116,8 +117,9 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         bTanque3.setIcon(new ImageIcon(DIRETORIO + "tanquecinza.png"));
         bStart.setIcon(new ImageIcon(DIRETORIO + "botao_start.png"));
     }
+    
     public void configuraTexto(){
-        this.textoStart = new JTextField();
+       /* this.textoStart = new JTextField();
         this.textoEnd = new JTextField();
         this.textoCreditos = new JTextField();
         contentPane.add(textoCreditos);
@@ -128,8 +130,9 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         textoStart.setBounds(1255, 60, 135, 25);
         textoEnd.setBounds(730,355, 100, 25);
         textoCreditos.setBounds(665, 22, 60, 44);
-        textoEnd.setVisible(false);
+        textoEnd.setVisible(false);*/
     }
+    
     public void configuraBordas(){
         this.bordasVerdes = new Imagem[6][3];
         this.bordasVermelhas = new Imagem[6][3];
@@ -187,7 +190,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     		}
     		contentPane.add(tanqueGerado);
     		tanqueGerado.setBounds(botao.getX(), botao.getY(), 92, 69);
-            tanquesPosicionados.add(tanqueGerado);
+            tanques.add(tanqueGerado);
     		this.contentPane.setComponentZOrder(tanqueGerado, 1);
             for(int i = 0; i < 6; i++){
                 for(int j = 0; j < 3; j++){
@@ -200,15 +203,17 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     		//falar que não tem créditos suficientes para fazer a compra
     	}
     }
+    
     public void removerTanque(Tanque tanque){
-        for(Imagem itanque: tanquesPosicionados){
+        for(Imagem itanque: tanques){
             if(itanque.getL() == tanque.getL() && itanque.getC() == tanque.getC()){
                 contentPane.remove(itanque);
-                tanquesPosicionados.remove(itanque);
+                tanques.remove(itanque);
                 break;
             }
         }
     }
+    
     public boolean posicaoVazia(int l, int c){
         return mapa.getMapa()[l][c].isVazia();
     }
@@ -221,6 +226,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
             }
         }
     }
+    
     @Override
     public void mouseMoved(MouseEvent e) {
     	this.contentPane.setComponentZOrder(tanqueGerado, 1);
@@ -230,7 +236,8 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
             tanqueGerado.setLocation(32 + tanqueGerado.getC()*88, 110 + tanqueGerado.getL()*107);
         }
     }
-	@Override
+	
+    @Override
 	public void mouseClicked(MouseEvent e) {
         if(e.getX() < 296 && e.getX() > 32 && e.getY() > 85 && e.getY() < 727){
             try {
@@ -244,12 +251,13 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
             }
         }
 	}
-	//////não utilizado por enquanto
-	@Override
+	
+    @Override
 	public void mousePressed(MouseEvent e) {
 			
 	}
-	@Override
+	
+    @Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
@@ -258,16 +266,19 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 	public void mouseEntered(MouseEvent e) {
 
 	}
+	
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+	
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+	
 	@Override
 	public void moverBarco(Barco barco, int destinoL, int destinoC) {
 		Imagem barco1 = null;
@@ -280,6 +291,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
             }
         }
 	}
+	
 	@Override
 	public void addBarco(Imagem barcoGerado) {
 		contentPane.add(barcoGerado);
@@ -288,6 +300,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         contentPane.setComponentZOrder(barcoGerado, 1);
         SwingUtilities.updateComponentTreeUI(this);
 	}
+	
 	@Override
 	public void removerBarco(Barco barco) throws InterruptedException {
         if(barco != null){
@@ -307,9 +320,30 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
                 }
         }
 	}
+	
+	public void retirarImagens() {
+		for(int i = 0; i < tiros.size(); i++) {
+			contentPane.remove(tiros.get(tiros.size() - 1));
+			tiros.remove(tiros.get(tiros.size() - 1));
+		}
+		for (int i = 0; i < tanques.size(); i++) {
+			contentPane.remove(tanques.get(tanques.size() - 1));
+			tanques.remove(tanques.get(tanques.size() - 1));
+		}
+		for (int i = 0; i < navios.size(); i++) {
+			contentPane.remove(navios.get(navios.size() - 1));
+			tanques.remove(navios.get(navios.size() - 1));
+		}
+		SwingUtilities.updateComponentTreeUI(this);
+		System.out.println("RETIROU TIROS DA TELA");
+	}
+	
 	@Override
 	public void acabarJogo(Imagem mensagem) {
 		contentPane.add(mensagem);
+		mensagem.setBounds(700, 500, 100, 70);
+		contentPane.setComponentZOrder(mensagem, 1);
+		retirarImagens();
 		gamestart.acabarJogo();
 	}
 
@@ -327,7 +361,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
             if(iTiro.getId() == tiro.getid()){
                 tiro1 = iTiro;
                 tiro1.setLocation(tiro1.getX() + 100, tiro1.getY());
-                SwingUtilities.updateComponentTreeUI(this);
+                //SwingUtilities.updateComponentTreeUI(this);
                 break;
             }
         }
@@ -354,7 +388,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     }
 
     public void atualizaCreditos(int nCreditos){
-        textoCreditos.setText(String.valueOf(nCreditos));
+        //textoCreditos.setText(String.valueOf(nCreditos));
         SwingUtilities.updateComponentTreeUI(this);
     }
 
