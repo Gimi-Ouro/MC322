@@ -106,13 +106,13 @@ public class GameStart implements IGameStart{
 	
 	public void acabarJogo() {
 		controle.encerrar();
-		geradorOndas.pararOnda();
+		k.stop();
 		try {
-			Thread.sleep(10000);
+			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		k.stop();
+		System.exit(0);
 	} 
 	
 	@Override

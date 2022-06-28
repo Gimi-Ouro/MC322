@@ -359,6 +359,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 		}
 		retirarImagens();
 		gamestart.acabarJogo();
+
 	}
 
     public void addTiro(Imagem itiro){

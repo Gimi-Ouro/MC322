@@ -74,7 +74,6 @@ public class Controle implements Icontrole{
 		for (Thread k: threadsGeradoras) {
 			k.stop();
 		}
-		System.out.println("encerrou");
 		for (Thread t: threads) {
     		t.stop();
     	}
