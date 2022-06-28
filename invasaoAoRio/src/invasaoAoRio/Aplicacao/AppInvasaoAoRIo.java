@@ -27,7 +27,7 @@ public class AppInvasaoAoRIo {
     	controle = new Controle();
     	geradorOndas = new GeradorOnda();
     	atualizaTela = new AtualizaTela();
-    	loja = new Loja(600); //inicia com 100 créditos
+    	loja = new Loja(300); //inicia com 300 créditos
     	mapa = new Mapa();
     	mapa.connect(atualizaTela);
     	geradorOndas.connect(mapa);
