@@ -352,10 +352,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 	
 	
 	@Override
-	public void acabarJogo(Imagem mensagem) {
-		//contentPane.add(mensagem);
-		//mensagem.setBounds(700, 500, 100, 70);
-		//contentPane.setComponentZOrder(mensagem, 1);
+	public void acabarJogo() {
 		voceperdeu.setVisible(true);
 		retirarImagens();
 		gamestart.acabarJogo();
