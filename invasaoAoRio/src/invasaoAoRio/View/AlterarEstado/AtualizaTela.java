@@ -21,11 +21,11 @@ public class AtualizaTela implements IAtualizaTela{
 	public void adicionarBarco(Barco barco) {
 		Imagem barcoGerado = null;
 		if (barco.getTipo() == 0) {
-			barcoGerado = new Imagem(janela.getDIRETORIO() + "navioverde.png");
+			barcoGerado = new Imagem(getClass().getClassLoader().getResource("navioverde.png"));
 		}else if (barco.getTipo() == 1) {
-			barcoGerado = new Imagem(janela.getDIRETORIO() + "naviovermelho.png");
+			barcoGerado = new Imagem(getClass().getClassLoader().getResource("naviovermelho.png"));
 		}else if (barco.getTipo() == 2) {
-			barcoGerado = new Imagem(janela.getDIRETORIO() + "naviopreto.png");
+			barcoGerado = new Imagem(getClass().getClassLoader().getResource("naviopreto.png"));
 		}
 		barcoGerado.setL(barco.getl());
 		barcoGerado.setC(barco.getc());
@@ -46,7 +46,7 @@ public class AtualizaTela implements IAtualizaTela{
 
 	@Override
 	public void addTiro(Tiro tiro) {
-		Imagem itiro = new Imagem(janela.getDIRETORIO() + "tank_bullet4.png");
+		Imagem itiro = new Imagem(getClass().getClassLoader().getResource("tank_bullet4.png"));
 		itiro.setL(tiro.getl());
 		itiro.setC(tiro.getc());
 		itiro.setId(tiro.getid());

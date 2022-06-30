@@ -2,6 +2,7 @@ package invasaoAoRio.View;
 
 import javax.swing.*;
 import java.awt.*;
+import java.net.URL;
 
 public class Imagem extends JLabel {
 
@@ -11,8 +12,8 @@ public class Imagem extends JLabel {
     private int c;
     private int id;
 
-	public Imagem(String arquivoImagem){
-        super(new ImageIcon(arquivoImagem));
+	public Imagem(URL url){
+        super(new ImageIcon(url));
     }
 
 	public int getId() {

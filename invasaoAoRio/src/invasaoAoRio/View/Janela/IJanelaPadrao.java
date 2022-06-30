@@ -10,7 +10,7 @@ import invasaoAoRio.View.Imagem;
 
 public interface IJanelaPadrao extends IRGameStart, MouseInputListener, IRMapa{
     public void removerTanque(Tanque tanque);
-    public String getDIRETORIO();
+    //public String getDIRETORIO();
 	public void moverBarco(Barco barco, int destinoL, int destinoC);
 	public void addBarco(Imagem barcoGerado);
 	public void removerBarco(Barco barco) throws InterruptedException;

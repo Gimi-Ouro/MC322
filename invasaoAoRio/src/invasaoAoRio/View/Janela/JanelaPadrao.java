@@ -17,7 +17,7 @@ import invasaoAoRio.View.Imagem;
 public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     private static final long serialVersionUID = -3425706929777799523L;
     
-	public static String DIRETORIO = System.getProperty("user.dir") + "/invasaoAoRio/src/invasaoAoRio/assets/";
+	//public static String getClass().getClassLoader().getResource = System.getProperty("user.dir") + "/invasaoAoRio/src/invasaoAoRio/assets/";
     private Container contentPane;
     private JButton bTanque1;
     private JButton bTanque2;
@@ -58,15 +58,14 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 
     @Override
     public void conecta(IMapa mapa) { this.mapa = mapa; }
-    @Override
-    public String getDIRETORIO(){ return DIRETORIO; }
-
+    //public String getgetClass().getClassLoader().getResource(){ return getClass().getClassLoader().getResource; }
+    
     public void configuraJanela(){
         this.contentPane = this.getContentPane();
         contentPane.setLayout(null);
         configuraBotoes();
         configuraTexto();
-        explosao = new Imagem(DIRETORIO + "explosion2.png");
+        explosao = new Imagem(getClass().getClassLoader().getResource("explosion2.png"));
         contentPane.add(explosao);
         explosao.setBounds(0, 0, 60, 59);
         explosao.setVisible(false);
@@ -94,7 +93,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
             }
         });
 
-        Imagem mapa = new Imagem(DIRETORIO + "mapa_.png");
+        Imagem mapa = new Imagem(getClass().getClassLoader().getResource("mapa_.png"));
         this.add(mapa);
         mapa.setBounds(0, 85, 1408, 640);
 
@@ -114,10 +113,10 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         bTanque2.setBounds(130, 5, 120,70);
         bTanque3.setBounds(255, 5, 120,70);
         bStart.setBounds(1300, 5, 48, 48);
-        bTanque1.setIcon(new ImageIcon(DIRETORIO + "tanqueverde.png"));
-        bTanque2.setIcon(new ImageIcon(DIRETORIO + "tanqueazul.png"));
-        bTanque3.setIcon(new ImageIcon(DIRETORIO + "tanquecinza.png"));
-        bStart.setIcon(new ImageIcon(DIRETORIO + "botao_start.png"));
+        bTanque1.setIcon(new ImageIcon(getClass().getClassLoader().getResource("tanqueverde.png")));
+        bTanque2.setIcon(new ImageIcon(getClass().getClassLoader().getResource("tanqueazul.png")));
+        bTanque3.setIcon(new ImageIcon(getClass().getClassLoader().getResource("tanquecinza.png")));
+        bStart.setIcon(new ImageIcon(getClass().getClassLoader().getResource("botao_start.png")));
     }
     
     public void configuraTexto(){
@@ -140,8 +139,8 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
         this.bordasVermelhas = new Imagem[6][3];
         for(int i = 0; i < 6; i++){
             for(int j = 0; j < 3; j++){
-                bordasVerdes[i][j] = new Imagem(DIRETORIO + "bordaverde.png");
-                bordasVermelhas[i][j] = new Imagem(DIRETORIO + "bordavermelha.png");
+                bordasVerdes[i][j] = new Imagem(getClass().getClassLoader().getResource("bordaverde.png"));
+                bordasVermelhas[i][j] = new Imagem(getClass().getClassLoader().getResource("bordavermelha.png"));
                 bordasVerdes[i][j].setBounds(j*88 + 32, i*107 + 85, 88, 107);
                 bordasVermelhas[i][j].setBounds(j*88 + 32, i*107 + 85, 88, 107);
                 contentPane.add(bordasVerdes[i][j]);
@@ -157,15 +156,15 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     public void configuraHUD(){
         ondas = new Imagem[10];
         for(int i = 0; i < 10; i++){
-            ondas[i] = new Imagem(DIRETORIO + "onda" + String.valueOf(i+1) + ".png");
+            ondas[i] = new Imagem(getClass().getClassLoader().getResource("onda" + String.valueOf(i+1) + ".png"));
             ondas[i].setBounds(900, 15, 164, 44);
             contentPane.add(ondas[i]);
             ondas[i].setVisible(false);
             contentPane.setComponentZOrder(ondas[i], 1);
         }
-        voceganhou = new Imagem(DIRETORIO + "voceganhou.png");
-        voceperdeu = new Imagem(DIRETORIO + "voceperdeu.png");
-        creditos = new Imagem(DIRETORIO + "creditos_texto.png");
+        voceganhou = new Imagem(getClass().getClassLoader().getResource("voceganhou.png"));
+        voceperdeu = new Imagem(getClass().getClassLoader().getResource("voceperdeu.png"));
+        creditos = new Imagem(getClass().getClassLoader().getResource("creditos_texto.png"));
         voceganhou.setBounds(365, 338, 678, 84);
         voceperdeu.setBounds(380, 338, 678, 84);
         creditos.setBounds(500, 15, 154, 44);
@@ -192,13 +191,13 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
     		addMouseMotionListener(this);
     		addMouseListener(this);
     		if(numeroBotao == 1) { 
-    			tanqueGerado = new Imagem(DIRETORIO + "tanqueverde.png");
+    			tanqueGerado = new Imagem(getClass().getClassLoader().getResource("tanqueverde.png"));
     		}
     		else if(numeroBotao == 2) { 
-    			tanqueGerado = new Imagem(DIRETORIO + "tanqueazul.png");
+    			tanqueGerado = new Imagem(getClass().getClassLoader().getResource("tanqueazul.png"));
     		}
     		else if(numeroBotao == 3) { 
-    			tanqueGerado = new Imagem(DIRETORIO + "tanquecinza.png");
+    			tanqueGerado = new Imagem(getClass().getClassLoader().getResource("tanquecinza.png"));
     		}
     		contentPane.add(tanqueGerado);
     		tanqueGerado.setBounds(botao.getX(), botao.getY(), 92, 69);
