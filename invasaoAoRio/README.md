@@ -37,7 +37,7 @@ Essa estrutura de pastas nos permitiu separar os elementos do jogo em componente
 
 ## Código do destaque de OO
 
-~~~
+~~~JAVA
 public interface IRAtualizaTela {
     public void connect(IAtualizaTela atualizaTela);
 }
