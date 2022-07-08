@@ -110,7 +110,9 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
    ...
 }
 ~~~
-> O pattern destacado é o pattern Observer. Quando alguma modificação ocorre no Mapa, como esse está conectado com o AtualizaTela, a JanelaPadrao que assina o AtualizaTela recebe essa alteração e modifica a interface gráfica.
+> O pattern destacado é o pattern Observer. O componente AtualizaTela é um oberservador do mapa, assim toda vez que occore uma modificação do estado do mapa ele notifica o AtualizaTela qual modificação foi feita. Além disso, a JanelaPadrão é um observador do AtualizaTela, deste modo a JanelaPadrão ao identificar uma atualização modifica a vizualização da janela que aparece para o usuário.
+A utilização do componente AtualizaTela como intermediario entre o mapa e a janela é feito para poder suportar possiveis expansões de plataforma, visto que para implementar o jogo para rodar, por exemplo, em um Android seria necessário criar uma classe JanelaAndroid com métodos de interface gráfica apropriados para o android.
+
 
 # Conclusões e Trabalhos Futuros
 
