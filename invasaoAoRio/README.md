@@ -31,9 +31,39 @@ Essa estrutura de pastas nos permitiu separar os elementos do jogo em componente
 
 # Destaques de Orientação a Objetos
 
-## Diagrama de Classes usada no destaque OO:
+## Diagrama de Classes usada no destaque OO
 
 ![Blank diagram](https://user-images.githubusercontent.com/102101030/178045511-a52d8538-96fd-4990-a848-163415350f6e.jpeg)
+
+## Código do destaque de OO
+
+~~~
+public interface IRAtualizaTela {
+    public void connect(IAtualizaTela atualizaTela);
+}
+...
+public interface IRLoja {
+	public void connect(Iloja loja);
+}
+...
+public interface IRGeradorDeOndas {
+	public void connect(IgeradorDeOndas geradorOndas);
+}
+...
+public interface IRcontrole {
+	public void connect(Icontrole controle);
+}
+...
+public interface IGameStartProperties {
+	...
+	public void acabarJogo();
+	public void start();
+}
+
+public interface IGameStart extends IRcontrole, IRGeradorDeOndas, IRLoja, IGameStartProperties, IRAtualizaTela {
+}
+
+~~~
 
 # Destaques de Pattern
 
