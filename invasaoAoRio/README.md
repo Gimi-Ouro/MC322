@@ -110,6 +110,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
    ...
 }
 ~~~
+> O paterrn destacado é o pattern Oberver, 
 
 # Conclusões e Trabalhos Futuros
 
