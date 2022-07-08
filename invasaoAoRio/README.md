@@ -119,7 +119,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 # Documentação dos Componentes
 
 # Diagrama Geral da Arquitetura do Jogo
-![Projeto Final POO 2022 - Page 1](https://user-images.githubusercontent.com/69171865/178077070-7933fefe-19e7-430d-a991-2e7728692478.jpeg)
+![Projeto Final POO 2022 - Page 1(1)](https://user-images.githubusercontent.com/69171865/178077509-fd0f0022-9ffc-4ddb-8314-02cf23f011e0.jpeg)
 
 >Comentando a arquitetura
 
@@ -190,7 +190,7 @@ Método | Objetivo
 
 > Responsavel por representar o mapa, adicionar, remover e movimentar elementos que estão no mapa.
 
-![Projeto Final POO 2022 - Page 2](https://user-images.githubusercontent.com/69171865/178072142-ed9b11a9-307b-4a5a-9b80-e04dd67c72e0.jpeg)
+![Projeto Final POO 2022 - Page 3(1)](https://user-images.githubusercontent.com/69171865/178077725-0893d738-9c68-42e8-ada5-82c12fa45b22.jpeg)
 
 
 **Ficha Técnica**
@@ -204,7 +204,7 @@ Interfaces | `<IRLoja> <IRAtualizaTela>`
 
 Interfaces associadas a esse componente:
 
-![Projeto Final POO 2022 - Page 2(4)](https://user-images.githubusercontent.com/69171865/178073242-9177f7ad-e6dc-4210-a083-17edad4b13a1.jpeg)
+![Projeto Final POO 2022 - Page 2(6)](https://user-images.githubusercontent.com/69171865/178078014-923a5593-ca0f-412d-9d17-a050dfecc8b9.jpeg)
 
 Interface agregadora do componente em Java:
 
