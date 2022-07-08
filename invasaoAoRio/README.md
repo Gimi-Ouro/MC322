@@ -33,6 +33,8 @@ Essa estrutura de pastas nos permitiu separar os elementos do jogo em componente
 
 ## Diagrama de Classes usada no destaque OO:
 
+![Blank diagram](https://user-images.githubusercontent.com/102101030/178045511-a52d8538-96fd-4990-a848-163415350f6e.jpeg)
+
 # Destaques de Pattern
 
 ## Diagrama do Pattern
