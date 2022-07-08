@@ -17,6 +17,16 @@ O fluxo de jogo é simples, o jogo é inciado com 300 créditos e o jogador tem 
 * [Slides Finais (Apresentação)](https://docs.google.com/presentation/d/1A17BexgyANxj-jKuBHobm8QDrC6Caz9vlF-jknswN2U/edit?usp=sharing) 
 
 ## Relatório de Evolução
+O nosso projeto final utiliza o dessign pattern Model View Controller, todavia no começo do desenvolvimento não estávamos conseguindo organizar o projeto de tal forma que encaixa-se no design pattern, pois começamos o projeto sem utilizar componentes e a visualização do pattern ficava bastante bagunçada com as classes todas misturadas em uma única pasta. Além disso, não estavamos conseguindo utilizar as interfaces para comunicação entre classes de maneira correta, visto que a padronização de interface requerida e interface ofertada se encaixa melhor quando se utiliza componentes. Desta forma, reestruturamos o projeto para começar utilizar componentes.
+
+
+
+
+Sendo o diagrama acima o primeiro esboço do projeto com componentes que se comunicam através de interfaces, mas este diagrama ainda não estava suficiente, pois faltava agrupar os componentes no pattern Model View Controller, para isso alteramos a estrutura de pastas do projeto como visto a baixo.
+
+
+
+Essa estrutura de pastas nos permitiu separar os elementos do jogo em componentes e agrupar eles de acordo com sua coesão entre si, assim deixando o projeto conforme o design pattern escolhido. 
 
 # Destaques de Código
 
