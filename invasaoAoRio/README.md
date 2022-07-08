@@ -167,4 +167,20 @@ public interface IRmapa {
 
 Método | Objetivo
 -------| --------
-`IRmapa` | `conectar um objeto com o mapa`
+`connect` | `conectar um objeto com uma interface IMapa`
+
+### Interface `<IcontrolePropriedades>`
+
+`<Padroniza as propriedades oferecidas pelo controle>`
+
+~~~JAVA
+public interface IcontrolePropriedades {
+    public void conectarTanque(Tanque tanque);
+    public boolean addTanque(int x, int y) throws InterruptedException;
+}
+~~~
+
+Método | Objetivo
+-------| --------
+`conectarTanque` | `passa para o controle um tanque que será adcionado em uma posição de terra`
+`addTanque` | `adiciona um tanque na posicao informada`
