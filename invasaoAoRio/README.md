@@ -145,7 +145,7 @@ Interfaces | `<IRmapa> <IcontrolePropriedades>`
 
 Interfaces associadas a esse componente:
 
-![Projeto Final POO 2022 - Page 2(3)](https://user-images.githubusercontent.com/69171865/178073140-02133314-90e6-4ed8-87a6-a5c61903291b.jpeg)
+![Projeto Final POO 2022 - Page 2(4)](https://user-images.githubusercontent.com/69171865/178073242-9177f7ad-e6dc-4210-a083-17edad4b13a1.jpeg)
 
 Interface agregadora do componente em Java:
 
