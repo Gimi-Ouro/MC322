@@ -119,7 +119,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 # Documentação dos Componentes
 
 # Diagrama Geral da Arquitetura do Jogo
-![Projeto Final POO 2022 - Page 1](https://user-images.githubusercontent.com/69171865/178075523-9ffd4058-077a-4f13-bb0f-78426666acca.jpeg)
+![Projeto Final POO 2022(1)](https://user-images.githubusercontent.com/69171865/178065976-8241e745-1356-4c8f-90b6-d58704878d70.jpeg)
 
 >Comentando a arquitetura
 
@@ -186,6 +186,84 @@ Método | Objetivo
 `conectarTanque` | `passa para o controle um tanque que será adcionado em uma posição de terra`
 `addTanque` | `adiciona um tanque na posicao informada`
 
+## Componente `<Mapa>`
+
+> Responsavel por representar o mapa, adicionar, remover e movimentar elementos que estão no mapa.
+
+![Projeto Final POO 2022 - Page 2](https://user-images.githubusercontent.com/69171865/178072142-ed9b11a9-307b-4a5a-9b80-e04dd67c72e0.jpeg)
+
+
+**Ficha Técnica**
+item | detalhamento
+----- | -----
+Classe | `invasaoAoRio.src.invasaoAoRio.Model.Mapa`
+Autores | `<Jonathan do Ouro e Giovanni Mesquita Micaroni>`
+Interfaces | `<IRLoja> <IRAtualizaTela>`
+
+### Interfaces
+
+Interfaces associadas a esse componente:
+
+![Projeto Final POO 2022 - Page 2(4)](https://user-images.githubusercontent.com/69171865/178073242-9177f7ad-e6dc-4210-a083-17edad4b13a1.jpeg)
+
+Interface agregadora do componente em Java:
+
+~~~java
+public interface IMapa extends IRLoja, IRAtualizaTela{
+	public boolean addTanque(Tanque tanque);
+	public ICelula[][] getMapa();
+	public void addBarco(Barco barco);
+	public void removerElemento(int l, int c);
+	public void movimentarBarco(int origemL, int origemC, int destinoL, int destinoC) throws InterruptedException;
+	public boolean moverTiro(Tiro tiro) throws InterruptedException;
+	public void addTiro(Tiro tiro, boolean addNaTela);
+	public void removerTanque(Tanque tanque);
+	public void removerBarco(Barco barco) throws InterruptedException;
+}
+~~~
+
+Método | Objetivo
+-------| --------
+`addTanque` | `adiciona um tanque na matriz de cululas do mapa`
+`getMapa` | `retorna a matriz de celulas`
+`addBarco` | `adiciona um barco na matriz de cululas do mapa`
+`removerElemento` | `remove um elemento da matriz que está na linha L e coluna C`
+`movimentarBarco` | `move um barco de uma celula para a celula ao lado`
+`moverTiro` | `move um tiro para a celula que está a direita de onde o tiro se econtra`
+`addTiro` | `adiciona um tiro em uma celula da matriz`
+`removerTanque` | `remove da matriz de celulas o tanque passado como parâmetro`
+`removerBarco` | `remove da matriz de celulas o barco passado como parâmetro`
+
+## Detalhamento das Interfaces
+
+### Interface `<IRLoja>`
+
+`<Permite um componente se conectar com a loja>`
+
+~~~JAVA
+public interface IRLoja {
+    public void connect(Iloja loja);
+}
+~~~
+
+Método | Objetivo
+-------| --------
+`connect` | `conectar um objeto com uma interface ILoja`
+
+### Interface `<IRAtualizaTela>`
+
+`<Permite um componente se conectar com a interface IAtualizaTela>`
+
+~~~JAVA
+public interface IRAtualizaTela {
+    public void connect(IAtualizaTela atualiza);
+}
+~~~
+
+Método | Objetivo
+-------| --------
+`connect` | `conectar um objeto com a interface IAtualizaTela`
+
 ## Componente `<GeradorOnda>`
 
 > É o responsavel por gerar as ondas de navios no mapa.
@@ -246,7 +324,7 @@ Método | Objetivo
 
 > É o componente responsavel por criar a janela que apresenta a interface gráfica do jogo.
 
-![Projeto Final POO 2022 - Page 3](https://user-images.githubusercontent.com/69171865/178075847-587096ae-fb2c-4a35-bbc5-c0c6f0a311c4.jpeg)
+![Projeto Final POO 2022 - Page 2(1)](https://user-images.githubusercontent.com/69171865/178072351-ca0199de-d2eb-4d56-b1da-1913b1379a08.jpeg)
 
 **Ficha Técnica**
 item | detalhamento
@@ -259,7 +337,7 @@ Interfaces | `<IRmapa> <IRGameStart> <MouseInputListener>`
 
 Interfaces associadas a esse componente:
 
-![Projeto Final POO 2022 - Page 2(5)](https://user-images.githubusercontent.com/69171865/178075730-ef0278ba-9d77-42da-b3b8-9a6dba9ad04c.jpeg)
+![Projeto Final POO 2022 - Page 2(2)](https://user-images.githubusercontent.com/69171865/178072971-9768847e-ebf0-490e-99d9-9348275b93f8.jpeg)
 
 Interface agregadora do componente em Java:
 
