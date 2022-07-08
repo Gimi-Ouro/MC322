@@ -115,4 +115,5 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 # Conclusões e Trabalhos Futuros
 
 # Diagrama Geral da Arquitetura do Jogo
-![Projeto Final POO 2022(1)](https://user-images.githubusercontent.com/69171865/176703680-975504df-55ea-4c09-932b-574ba126ed71.jpeg)
+![Projeto Final POO 2022(1)](https://user-images.githubusercontent.com/69171865/178065976-8241e745-1356-4c8f-90b6-d58704878d70.jpeg)
+
