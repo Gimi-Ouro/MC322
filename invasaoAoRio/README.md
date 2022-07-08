@@ -136,8 +136,7 @@ item | detalhamento
 ----- | -----
 Classe | `invasaoAoRio.src.invasaoAoRio.Controller.controle`
 Autores | `<Jonathan do Ouro e Giovanni Mesquita>`
-Interfaces | `<IRmapa>
-    	      <IcontrolePropriedades>`
+Interfaces | `<IRmapa> <IcontrolePropriedades>`
 
 ### Interfaces
 
