@@ -31,6 +31,35 @@ O fluxo de jogo é simples, o jogo é inciado com 300 créditos e o jogador tem 
 
 # Destaques de Orientação a Objetos
 
+## Código de Herança e Sobrecarga de Métodos
+~~~JAVA
+public class Barco {
+	...
+	
+	public boolean atingir(int dano) throws InterruptedException {return false;}
+	...
+}
+
+public class Navio extends Barco{
+	...
+	
+	@Override
+	public boolean atingir(int dano) throws InterruptedException {
+		//retorna true se o barco for destruído
+		if (this.resistencia > 0){
+			this.resistencia -= dano;
+			return false;
+		}
+		else {
+			this.existe = false;
+			this.mapa.removerBarco(this);
+			return true;
+		}
+	}
+}
+~~~
+
+> Nesse caso, foi importante usarmos herança pois, caso precisássemos criar novos tipos de barcos, poderíamos fazer outras classes filhas de Barco e fazer uma nova sobrecarga de métodos nessas novas classes, para que elas tivessem comportamentos únicos.
 
 # Destaques de Pattern
 
@@ -89,7 +118,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 > O pattern destacado é o pattern Observer. O componente AtualizaTela é um oberservador do mapa, assim toda vez que occore uma modificação do estado do mapa ele notifica o AtualizaTela qual modificação foi feita. Além disso, a JanelaPadrão é um observador do AtualizaTela, deste modo a JanelaPadrão ao identificar uma atualização modifica a vizualização da janela que aparece para o usuário.
 A utilização do componente AtualizaTela como intermediario entre o mapa e a janela é feito para poder suportar possiveis expansões de plataforma, visto que para implementar o jogo para rodar, por exemplo, em um Android seria necessário criar uma classe JanelaAndroid com métodos de interface gráfica apropriados para o android.
 
-## Destaque do Pattern Strategy
+## Diagrama do Pattern Strategy
 
 ![Celulas](https://user-images.githubusercontent.com/102101030/178052986-38c27cf0-cb7f-4b31-af5d-251ec1f04f1e.jpeg)
 
