@@ -114,6 +114,56 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 
 # Conclusões e Trabalhos Futuros
 
+# Documentação dos Componentes
+
 # Diagrama Geral da Arquitetura do Jogo
 ![Projeto Final POO 2022(1)](https://user-images.githubusercontent.com/69171865/178065976-8241e745-1356-4c8f-90b6-d58704878d70.jpeg)
 
+>Comentando a arquitetura
+
+## Diagrama Geral de Componentes
+
+(IMAGEM DO DIAGRAMA)
+
+## Componente `<Controle>`
+
+> Tem o papel de posicionar os tanques de guerra no mapa e gerar os tiros dos tanques.
+
+![Componente](diagrama-componente.png)
+
+**Ficha Técnica**
+item | detalhamento
+----- | -----
+Classe | `invasaoAoRio.src.invasaoAoRio.Controller.controle`
+Autores | `<Jonathan do Ouro e Giovanni Mesquita>`
+Interfaces | `<IRmapa>
+    	      <IcontrolePropriedades>`
+
+### Interfaces
+
+Interfaces associadas a esse componente:
+
+![Diagrama Interfaces](diagrama-interfaces.png)
+
+Interface agregadora do componente em Java:
+
+~~~java
+public interface Icontrole extends IRmapa, IcontrolePropriedades{
+}
+~~~
+
+## Detalhamento das Interfaces
+
+### Interface `<IRmapa>`
+
+`<Permite um componente se conectar com o mapa>`
+
+~~~JAVA
+public interface IRmapa {
+    public void connect(IMapa mapa);
+}
+~~~
+
+Método | Objetivo
+-------| --------
+`IRmapa` | `conectar um objeto com o mapa`
