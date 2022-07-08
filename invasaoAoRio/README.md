@@ -110,7 +110,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
    ...
 }
 ~~~
-> O pattern destacado é o pattern Observer. Quando alguma modificação ocorre no Mapa, como esse está conectado com o AtualizaTela, a JanelaPadrao que assina o AtualizaTela recebe essa alteração e modifica a interface gr
+> O pattern destacado é o pattern Observer. Quando alguma modificação ocorre no Mapa, como esse está conectado com o AtualizaTela, a JanelaPadrao que assina o AtualizaTela recebe essa alteração e modifica a interface gráfica.
 
 # Conclusões e Trabalhos Futuros
 
