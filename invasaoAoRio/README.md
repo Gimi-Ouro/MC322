@@ -131,7 +131,8 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 
 > Tem o papel de posicionar os tanques de guerra no mapa e gerar os tiros dos tanques.
 
-![Componente](diagrama-componente.png)
+![Projeto Final POO 2022 - Page 2](https://user-images.githubusercontent.com/69171865/178072142-ed9b11a9-307b-4a5a-9b80-e04dd67c72e0.jpeg)
+
 
 **Ficha Técnica**
 item | detalhamento
@@ -144,7 +145,7 @@ Interfaces | `<IRmapa> <IcontrolePropriedades>`
 
 Interfaces associadas a esse componente:
 
-![Diagrama Interfaces](diagrama-interfaces.png)
+![Projeto Final POO 2022 - Page 2(3)](https://user-images.githubusercontent.com/69171865/178073140-02133314-90e6-4ed8-87a6-a5c61903291b.jpeg)
 
 Interface agregadora do componente em Java:
 
@@ -189,20 +190,20 @@ Método | Objetivo
 
 > É o responsavel por gerar as ondas de navios no mapa.
 
-![Componente](diagrama-componente.png)
+![Projeto Final POO 2022 - Page 2(1)](https://user-images.githubusercontent.com/69171865/178072351-ca0199de-d2eb-4d56-b1da-1913b1379a08.jpeg)
 
 **Ficha Técnica**
 item | detalhamento
 ----- | -----
 Classe | `invasaoAoRio.src.invasaoAoRio.Controller.GeradorDeOndas`
 Autores | `<Jonathan do Ouro e Giovanni Mesquita Micaroni>`
-Interfaces | `<IRmapa> <IcontrolePropriedades>`
+Interfaces | `<IRmapa> <IgeradorOndasPropriedades>`
 
 ### Interfaces
 
 Interfaces associadas a esse componente:
 
-![Diagrama Interfaces](diagrama-interfaces.png)
+![Projeto Final POO 2022 - Page 2(2)](https://user-images.githubusercontent.com/69171865/178072971-9768847e-ebf0-490e-99d9-9348275b93f8.jpeg)
 
 Interface agregadora do componente em Java:
 
