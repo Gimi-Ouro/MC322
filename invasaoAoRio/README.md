@@ -14,5 +14,21 @@ O Jogo Invasão ao Rio de Janeiro é inspirado no modelo Plants vs Zombies, em q
 * [Slides Finais](assets/MC322-SlidesFinais.pptx)
 * [Slides Finais (Apresentação)](https://docs.google.com/presentation/d/1A17BexgyANxj-jKuBHobm8QDrC6Caz9vlF-jknswN2U/edit?usp=sharing) 
 
+## Relatório de Evolução
+
+# Destaques de Código
+
+# Destaques de Orientação a Objetos
+
+## Diagrama de Classes usada no destaque OO:
+
+# Destaques de Pattern
+
+## Diagrama do Pattern
+
+## Código do Pattern
+
+# Conclusões e Trabalhos Futuros
+
 # Diagrama Geral da Arquitetura do Jogo
 ![Projeto Final POO 2022(1)](https://user-images.githubusercontent.com/69171865/176703680-975504df-55ea-4c09-932b-574ba126ed71.jpeg)
