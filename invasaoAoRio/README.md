@@ -31,30 +31,6 @@ O fluxo de jogo é simples, o jogo é inciado com 300 créditos e o jogador tem 
 
 # Destaques de Orientação a Objetos
 
-## Diagrama de Classes usada no destaque OO
-
-![Celulas](https://user-images.githubusercontent.com/102101030/178052986-38c27cf0-cb7f-4b31-af5d-251ec1f04f1e.jpeg)
-
-## Código do destaque de OO
-
-~~~JAVA
-public class Mapa implements IMapa{
-	private ICelula[][] mapa;
-	...
-	public Mapa() {
-		mapa = new ICelula[6][16];
-		for (int i = 0; i < mapa.length; i++) {
-			for (int j = 0; j < mapa[i].length; j++) {
-			   if (j < 3)
-				mapa[i][j] = new Terra();
-			   else
-				mapa[i][j] = new Agua();
-			}
-		}
-	}
-	...
-}
-~~~
 
 # Destaques de Pattern
 
@@ -62,7 +38,7 @@ public class Mapa implements IMapa{
 
 ![observer](https://user-images.githubusercontent.com/102101030/178056439-2a832010-353e-49a2-af07-c499936bfddd.jpeg)
 
-## Código do Pattern
+## Código do Pattern Observer
 
 ~~~JAVA
 public class Mapa implements IMapa{
@@ -113,6 +89,32 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 > O pattern destacado é o pattern Observer. O componente AtualizaTela é um oberservador do mapa, assim toda vez que occore uma modificação do estado do mapa ele notifica o AtualizaTela qual modificação foi feita. Além disso, a JanelaPadrão é um observador do AtualizaTela, deste modo a JanelaPadrão ao identificar uma atualização modifica a vizualização da janela que aparece para o usuário.
 A utilização do componente AtualizaTela como intermediario entre o mapa e a janela é feito para poder suportar possiveis expansões de plataforma, visto que para implementar o jogo para rodar, por exemplo, em um Android seria necessário criar uma classe JanelaAndroid com métodos de interface gráfica apropriados para o android.
 
+## Destaque do Pattern Strategy
+
+![Celulas](https://user-images.githubusercontent.com/102101030/178052986-38c27cf0-cb7f-4b31-af5d-251ec1f04f1e.jpeg)
+
+## Código do destaque de Strategy
+
+~~~JAVA
+public class Mapa implements IMapa{
+	private ICelula[][] mapa;
+	...
+	public Mapa() {
+		mapa = new ICelula[6][16];
+		for (int i = 0; i < mapa.length; i++) {
+			for (int j = 0; j < mapa[i].length; j++) {
+			   if (j < 3)
+				mapa[i][j] = new Terra();
+			   else
+				mapa[i][j] = new Agua();
+			}
+		}
+	}
+	...
+}
+~~~
+
+> O pattern Strategy foi utilizado nesse caso pois os tipos de célula (Terra e Água) precisariam ter comportamentos diferentes para as mesmas funções da interface ICelula. A adoção desse pattern possibilitou que tratássemos objetos de dois tipos diferentes da mesma maneira, se diferenciando apenas nas implementações das funç
 
 # Conclusões e Trabalhos Futuros
 
@@ -190,7 +192,7 @@ Método | Objetivo
 
 ## Componente `<GameStart>`
 
-> Tem a função de iniciar as ondas de navios.
+> É o responsável por iniciar a Janela e controlar o fluxo do jogo.
 
 ![Projeto Final POO 2022 - Page 3(2)](https://user-images.githubusercontent.com/69171865/178080151-10fc7a16-99d8-4ab4-941d-416dbd1d0d73.jpeg)
 
