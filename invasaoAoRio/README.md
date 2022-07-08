@@ -59,8 +59,34 @@ public interface IGameStartProperties {
 	public void acabarJogo();
 	public void start();
 }
-
+...
 public interface IGameStart extends IRcontrole, IRGeradorDeOndas, IRLoja, IGameStartProperties, IRAtualizaTela {
+}
+...
+public class GameStart implements IGameStart{ 
+	...
+	private IgeradorDeOndas geradorOndas;
+	private IAtualizaTela atualizaTela;
+	...
+	public void start() {
+		Runnable runnable = new Runnable() {
+			@Override
+			public void run() {
+				try {
+					...
+					atualizaTela.trocaImagemOnda(0, 1);
+					geradorOndas.gerarOnda(5, 20000, 1);
+					Thread.sleep(10000);
+					acabarJogo();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				
+			}
+		};
+		k = new Thread(runnable);
+		k.start();
+	}
 }
 
 ~~~
