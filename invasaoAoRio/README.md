@@ -241,3 +241,83 @@ public interface IgeradorOndasPropriedades {
 Método | Objetivo
 -------| --------
 `gerarOnda` | `recebe a quantidade de navios a serem gerados, a duração da onda e a dificuldade dela e gera essa onda no mapa.`
+
+## Componente `<JanelaPadrao>`
+
+> É o componente responsavel por criar a janela que apresenta a interface gráfica do jogo.
+
+![Projeto Final POO 2022 - Page 2(1)](https://user-images.githubusercontent.com/69171865/178072351-ca0199de-d2eb-4d56-b1da-1913b1379a08.jpeg)
+
+**Ficha Técnica**
+item | detalhamento
+----- | -----
+Classe | `invasaoAoRio.src.invasaoAoRio.View.JanelaPadrao`
+Autores | `<Jonathan do Ouro e Giovanni Mesquita Micaroni>`
+Interfaces | `<IRmapa> <IRGameStart> <MouseInputListener>`
+
+### Interfaces
+
+Interfaces associadas a esse componente:
+
+![Projeto Final POO 2022 - Page 2(2)](https://user-images.githubusercontent.com/69171865/178072971-9768847e-ebf0-490e-99d9-9348275b93f8.jpeg)
+
+Interface agregadora do componente em Java:
+
+~~~java
+public interface IJanelaPadrao extends IRGameStart, MouseInputListener, IRMapa{
+    	public void removerTanque(Tanque tanque);
+	public void moverBarco(Barco barco, int destinoL, int destinoC);
+	public void addBarco(Imagem barcoGerado);
+	public void removerBarco(Barco barco) throws InterruptedException;
+	public void acabarJogo(int flag);
+	public void addTiro(Imagem itiro);
+	public void moverTiro(Tiro tiro);
+	public void removerTiro(Tiro tiro);
+	public void trocaImagemOnda(int ondaAnterior, int novaOnda);
+	public void atualizaCreditos(int nCreditos);
+}
+~~~
+
+Método | Objetivo
+-------| --------
+`removerTanque` | `remove a imagem de um tanque da tela`
+`moverBarco` | `move a imagem de um barco para uma determinada posição`
+`addBarco` | `adiciona a imagem de um barco na tela`
+`removerBarco` | `remove a imagem de um barco da tela`
+`acabarJogo` | `faz os objetos pararem de se mexer e mostra na tela que o jogo acabou`
+`addTiro` | `adiciona a imagem de um tiro na tela`
+`moverTiro` | `move a imagem de um tiro na tela`
+`removerTiro` | `remove a imagem de um tiro da tela`
+`trocaImagemOnda` | `altera o número da onda atual`
+`atualizaCreditos` | `atualiza a quantidade de créditos que o jogar possui`
+
+
+## Detalhamento das Interfaces
+
+### Interface `<IRmapa>`
+
+`<Permite um componente se conectar com o mapa>`
+
+~~~JAVA
+public interface IRmapa {
+	public void connect(IMapa mapa);
+}
+~~~
+
+Método | Objetivo
+-------| --------
+`connect` | `conectar um objeto com uma interface IMapa`
+
+### Interface `<IRGameStart>`
+
+`<Permite um componente se conectar com o GameStart>`
+
+~~~JAVA
+public interface IRGameStart {
+	public void conectaGame(IGameStart gameStart);
+}
+~~~
+
+Método | Objetivo
+-------| --------
+`conectaGame` | `conectar um objeto a uma interface IGameStart`
