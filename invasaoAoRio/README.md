@@ -137,7 +137,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 item | detalhamento
 ----- | -----
 Classe | `invasaoAoRio.src.invasaoAoRio.Controller.controle`
-Autores | `<Jonathan do Ouro e Giovanni Mesquita>`
+Autores | `<Jonathan do Ouro e Giovanni Mesquita Micaroni>`
 Interfaces | `<IRmapa> <IcontrolePropriedades>`
 
 ### Interfaces
