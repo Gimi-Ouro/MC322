@@ -45,10 +45,10 @@ public class Mapa implements IMapa{
 		mapa = new ICelula[6][16];
 		for (int i = 0; i < mapa.length; i++) {
 			for (int j = 0; j < mapa[i].length; j++) {
-				if (j < 3)
-					mapa[i][j] = new Terra();
-				else
-					mapa[i][j] = new Agua();
+			   if (j < 3)
+				mapa[i][j] = new Terra();
+			   else
+				mapa[i][j] = new Agua();
 			}
 		}
 	}
