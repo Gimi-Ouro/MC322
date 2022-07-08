@@ -66,9 +66,9 @@ public class Mapa implements IMapa{
 
 ~~~JAVA
 public class Mapa implements IMapa{
-...
+    ...
     private IAtualizaTela atualizaTela;
-...
+    ...
     @Override
     public void connect(IAtualizaTela atualizaTela) {
 	this.atualizaTela = atualizaTela;
@@ -78,7 +78,7 @@ public class Mapa implements IMapa{
 	mapa[tanque.getL()][tanque.getC()].removerElemento();
 	atualizaTela.removerTanque(tanque);
     }
-...
+    ...
 }
 ~~~
 ~~~JAVA
