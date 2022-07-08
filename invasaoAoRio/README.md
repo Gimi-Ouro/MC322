@@ -119,7 +119,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 # Documentação dos Componentes
 
 # Diagrama Geral da Arquitetura do Jogo
-![Projeto Final POO 2022 - Page 1(1)](https://user-images.githubusercontent.com/69171865/178077509-fd0f0022-9ffc-4ddb-8314-02cf23f011e0.jpeg)
+![Projeto Final POO 2022 - Page 1](https://user-images.githubusercontent.com/69171865/178077070-7933fefe-19e7-430d-a991-2e7728692478.jpeg)
 
 >Comentando a arquitetura
 
@@ -186,11 +186,117 @@ Método | Objetivo
 `conectarTanque` | `passa para o controle um tanque que será adcionado em uma posição de terra`
 `addTanque` | `adiciona um tanque na posicao informada`
 
+## Componente `<GameStart>`
+
+> Tem a função de iniciar as ondas de navios.
+
+(IMAGEM DO COMPONENTE)
+
+**Ficha Técnica**
+item | detalhamento
+----- | -----
+Classe | `invasaoAoRio.src.invasaoAoRio.GameStart`
+Autores | `<Jonathan do Ouro e Giovanni Mesquita Micaroni>`
+Interfaces | `<IRcontrole> <IRGeradorDeOndas> <IRLoja> <IGameStartProperties> <IRAtualizaTela>`
+
+### Interfaces
+
+Interfaces associadas a esse componente:
+
+(IMAGEM das interfaces)
+
+Interface agregadora do componente em Java:
+
+~~~java
+public interface IGameStart extends IRcontrole, IRGeradorDeOndas, IRLoja, IGameStartProperties, IRAtualizaTela {
+}
+~~~
+
+## Detalhamento das Interfaces
+
+### Interface `<IRGeradorDeOndas>`
+
+`<Permite um componente se conectar com o gerador de ondas de navios>`
+
+~~~JAVA
+public interface IRGeradorDeOndas {
+    public void connect(IgeradorDeOndas geradorOndas);
+}
+~~~
+
+Método | Objetivo
+-------| --------
+`connect` | `conectar um objeto com uma interface IgeradorDeOndas`
+
+### Interface `<IRcontrole>`
+
+`<Permite um componente se conectar com o controle do jogo>`
+
+~~~JAVA
+public interface IRcontrole {
+    public void connect(Icontrole controle);
+}
+~~~
+
+Método | Objetivo
+-------| --------
+`connect` | `conectar um objeto com uma interface IControle`
+
+### Interface `<IRLoja>`
+
+`<Permite um componente se conectar com a loja>`
+
+~~~JAVA
+public interface IRLoja {
+    public void connect(Iloja loja);
+}
+~~~
+
+Método | Objetivo
+-------| --------
+`connect` | `conectar um objeto com uma interface ILoja`
+
+### Interface `<IRAtualizaTela>`
+
+`<Permite um componente se conectar com a interface IAtualizaTela>`
+
+~~~JAVA
+public interface IRAtualizaTela {
+    public void connect(IAtualizaTela atualiza);
+}
+~~~
+
+Método | Objetivo
+-------| --------
+`connect` | `conectar um objeto com a interface IAtualizaTela`
+
+### Interface `<IGameStartProperties>`
+
+`<Padroniza os metodos do  gameStart>`
+
+~~~JAVA
+public interface IGameStartProperties {
+	public void iniciarJogo(IMapa mapa, IAtualizaTela atualizaTela);
+	public boolean addTanque(int x, int y) throws InterruptedException;
+	public boolean comprarTanque(int i);
+	public void acabarJogo();
+	public void start();
+}
+~~~
+
+Método | Objetivo
+-------| --------
+`iniciarJogo` | `cria, configura e abre a janela padrão para o usuario`
+`addTanque` | `solicita para o controle adicionar o tanque passado como parâmetro`
+`comprarTanque` | `compra na loja um tanque de tipo i e conecta o tanque no controle`
+`acabarJogo` | `faz os elementos do jogo pararem e fecha a janela`
+`start` | `inicia as ondas de navios`
+
 ## Componente `<Mapa>`
 
 > Responsavel por representar o mapa, adicionar, remover e movimentar elementos que estão no mapa.
 
-![Projeto Final POO 2022 - Page 3(1)](https://user-images.githubusercontent.com/69171865/178077725-0893d738-9c68-42e8-ada5-82c12fa45b22.jpeg)
+![Projeto Final POO 2022 - Page 2](https://user-images.githubusercontent.com/69171865/178072142-ed9b11a9-307b-4a5a-9b80-e04dd67c72e0.jpeg)
 
 
 **Ficha Técnica**
@@ -204,7 +310,7 @@ Interfaces | `<IRLoja> <IRAtualizaTela>`
 
 Interfaces associadas a esse componente:
 
-![Projeto Final POO 2022 - Page 2(6)](https://user-images.githubusercontent.com/69171865/178078014-923a5593-ca0f-412d-9d17-a050dfecc8b9.jpeg)
+![Projeto Final POO 2022 - Page 2(4)](https://user-images.githubusercontent.com/69171865/178073242-9177f7ad-e6dc-4210-a083-17edad4b13a1.jpeg)
 
 Interface agregadora do componente em Java:
 
