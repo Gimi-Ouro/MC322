@@ -119,7 +119,7 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
 # Documentação dos Componentes
 
 # Diagrama Geral da Arquitetura do Jogo
-![Projeto Final POO 2022(1)](https://user-images.githubusercontent.com/69171865/178065976-8241e745-1356-4c8f-90b6-d58704878d70.jpeg)
+![Projeto Final POO 2022 - Page 1](https://user-images.githubusercontent.com/69171865/178077070-7933fefe-19e7-430d-a991-2e7728692478.jpeg)
 
 >Comentando a arquitetura
 
@@ -324,7 +324,7 @@ Método | Objetivo
 
 > É o componente responsavel por criar a janela que apresenta a interface gráfica do jogo.
 
-![Projeto Final POO 2022 - Page 2(1)](https://user-images.githubusercontent.com/69171865/178072351-ca0199de-d2eb-4d56-b1da-1913b1379a08.jpeg)
+![Projeto Final POO 2022 - Page 3](https://user-images.githubusercontent.com/69171865/178077147-dbd9d812-7319-4c8b-8ff2-ec86ccc29eb3.jpeg)
 
 **Ficha Técnica**
 item | detalhamento
@@ -337,7 +337,7 @@ Interfaces | `<IRmapa> <IRGameStart> <MouseInputListener>`
 
 Interfaces associadas a esse componente:
 
-![Projeto Final POO 2022 - Page 2(2)](https://user-images.githubusercontent.com/69171865/178072971-9768847e-ebf0-490e-99d9-9348275b93f8.jpeg)
+![Projeto Final POO 2022 - Page 2(5)](https://user-images.githubusercontent.com/69171865/178077128-6837f4f4-d54b-42a0-bd87-9b69e61b6bcb.jpeg)
 
 Interface agregadora do componente em Java:
 
