@@ -81,6 +81,35 @@ public class Mapa implements IMapa{
 ...
 }
 ~~~
+~~~JAVA
+public class AtualizaTela implements IAtualizaTela{
+    private IJanelaPadrao janela;
+    public void connect(IJanelaPadrao janela) {
+	this.janela = janela;
+    }
+    public void removerTanque(Tanque tanque) {
+	janela.removerTanque(tanque);
+    }
+    ...
+}
+~~~
+~~~JAVA
+public class JanelaPadrao extends JFrame implements IJanelaPadrao {
+    private Container contentPane;
+    private ArrayList<Imagem> tanques;
+    ...
+    public void removerTanque(Tanque tanque){
+        for(Imagem itanque: tanques){
+            if(itanque.getL() == tanque.getL() && itanque.getC() == tanque.getC()){
+                contentPane.remove(itanque);
+                tanques.remove(itanque);
+                break;
+            }
+        }
+    }
+   ...
+}
+~~~
 
 # Conclusões e Trabalhos Futuros
 
