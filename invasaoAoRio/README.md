@@ -60,7 +60,27 @@ public class Mapa implements IMapa{
 
 ## Diagrama do Pattern
 
+![observer](https://user-images.githubusercontent.com/102101030/178056439-2a832010-353e-49a2-af07-c499936bfddd.jpeg)
+
 ## Código do Pattern
+
+~~~JAVA
+public class Mapa implements IMapa{
+...
+    private IAtualizaTela atualizaTela;
+...
+    @Override
+    public void connect(IAtualizaTela atualizaTela) {
+	this.atualizaTela = atualizaTela;
+    }
+    @Override
+    public void removerTanque(Tanque tanque) {
+	mapa[tanque.getL()][tanque.getC()].removerElemento();
+	atualizaTela.removerTanque(tanque);
+    }
+...
+}
+~~~
 
 # Conclusões e Trabalhos Futuros
 
