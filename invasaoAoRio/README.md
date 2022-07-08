@@ -190,7 +190,7 @@ Método | Objetivo
 
 > Tem a função de iniciar as ondas de navios.
 
-(IMAGEM DO COMPONENTE)
+![Projeto Final POO 2022 - Page 3(2)](https://user-images.githubusercontent.com/69171865/178080151-10fc7a16-99d8-4ab4-941d-416dbd1d0d73.jpeg)
 
 **Ficha Técnica**
 item | detalhamento
@@ -203,7 +203,7 @@ Interfaces | `<IRcontrole> <IRGeradorDeOndas> <IRLoja> <IGameStartProperties> <I
 
 Interfaces associadas a esse componente:
 
-(IMAGEM das interfaces)
+![Projeto Final POO 2022 - Page 2(7)](https://user-images.githubusercontent.com/69171865/178080097-ec7ce024-e8f4-4e74-81ec-8db78f444552.jpeg)
 
 Interface agregadora do componente em Java:
 
@@ -296,7 +296,7 @@ Método | Objetivo
 
 > Responsavel por representar o mapa, adicionar, remover e movimentar elementos que estão no mapa.
 
-![Projeto Final POO 2022 - Page 2](https://user-images.githubusercontent.com/69171865/178072142-ed9b11a9-307b-4a5a-9b80-e04dd67c72e0.jpeg)
+![Projeto Final POO 2022 - Page 3(1)](https://user-images.githubusercontent.com/69171865/178080200-7bde0fb2-6de0-4968-ab35-d7d003c0c828.jpeg)
 
 
 **Ficha Técnica**
@@ -310,7 +310,7 @@ Interfaces | `<IRLoja> <IRAtualizaTela>`
 
 Interfaces associadas a esse componente:
 
-![Projeto Final POO 2022 - Page 2(4)](https://user-images.githubusercontent.com/69171865/178073242-9177f7ad-e6dc-4210-a083-17edad4b13a1.jpeg)
+![Projeto Final POO 2022 - Page 2(6)](https://user-images.githubusercontent.com/69171865/178080172-07ec133b-c55b-482e-8c99-191d20f73b9f.jpeg)
 
 Interface agregadora do componente em Java:
 
