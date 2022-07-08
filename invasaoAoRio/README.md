@@ -505,3 +505,76 @@ public interface IRGameStart {
 Método | Objetivo
 -------| --------
 `conectaGame` | `conectar um objeto a uma interface IGameStart`
+## Componente `<AtualizaTela>`
+
+> É o componente responsavel por fazer alterações na janela que apresenta a interface gráfica do jogo.
+
+![Projeto Final POO 2022 - Page 4](https://user-images.githubusercontent.com/69171865/178080973-815143e8-47d4-46fe-a5b7-fecc82c9aa45.jpeg)
+
+**Ficha Técnica**
+item | detalhamento
+----- | -----
+Classe | `invasaoAoRio.src.invasaoAoRio.View.AtualizaTela`
+Autores | `<Jonathan do Ouro e Giovanni Mesquita Micaroni>`
+Interfaces | `<IRJanelaPadrao> <IAtualizaTelaProperties>`
+
+### Interfaces
+
+Interfaces associadas a esse componente:
+
+![Projeto Final POO 2022 - Page 5](https://user-images.githubusercontent.com/69171865/178081095-a75b4b66-6c1f-48ae-9161-9d6da59bd3c7.jpeg)
+
+Interface agregadora do componente em Java:
+
+~~~java
+public interface IAtualizaTela extends IAtualizaTelaProperties, IRJanelaPadrao {
+}
+~~~
+
+## Detalhamento das Interfaces
+
+### Interface `<IRJanelaPadrao>`
+
+`<Permite um componente se conectar com a JanelaPadrao>`
+
+~~~JAVA
+public interface IRJanelaPadrao {
+    public void connect(IJanelaPadrao janela);
+}
+~~~
+
+Método | Objetivo
+-------| --------
+`connect` | `conectar um objeto com uma interface IJanelaPadrao`
+
+### Interface `<IAtualizaTelaProperties>`
+
+`<Padroniza as funções oferecidas pela classe AtualizaTela>`
+
+~~~JAVA
+public interface IAtualizaTelaProperties {
+	public void removerTanque(Tanque tanque);
+	public void adicionarBarco(Barco barco);
+	public void moverBarco(Barco barco, int l, int c);
+	public void removerBarco(Barco barco) throws InterruptedException;
+	public void addTiro(Tiro tiro);
+	public void removerTiro(Tiro tiro);
+	public void moverTiro(Tiro tiro);
+	public void trocaImagemOnda(int ondaAnterior, int novaOnda);
+	public void atualizaCreditos(int nCreditos);
+	public void acabarJogo(int flag);
+}
+~~~
+
+Método | Objetivo
+-------| --------
+`removerTanque` | `fala para o view remover a imagem de um tanque da tela`
+`moverBarco` | `fala para o view mover a imagem de um barco para uma determinada posição`
+`addBarco` | `fala para o view adicionar a imagem de um barco na tela`
+`removerBarco` | `fala para o view remover a imagem de um barco da tela`
+`acabarJogo` | `fala para o view fazer os objetos pararem de se mexer e mostra na tela que o jogo acabou`
+`addTiro` | `fala para o view adicionar a imagem de um tiro na tela`
+`moverTiro` | `fala para o view mover a imagem de um tiro na tela`
+`removerTiro` | `fala para o view remover a imagem de um tiro da tela`
+`trocaImagemOnda` | `fala para o view alterar o número da onda atual`
+`atualizaCreditos` | `fala para o view atualizar a quantidade de créditos que o jogar possui`
