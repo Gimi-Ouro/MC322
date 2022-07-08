@@ -33,62 +33,27 @@ Essa estrutura de pastas nos permitiu separar os elementos do jogo em componente
 
 ## Diagrama de Classes usada no destaque OO
 
-![Blank diagram](https://user-images.githubusercontent.com/102101030/178045511-a52d8538-96fd-4990-a848-163415350f6e.jpeg)
+![Celulas](https://user-images.githubusercontent.com/102101030/178052986-38c27cf0-cb7f-4b31-af5d-251ec1f04f1e.jpeg)
 
 ## Código do destaque de OO
 
 ~~~JAVA
-public interface IRAtualizaTela {
-    public void connect(IAtualizaTela atualizaTela);
-}
-...
-public interface IRLoja {
-	public void connect(Iloja loja);
-}
-...
-public interface IRGeradorDeOndas {
-	public void connect(IgeradorDeOndas geradorOndas);
-}
-...
-public interface IRcontrole {
-	public void connect(Icontrole controle);
-}
-...
-public interface IGameStartProperties {
+public class Mapa implements IMapa{
+	private ICelula[][] mapa;
 	...
-	public void acabarJogo();
-	public void start();
-}
-...
-public interface IGameStart extends IRcontrole, IRGeradorDeOndas, IRLoja, IGameStartProperties, IRAtualizaTela {
-}
-...
-public class GameStart implements IGameStart{ 
-	...
-	private IgeradorDeOndas geradorOndas;
-	private IAtualizaTela atualizaTela;
-	...
-	public void start() {
-		Runnable runnable = new Runnable() {
-			@Override
-			public void run() {
-				try {
-					...
-					atualizaTela.trocaImagemOnda(0, 1);
-					geradorOndas.gerarOnda(5, 20000, 1);
-					Thread.sleep(10000);
-					acabarJogo();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
+	public Mapa() {
+		mapa = new ICelula[6][16];
+		for (int i = 0; i < mapa.length; i++) {
+			for (int j = 0; j < mapa[i].length; j++) {
+				if (j < 3)
+					mapa[i][j] = new Terra();
+				else
+					mapa[i][j] = new Agua();
 			}
-		};
-		k = new Thread(runnable);
-		k.start();
+		}
 	}
+	...
 }
-
 ~~~
 
 # Destaques de Pattern
