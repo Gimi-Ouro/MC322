@@ -184,3 +184,59 @@ Método | Objetivo
 -------| --------
 `conectarTanque` | `passa para o controle um tanque que será adcionado em uma posição de terra`
 `addTanque` | `adiciona um tanque na posicao informada`
+
+## Componente `<GeradorOnda>`
+
+> É o responsavel por gerar as ondas de navios no mapa.
+
+![Componente](diagrama-componente.png)
+
+**Ficha Técnica**
+item | detalhamento
+----- | -----
+Classe | `invasaoAoRio.src.invasaoAoRio.Controller.GeradorDeOndas`
+Autores | `<Jonathan do Ouro e Giovanni Mesquita Micaroni>`
+Interfaces | `<IRmapa> <IcontrolePropriedades>`
+
+### Interfaces
+
+Interfaces associadas a esse componente:
+
+![Diagrama Interfaces](diagrama-interfaces.png)
+
+Interface agregadora do componente em Java:
+
+~~~java
+public interface IgeradorDeOndas extends IRmapa, IgeradorOndasPropriedades{	
+}
+~~~
+
+## Detalhamento das Interfaces
+
+### Interface `<IRmapa>`
+
+`<Permite um componente se conectar com o mapa>`
+
+~~~JAVA
+public interface IRmapa {
+	public void connect(IMapa mapa);
+}
+~~~
+
+Método | Objetivo
+-------| --------
+`connect` | `conectar um objeto com uma interface IMapa`
+
+### Interface `<IgeradorOndasPropriedades>`
+
+`<Padroniza a função de gerar navios oferecida pelo Gerador de Ondas>`
+
+~~~JAVA
+public interface IgeradorOndasPropriedades {
+	public void gerarOnda(int quantidadeNavios, long duracao, int dificuldade) throws InterruptedException;
+}
+~~~
+
+Método | Objetivo
+-------| --------
+`gerarOnda` | `recebe a quantidade de navios a serem gerados, a duração da onda e a dificuldade dela e gera essa onda no mapa.`
