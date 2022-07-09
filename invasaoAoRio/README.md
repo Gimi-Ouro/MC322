@@ -115,8 +115,8 @@ public class JanelaPadrao extends JFrame implements IJanelaPadrao {
    ...
 }
 ~~~
-> O pattern destacado é o pattern Observer. O componente AtualizaTela é um oberservador do mapa, assim toda vez que occore uma modificação do estado do mapa ele notifica o AtualizaTela qual modificação foi feita. Além disso, a JanelaPadrão é um observador do AtualizaTela, deste modo a JanelaPadrão ao identificar uma atualização modifica a vizualização da janela que aparece para o usuário.
-A utilização do componente AtualizaTela como intermediario entre o mapa e a janela é feito para poder suportar possiveis expansões de plataforma, visto que para implementar o jogo para rodar, por exemplo, em um Android seria necessário criar uma classe JanelaAndroid com métodos de interface gráfica apropriados para o android.
+> O pattern destacado é o pattern Observer. O componente AtualizaTela é um observador do mapa, assim, toda vez que ocorre uma modificação do estado do mapa, ele notifica o AtualizaTela qual modificação foi feita. Além disso, a JanelaPadrão é um observador do AtualizaTela, desse modo a JanelaPadrão, ao identificar uma atualização, modifica a vizualização da interface gráfica.
+A utilização do componente AtualizaTela como intermediario entre o mapa e a janela é feito para poder suportar possíveis expansões de plataforma, visto que para implementar o jogo para rodar, por exemplo, em um Android, seria necessário criar uma classe JanelaAndroid com métodos de interface gráfica apropriados para o Android.
 
 ## Diagrama do Pattern Strategy
 
@@ -143,22 +143,23 @@ public class Mapa implements IMapa{
 }
 ~~~
 
-> O pattern Strategy foi utilizado nesse caso pois os tipos de célula (Terra e Água) precisariam ter comportamentos diferentes para as mesmas funções da interface ICelula. A adoção desse pattern possibilitou que tratássemos objetos de dois tipos diferentes da mesma maneira, se diferenciando apenas nas implementações das funç
+> O pattern Strategy foi utilizado nesse caso pois os tipos de célula (Terra e Água) precisariam ter comportamentos diferentes para as mesmas funções da interface ICelula. A adoção desse pattern possibilitou que tratássemos objetos de dois tipos diferentes da mesma maneira, se diferenciando apenas nas implementações das funções.
 
 # Conclusões e Trabalhos Futuros
 
->Após o termino do nosso projeto, podemos dizer que atendemos a grande parte dos objetivos propostos por ele, como utilizar uma arquitetura bem planejada e que tira vantagem de ideias da orientação a objetos, como as interfaces e o polimorfismo, além dos design patterns. Também tivemos a oportunidade de utilizar o conceito de Threads, o que possibilitou o aprendizado de uma nova maneira de programar e colaborou para o funcionamento correto do jogo. Um ponto que, devido ao tempo curto, não recebeu a atenção necessária foi o plano de exceções. Devido à arquitetura montada pelo nosso grupo, no futuro poderíamos criar facilmente novos tipos de navios e de tanques, além de extender o total de ondas de navios e criar um boss final. Com esse projeto experienciamos na prática a importância de um bom planejamento e de uma arquitetura bem estruturada, que fazem toda a diferença em um projeto grande.
+> Após o término do nosso projeto, podemos dizer que atendemos a grande parte dos objetivos propostos por ele, como utilizar uma arquitetura bem planejada e que tira vantagem de ideias da orientação a objetos, como as interfaces e o polimorfismo, além dos design patterns. Também tivemos a oportunidade de utilizar o conceito de Threads, o que possibilitou o aprendizado de uma nova maneira de programar e colaborou para o funcionamento correto do jogo. Um ponto que, devido ao tempo curto, não recebeu a atenção necessária foi o plano de exceções. Devido à arquitetura montada pelo nosso grupo, no futuro poderíamos criar facilmente novos tipos de navios e de tanques, além de extender o total de ondas de navios e criar um boss final. Com esse projeto, experienciamos na prática a importância de um bom planejamento e de uma arquitetura bem estruturada, que fazem toda a diferença em um projeto de grande porte.
 
 # Documentação dos Componentes
 
 # Diagrama Geral da Arquitetura do Jogo
-![Projeto Final POO 2022 - Page 1](https://user-images.githubusercontent.com/69171865/178077070-7933fefe-19e7-430d-a991-2e7728692478.jpeg)
 
->Comentando a arquitetura
+
 
 ## Diagrama Geral de Componentes
 
-(IMAGEM DO DIAGRAMA)
+> Este é o diagrama representando os componentes do jogo:
+
+![Projeto Final POO 2022 - Page 1](https://user-images.githubusercontent.com/69171865/178077070-7933fefe-19e7-430d-a991-2e7728692478.jpeg)
 
 ## Componente `<Controle>`
 
@@ -176,11 +177,11 @@ Interfaces | `<IRmapa> <IcontrolePropriedades>`
 
 ### Interfaces
 
-Interfaces associadas a esse componente:
+> Interfaces associadas a esse componente:
 
 ![Projeto Final POO 2022 - Page 2(4)](https://user-images.githubusercontent.com/69171865/178073242-9177f7ad-e6dc-4210-a083-17edad4b13a1.jpeg)
 
-Interface agregadora do componente em Java:
+> Interface agregadora do componente em Java:
 
 ~~~java
 public interface Icontrole extends IRmapa, IcontrolePropriedades{
@@ -234,11 +235,11 @@ Interfaces | `<IRcontrole> <IRGeradorDeOndas> <IRLoja> <IGameStartProperties> <I
 
 ### Interfaces
 
-Interfaces associadas a esse componente:
+> Interfaces associadas a esse componente:
 
 ![Projeto Final POO 2022 - Page 2(7)](https://user-images.githubusercontent.com/69171865/178080097-ec7ce024-e8f4-4e74-81ec-8db78f444552.jpeg)
 
-Interface agregadora do componente em Java:
+> Interface agregadora do componente em Java:
 
 ~~~java
 public interface IGameStart extends IRcontrole, IRGeradorDeOndas, IRLoja, IGameStartProperties, IRAtualizaTela {
@@ -327,7 +328,7 @@ Método | Objetivo
 
 ## Componente `<Mapa>`
 
-> Responsavel por representar o mapa, adicionar, remover e movimentar elementos que estão no mapa.
+> Responsável por representar o mapa, adicionar, remover e movimentar elementos que estão no mapa.
 
 ![Projeto Final POO 2022 - Page 3(1)](https://user-images.githubusercontent.com/69171865/178080200-7bde0fb2-6de0-4968-ab35-d7d003c0c828.jpeg)
 
@@ -341,11 +342,11 @@ Interfaces | `<IRLoja> <IRAtualizaTela>`
 
 ### Interfaces
 
-Interfaces associadas a esse componente:
+> Interfaces associadas a esse componente:
 
 ![Projeto Final POO 2022 - Page 2(6)](https://user-images.githubusercontent.com/69171865/178080172-07ec133b-c55b-482e-8c99-191d20f73b9f.jpeg)
 
-Interface agregadora do componente em Java:
+> Interface agregadora do componente em Java:
 
 ~~~java
 public interface IMapa extends IRLoja, IRAtualizaTela{
@@ -418,11 +419,11 @@ Interfaces | `<IRmapa> <IgeradorOndasPropriedades>`
 
 ### Interfaces
 
-Interfaces associadas a esse componente:
+> Interfaces associadas a esse componente:
 
 ![Projeto Final POO 2022 - Page 2(2)](https://user-images.githubusercontent.com/69171865/178072971-9768847e-ebf0-490e-99d9-9348275b93f8.jpeg)
 
-Interface agregadora do componente em Java:
+> Interface agregadora do componente em Java:
 
 ~~~java
 public interface IgeradorDeOndas extends IRmapa, IgeradorOndasPropriedades{	
@@ -474,11 +475,11 @@ Interfaces | `<IRmapa> <IRGameStart> <MouseInputListener>`
 
 ### Interfaces
 
-Interfaces associadas a esse componente:
+> Interfaces associadas a esse componente:
 
 ![Projeto Final POO 2022 - Page 2(5)](https://user-images.githubusercontent.com/69171865/178077128-6837f4f4-d54b-42a0-bd87-9b69e61b6bcb.jpeg)
 
-Interface agregadora do componente em Java:
+> Interface agregadora do componente em Java:
 
 ~~~java
 public interface IJanelaPadrao extends IRGameStart, MouseInputListener, IRMapa{
@@ -540,7 +541,7 @@ Método | Objetivo
 `conectaGame` | `conectar um objeto a uma interface IGameStart`
 ## Componente `<AtualizaTela>`
 
-> É o componente responsavel por fazer alterações na janela que apresenta a interface gráfica do jogo.
+> É o componente responsável por fazer alterações na janela que apresenta a interface gráfica do jogo.
 
 ![Projeto Final POO 2022 - Page 4](https://user-images.githubusercontent.com/69171865/178080973-815143e8-47d4-46fe-a5b7-fecc82c9aa45.jpeg)
 
@@ -553,11 +554,11 @@ Interfaces | `<IRJanelaPadrao> <IAtualizaTelaProperties>`
 
 ### Interfaces
 
-Interfaces associadas a esse componente:
+> Interfaces associadas a esse componente:
 
 ![Projeto Final POO 2022 - Page 5](https://user-images.githubusercontent.com/69171865/178081095-a75b4b66-6c1f-48ae-9161-9d6da59bd3c7.jpeg)
 
-Interface agregadora do componente em Java:
+> Interface agregadora do componente em Java:
 
 ~~~java
 public interface IAtualizaTela extends IAtualizaTelaProperties, IRJanelaPadrao {
