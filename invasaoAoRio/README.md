@@ -1,5 +1,5 @@
 # Projeto Invasão ao Rio de Janeiro
->O Jogo Invasão ao Rio de Janeiro é inspirado no modelo Plants vs Zombies, em que o jogador posiciona defesas para impedir o ataque inimigo. No caso do Invasão ao Rio de Janeiro, o jogador posiciona tanques de guerra para se defender de navios piratas, onde cada categoria de tanque e de navio possui suas propriedades específicas, para os tanques é considerado a quantidade de tiros disponível e o dano que cada tiro causa em um navio, já para os navios é considerado a resistência aos tiros e a velocidade que ele se desloca no mapa.
+> O Jogo Invasão ao Rio de Janeiro é inspirado no modelo Plants vs Zombies, em que o jogador posiciona defesas para impedir o ataque inimigo. No caso do Invasão ao Rio de Janeiro, o jogador posiciona tanques de guerra para se defender de navios piratas, onde cada categoria de tanque e de navio possui suas propriedades específicas, para os tanques é considerado a quantidade de tiros disponível e o dano que cada tiro causa em um navio, já para os navios é considerado a resistência aos tiros e a velocidade que ele se desloca no mapa.
 O fluxo de jogo é simples, o jogo é inciado com 300 créditos e o jogador tem acesso a uma loja onde pode comprar três categorias de tanques de guerra, com cada tanque consumindo uma quantidade de créditos diferente. Uma vez que o jogador compra um tanque ele deve posicioná-lo em uma célula de terra que está vazia, ao fazer isso o tanque começa disparar tiros automaticamente em linha reta que atingem os navios que estão indo em direção as células de terra. Ao destruir um navio os créditos disponíveis aumentam para que o jogador possa comprar novos tanques.
 
 # Equipe
@@ -17,15 +17,15 @@ O fluxo de jogo é simples, o jogo é inciado com 300 créditos e o jogador tem 
 * [Slides Finais (Apresentação)](https://docs.google.com/presentation/d/1A17BexgyANxj-jKuBHobm8QDrC6Caz9vlF-jknswN2U/edit?usp=sharing) 
 
 ## Relatório de Evolução
->O nosso projeto final utiliza a arquitetura Model View Controller, todavia no começo do desenvolvimento não estávamos conseguindo organizar o projeto de tal forma que encaixa-se na arquitetura, pois começamos o projeto sem utilizar componentes e a visualização do modelo ficava bastante bagunçada com as classes misturadas em uma única pasta. Além disso, não estavamos conseguindo utilizar as interfaces para comunicação entre classes de maneira correta, visto que a padronização de interface requerida e interface ofertada se encaixa melhor quando se utiliza componentes. Dessa forma, reestruturamos o projeto para utilizarmos componentes.
+> O nosso projeto final utiliza a arquitetura Model View Controller, todavia no começo do desenvolvimento não estávamos conseguindo organizar o projeto de tal forma que encaixa-se na arquitetura, pois começamos o projeto sem utilizar componentes e a visualização do modelo ficava bastante bagunçada com as classes misturadas em uma única pasta. Além disso, não estavamos conseguindo utilizar as interfaces para comunicação entre classes de maneira correta, visto que a padronização de interface requerida e interface ofertada se encaixa melhor quando se utiliza componentes. Dessa forma, reestruturamos o projeto para utilizarmos componentes.
 
 ![Arquitetura1](https://user-images.githubusercontent.com/102101030/178039047-137c4975-c7d1-4b9a-876a-a936924231bc.png)
 
->Sendo o diagrama acima o primeiro esboço do projeto com componentes que se comunicam através de interfaces, mas esse diagrama ainda não estava suficiente, pois faltava agrupar os componentes no modelo Model View Controller. Para isso, alteramos a estrutura de pastas do projeto, como visto abaixo.
+> O diagrama acima representa o primeiro esboço do projeto, com componentes que se comunicam através de interfaces. Porém, esse diagrama ainda não estava suficiente, pois faltava agrupar os componentes no modelo Model View Controller. Para isso, alteramos a estrutura de pastas do projeto, como visto abaixo.
 
 ![pastas](https://user-images.githubusercontent.com/102101030/178039103-24221d74-eca3-496c-bb7e-6c804f1c123d.png)
 
->Essa estrutura de pastas nos permitiu separar os elementos do jogo em componentes e agrupar eles de acordo com sua coesão entre si, assim deixando o projeto conforme o design pattern escolhido. 
+> Essa estrutura de pastas nos permitiu separar os elementos do jogo em componentes e agrupar eles de acordo com sua coesão, assim deixando o projeto de acordo com o modelo de arquitetura escolhido. 
 
 # Destaques de Código
 
