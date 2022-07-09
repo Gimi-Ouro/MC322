@@ -162,6 +162,7 @@ public class Mapa implements IMapa{
 > Este é o diagrama representando os componentes do jogo:
 
 ![Projeto Final POO 2022 - Page 1](https://user-images.githubusercontent.com/69171865/178077070-7933fefe-19e7-430d-a991-2e7728692478.jpeg)
+
 > *na parte do model, as setas representam uma referência e não uma herança
 
 ## Componente `<Controle>`
