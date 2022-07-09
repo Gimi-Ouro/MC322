@@ -153,7 +153,9 @@ public class Mapa implements IMapa{
 
 # Diagrama Geral da Arquitetura do Jogo
 
+> Este é o diagrama geral representando a arquitetura do jogo:
 
+![Projeto Final POO 2022 - Page 6](https://user-images.githubusercontent.com/69171865/178084309-2aba8bf3-4ace-45ad-b28d-2e2f6f291f9f.jpeg)
 
 ## Diagrama Geral de Componentes
 
