@@ -17,7 +17,7 @@ O fluxo de jogo é simples, o jogo é inciado com 300 créditos e o jogador tem 
 * [Slides Finais (Apresentação)](https://docs.google.com/presentation/d/1A17BexgyANxj-jKuBHobm8QDrC6Caz9vlF-jknswN2U/edit?usp=sharing) 
 
 ## Relatório de Evolução
-> O nosso projeto final utiliza a arquitetura Model View Controller, todavia no começo do desenvolvimento não estávamos conseguindo organizar o projeto de tal forma que encaixa-se na arquitetura, pois começamos o projeto sem utilizar componentes e a visualização do modelo ficava bastante bagunçada com as classes misturadas em uma única pasta. Além disso, não estavamos conseguindo utilizar as interfaces para comunicação entre classes de maneira correta, visto que a padronização de interface requerida e interface ofertada se encaixa melhor quando se utiliza componentes. Dessa forma, reestruturamos o projeto para utilizarmos componentes.
+> O nosso projeto final utiliza a arquitetura Model View Controller, todavia no começo do desenvolvimento não estávamos conseguindo organizar o projeto de tal forma que encaixa-se na arquitetura, pois começamos o projeto sem utilizar componentes e a visualização do modelo ficava bastante bagunçada com as classes misturadas em uma única pasta. Além disso, não estvamos conseguindo utilizar as interfaces para comunicação entre classes de maneira correta, visto que a padronização de interface requerida e interface ofertada se encaixa melhor quando se utiliza componentes. Dessa forma, reestruturamos o projeto para utilizarmos componentes.
 
 ![Arquitetura1](https://user-images.githubusercontent.com/102101030/178039047-137c4975-c7d1-4b9a-876a-a936924231bc.png)
 
